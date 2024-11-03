@@ -1,0 +1,1048 @@
+2024-11-03 09:08:17 - INFO - 初始化训练数据集和数据加载器
+2024-11-03 09:08:17 - INFO - 设备设置为：cuda
+2024-11-03 09:08:17 - INFO - 网络模型加载...
+Res16FPN18(
+  (conv0p1s1): MinkowskiConvolution(in=4, out=32, kernel_size=[5, 5, 5], stride=[1, 1, 1], dilation=[1, 1, 1])
+  (bn0): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (conv1p1s2): MinkowskiConvolution(in=32, out=32, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block1): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=32, out=32, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=32, out=32, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=32, out=32, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=32, out=32, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (conv2p2s2): MinkowskiConvolution(in=32, out=32, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn2): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block2): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=32, out=64, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=64, out=64, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=32, out=64, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=64, out=64, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=64, out=64, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (conv3p4s2): MinkowskiConvolution(in=64, out=64, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn3): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block3): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=64, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=64, out=128, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (conv4p8s2): MinkowskiConvolution(in=128, out=128, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn4): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block4): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=128, out=256, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=256, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (delayer1): MinkowskiLinear(in_features=256, out_features=128, bias=False)
+  (delayer2): MinkowskiLinear(in_features=128, out_features=128, bias=False)
+  (delayer3): MinkowskiLinear(in_features=64, out_features=128, bias=False)
+  (delayer4): MinkowskiLinear(in_features=32, out_features=128, bias=False)
+  (relu): MinkowskiReLU()
+  (final): MinkowskiConvolution(in=128, out=5, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+)
+
+2024-11-03 09:08:19 - INFO - 优化器加载...
+SGD (
+Parameter Group 0
+    dampening: 0.1
+    lr: 0.05
+    momentum: 0.9
+    nesterov: False
+    weight_decay: 0.0001
+)
+
+2024-11-03 09:08:19 - INFO - 损失函数加载...
+CrossEntropyLoss()
+
+2024-11-03 09:08:19 - INFO - 开始训练...
+2024-11-03 09:08:30 - INFO - Epoch:   1/800  Runtime: 10.34s  Iter_id: 35    IterLoss: 1.2678570747  EpochLoss: 1.2948267664
+2024-11-03 09:08:39 - INFO - Epoch:   2/800  Runtime:  9.72s  Iter_id: 48    IterLoss: 1.2046643496  EpochLoss: 1.2188651766
+2024-11-03 09:08:49 - INFO - Epoch:   3/800  Runtime:  9.64s  Iter_id: 104   IterLoss: 1.1455887556  EpochLoss: 1.1987926313
+2024-11-03 09:08:59 - INFO - Epoch:   4/800  Runtime: 10.18s  Iter_id: 114   IterLoss: 1.1469113827  EpochLoss: 1.1682306358
+2024-11-03 09:09:09 - INFO - Epoch:   5/800  Runtime:  9.93s  Iter_id: 154   IterLoss: 1.1230198145  EpochLoss: 1.1524063860
+2024-11-03 09:09:19 - INFO - Epoch:   6/800  Runtime:  9.67s  Iter_id: 178   IterLoss: 1.1815017462  EpochLoss: 1.1552816868
+2024-11-03 09:09:29 - INFO - Epoch:   7/800  Runtime: 10.18s  Iter_id: 226   IterLoss: 1.1604787111  EpochLoss: 1.1505281687
+2024-11-03 09:09:39 - INFO - Epoch:   8/800  Runtime:  9.83s  Iter_id: 269   IterLoss: 1.1061699390  EpochLoss: 1.1363224949
+2024-11-03 09:09:48 - INFO - Epoch:   9/800  Runtime:  9.47s  Iter_id: 306   IterLoss: 1.1522988081  EpochLoss: 1.1323638712
+2024-11-03 09:09:58 - INFO - Epoch:  10/800  Runtime: 10.16s  Iter_id: 350   IterLoss: 1.2045339346  EpochLoss: 1.1330379145
+2024-11-03 09:10:08 - INFO - Epoch:  11/800  Runtime:  9.91s  Iter_id: 352   IterLoss: 1.0995012522  EpochLoss: 1.1262523311
+2024-11-03 09:10:18 - INFO - Epoch:  12/800  Runtime:  9.90s  Iter_id: 400   IterLoss: 1.1058580875  EpochLoss: 1.1273231438
+2024-11-03 09:10:28 - INFO - Epoch:  13/800  Runtime: 10.23s  Iter_id: 434   IterLoss: 1.1127449274  EpochLoss: 1.1143764155
+2024-11-03 09:10:39 - INFO - Epoch:  14/800  Runtime: 10.41s  Iter_id: 482   IterLoss: 1.1032902002  EpochLoss: 1.1137939692
+2024-11-03 09:10:49 - INFO - Epoch:  15/800  Runtime:  9.95s  Iter_id: 494   IterLoss: 1.2162067890  EpochLoss: 1.1072039502
+2024-11-03 09:10:59 - INFO - Epoch:  16/800  Runtime:  9.88s  Iter_id: 527   IterLoss: 1.0680551529  EpochLoss: 1.1048338481
+2024-11-03 09:11:08 - INFO - Epoch:  17/800  Runtime:  9.79s  Iter_id: 578   IterLoss: 1.1734412909  EpochLoss: 1.0965561901
+2024-11-03 09:11:18 - INFO - Epoch:  18/800  Runtime:  9.79s  Iter_id: 619   IterLoss: 1.1462539434  EpochLoss: 1.0877646582
+2024-11-03 09:11:28 - INFO - Epoch:  19/800  Runtime:  9.60s  Iter_id: 635   IterLoss: 1.1046544313  EpochLoss: 1.0897132056
+2024-11-03 09:11:37 - INFO - Epoch:  20/800  Runtime:  9.53s  Iter_id: 693   IterLoss: 1.0324664116  EpochLoss: 1.0876921109
+2024-11-03 09:11:47 - INFO - Epoch:  21/800  Runtime:  9.72s  Iter_id: 710   IterLoss: 1.0460363626  EpochLoss: 1.0895540408
+2024-11-03 09:11:57 - INFO - Epoch:  22/800  Runtime: 10.24s  Iter_id: 755   IterLoss: 1.0709351301  EpochLoss: 1.0810756683
+2024-11-03 09:12:07 - INFO - Epoch:  23/800  Runtime:  9.90s  Iter_id: 787   IterLoss: 1.0272966623  EpochLoss: 1.0833885738
+2024-11-03 09:12:17 - INFO - Epoch:  24/800  Runtime:  9.40s  Iter_id: 828   IterLoss: 1.0988733768  EpochLoss: 1.0837977069
+2024-11-03 09:12:27 - INFO - Epoch:  25/800  Runtime:  9.89s  Iter_id: 845   IterLoss: 1.0657662153  EpochLoss: 1.0908995152
+2024-11-03 09:12:37 - INFO - Epoch:  26/800  Runtime: 10.10s  Iter_id: 892   IterLoss: 1.0769441128  EpochLoss: 1.0839411327
+2024-11-03 09:12:46 - INFO - Epoch:  27/800  Runtime:  9.42s  Iter_id: 916   IterLoss: 1.0748274326  EpochLoss: 1.0758348431
+2024-11-03 09:12:56 - INFO - Epoch:  28/800  Runtime:  9.42s  Iter_id: 966   IterLoss: 1.0477936268  EpochLoss: 1.0758798667
+2024-11-03 09:13:05 - INFO - Epoch:  29/800  Runtime:  9.32s  Iter_id: 1010  IterLoss: 1.1347231865  EpochLoss: 1.0779003177
+2024-11-03 09:13:14 - INFO - Epoch:  30/800  Runtime:  9.44s  Iter_id: 1044  IterLoss: 1.0877366066  EpochLoss: 1.0754448209
+2024-11-03 09:13:15 - INFO - Eval Epoch: 30
+2024-11-03 09:13:15 - INFO - Overall Accuracy: 61.37 || Mean Overall Accuracy: 33.17
+2024-11-03 09:13:15 - INFO - Mean IoU: 0.234 || Per-class IoU score:  Ground=0.661  Building=0.253  Trees=0.077  Low vegetation=0.179  Artifacts=0.000  
+2024-11-03 09:13:15 - INFO - Macro F1: 0.329 || Per-class  F1 score:  Ground=0.796  Building=0.404  Trees=0.143  Low vegetation=0.304  Artifacts=0.000  
+
+2024-11-03 09:13:25 - INFO - Epoch:  31/800  Runtime:  9.68s  Iter_id: 1058  IterLoss: 1.0451538563  EpochLoss: 1.0717830794
+2024-11-03 09:13:35 - INFO - Epoch:  32/800  Runtime:  9.90s  Iter_id: 1116  IterLoss: 1.0765504837  EpochLoss: 1.0678679671
+2024-11-03 09:13:45 - INFO - Epoch:  33/800  Runtime: 10.27s  Iter_id: 1146  IterLoss: 1.1310167313  EpochLoss: 1.0712609155
+2024-11-03 09:13:55 - INFO - Epoch:  34/800  Runtime: 10.01s  Iter_id: 1167  IterLoss: 1.0577877760  EpochLoss: 1.0687433788
+2024-11-03 09:14:05 - INFO - Epoch:  35/800  Runtime: 10.12s  Iter_id: 1207  IterLoss: 1.0796239376  EpochLoss: 1.0742315667
+2024-11-03 09:14:15 - INFO - Epoch:  36/800  Runtime: 10.28s  Iter_id: 1246  IterLoss: 1.0622208118  EpochLoss: 1.0684440885
+2024-11-03 09:14:25 - INFO - Epoch:  37/800  Runtime:  9.67s  Iter_id: 1274  IterLoss: 1.0889348984  EpochLoss: 1.0678763764
+2024-11-03 09:14:35 - INFO - Epoch:  38/800  Runtime:  9.95s  Iter_id: 1327  IterLoss: 1.0483213663  EpochLoss: 1.0649474280
+2024-11-03 09:14:45 - INFO - Epoch:  39/800  Runtime: 10.17s  Iter_id: 1358  IterLoss: 1.0701341629  EpochLoss: 1.0705222777
+2024-11-03 09:14:55 - INFO - Epoch:  40/800  Runtime:  9.85s  Iter_id: 1382  IterLoss: 1.0562018156  EpochLoss: 1.0650245837
+2024-11-03 09:15:05 - INFO - Epoch:  41/800  Runtime:  9.61s  Iter_id: 1417  IterLoss: 1.0533444881  EpochLoss: 1.0624775137
+2024-11-03 09:15:14 - INFO - Epoch:  42/800  Runtime:  9.50s  Iter_id: 1444  IterLoss: 1.0452998877  EpochLoss: 1.0577229704
+2024-11-03 09:15:24 - INFO - Epoch:  43/800  Runtime: 10.14s  Iter_id: 1482  IterLoss: 1.0875205994  EpochLoss: 1.0612375259
+2024-11-03 09:15:34 - INFO - Epoch:  44/800  Runtime:  9.66s  Iter_id: 1526  IterLoss: 1.0791056156  EpochLoss: 1.0651183162
+2024-11-03 09:15:44 - INFO - Epoch:  45/800  Runtime: 10.46s  Iter_id: 1553  IterLoss: 1.0655074120  EpochLoss: 1.0639219557
+2024-11-03 09:15:55 - INFO - Epoch:  46/800  Runtime: 10.24s  Iter_id: 1609  IterLoss: 1.1254068613  EpochLoss: 1.0635180746
+2024-11-03 09:16:05 - INFO - Epoch:  47/800  Runtime: 10.55s  Iter_id: 1630  IterLoss: 1.0728030205  EpochLoss: 1.0586255005
+2024-11-03 09:16:16 - INFO - Epoch:  48/800  Runtime: 10.57s  Iter_id: 1660  IterLoss: 1.0486092567  EpochLoss: 1.0588194830
+2024-11-03 09:16:26 - INFO - Epoch:  49/800  Runtime: 10.18s  Iter_id: 1697  IterLoss: 1.0873240232  EpochLoss: 1.0587795820
+2024-11-03 09:16:36 - INFO - Epoch:  50/800  Runtime:  9.85s  Iter_id: 1740  IterLoss: 1.0603036880  EpochLoss: 1.0583371707
+2024-11-03 09:16:46 - INFO - Epoch:  51/800  Runtime: 10.11s  Iter_id: 1784  IterLoss: 1.1273264885  EpochLoss: 1.0614099434
+2024-11-03 09:16:56 - INFO - Epoch:  52/800  Runtime: 10.25s  Iter_id: 1805  IterLoss: 1.0214294195  EpochLoss: 1.0560926403
+2024-11-03 09:17:06 - INFO - Epoch:  53/800  Runtime:  9.70s  Iter_id: 1856  IterLoss: 1.0372910500  EpochLoss: 1.0571823410
+2024-11-03 09:17:16 - INFO - Epoch:  54/800  Runtime:  9.83s  Iter_id: 1859  IterLoss: 1.0445638895  EpochLoss: 1.0523605943
+2024-11-03 09:17:26 - INFO - Epoch:  55/800  Runtime: 10.23s  Iter_id: 1897  IterLoss: 1.0589218140  EpochLoss: 1.0518774033
+2024-11-03 09:17:36 - INFO - Epoch:  56/800  Runtime:  9.77s  Iter_id: 1947  IterLoss: 1.0727828741  EpochLoss: 1.0531824078
+2024-11-03 09:17:46 - INFO - Epoch:  57/800  Runtime:  9.80s  Iter_id: 1995  IterLoss: 1.0787448883  EpochLoss: 1.0575746621
+2024-11-03 09:17:55 - INFO - Epoch:  58/800  Runtime:  9.89s  Iter_id: 2010  IterLoss: 0.9869511127  EpochLoss: 1.0553559865
+2024-11-03 09:18:05 - INFO - Epoch:  59/800  Runtime:  9.52s  Iter_id: 2050  IterLoss: 1.0572249889  EpochLoss: 1.0545263290
+2024-11-03 09:18:15 - INFO - Epoch:  60/800  Runtime: 10.15s  Iter_id: 2099  IterLoss: 0.9815849662  EpochLoss: 1.0532854642
+2024-11-03 09:18:16 - INFO - Eval Epoch: 60
+2024-11-03 09:18:16 - INFO - Overall Accuracy: 67.34 || Mean Overall Accuracy: 41.02
+2024-11-03 09:18:16 - INFO - Mean IoU: 0.315 || Per-class IoU score:  Ground=0.688  Building=0.283  Trees=0.397  Low vegetation=0.203  Artifacts=0.002  
+2024-11-03 09:18:16 - INFO - Macro F1: 0.433 || Per-class  F1 score:  Ground=0.815  Building=0.441  Trees=0.568  Low vegetation=0.338  Artifacts=0.004  
+
+2024-11-03 09:18:26 - INFO - Epoch:  61/800  Runtime:  9.75s  Iter_id: 2102  IterLoss: 1.0618119240  EpochLoss: 1.0555442572
+2024-11-03 09:18:36 - INFO - Epoch:  62/800  Runtime: 10.39s  Iter_id: 2160  IterLoss: 1.0614359379  EpochLoss: 1.0547518219
+2024-11-03 09:18:46 - INFO - Epoch:  63/800  Runtime:  9.99s  Iter_id: 2178  IterLoss: 1.0167343616  EpochLoss: 1.0541742955
+2024-11-03 09:18:56 - INFO - Epoch:  64/800  Runtime: 10.20s  Iter_id: 2213  IterLoss: 1.0222074986  EpochLoss: 1.0507015637
+2024-11-03 09:19:06 - INFO - Epoch:  65/800  Runtime:  9.58s  Iter_id: 2252  IterLoss: 1.1130368710  EpochLoss: 1.0521245156
+2024-11-03 09:19:16 - INFO - Epoch:  66/800  Runtime:  9.87s  Iter_id: 2310  IterLoss: 1.0443656445  EpochLoss: 1.0470040304
+2024-11-03 09:19:26 - INFO - Epoch:  67/800  Runtime:  9.84s  Iter_id: 2336  IterLoss: 1.0311373472  EpochLoss: 1.0501827853
+2024-11-03 09:19:36 - INFO - Epoch:  68/800  Runtime: 10.20s  Iter_id: 2358  IterLoss: 1.0562635660  EpochLoss: 1.0477917194
+2024-11-03 09:19:46 - INFO - Epoch:  69/800  Runtime: 10.40s  Iter_id: 2411  IterLoss: 1.0457658768  EpochLoss: 1.0506692767
+2024-11-03 09:19:56 - INFO - Epoch:  70/800  Runtime: 10.12s  Iter_id: 2426  IterLoss: 1.0585912466  EpochLoss: 1.0478283405
+2024-11-03 09:20:06 - INFO - Epoch:  71/800  Runtime:  9.75s  Iter_id: 2456  IterLoss: 1.0585128069  EpochLoss: 1.0505617023
+2024-11-03 09:20:16 - INFO - Epoch:  72/800  Runtime:  9.81s  Iter_id: 2495  IterLoss: 1.0394454002  EpochLoss: 1.0481180208
+2024-11-03 09:20:26 - INFO - Epoch:  73/800  Runtime:  9.70s  Iter_id: 2538  IterLoss: 1.0191645622  EpochLoss: 1.0480973550
+2024-11-03 09:20:35 - INFO - Epoch:  74/800  Runtime:  9.32s  Iter_id: 2565  IterLoss: 1.0159419775  EpochLoss: 1.0458965029
+2024-11-03 09:20:45 - INFO - Epoch:  75/800  Runtime:  9.96s  Iter_id: 2618  IterLoss: 1.1033794880  EpochLoss: 1.0474122303
+2024-11-03 09:20:55 - INFO - Epoch:  76/800  Runtime:  9.88s  Iter_id: 2641  IterLoss: 1.0644755363  EpochLoss: 1.0443815419
+2024-11-03 09:21:05 - INFO - Epoch:  77/800  Runtime: 10.15s  Iter_id: 2679  IterLoss: 1.0510836840  EpochLoss: 1.0490538052
+2024-11-03 09:21:15 - INFO - Epoch:  78/800  Runtime: 10.41s  Iter_id: 2720  IterLoss: 1.0389764309  EpochLoss: 1.0433048163
+2024-11-03 09:21:25 - INFO - Epoch:  79/800  Runtime:  9.84s  Iter_id: 2758  IterLoss: 1.0198975801  EpochLoss: 1.0429562909
+2024-11-03 09:21:35 - INFO - Epoch:  80/800  Runtime: 10.13s  Iter_id: 2786  IterLoss: 1.0155025721  EpochLoss: 1.0449237977
+2024-11-03 09:21:45 - INFO - Epoch:  81/800  Runtime:  9.86s  Iter_id: 2826  IterLoss: 1.0318197012  EpochLoss: 1.0422837360
+2024-11-03 09:21:55 - INFO - Epoch:  82/800  Runtime:  9.62s  Iter_id: 2841  IterLoss: 1.0859488249  EpochLoss: 1.0441948754
+2024-11-03 09:22:04 - INFO - Epoch:  83/800  Runtime:  9.19s  Iter_id: 2873  IterLoss: 1.0191210508  EpochLoss: 1.0459718023
+2024-11-03 09:22:13 - INFO - Epoch:  84/800  Runtime:  9.29s  Iter_id: 2908  IterLoss: 1.0274537802  EpochLoss: 1.0446731636
+2024-11-03 09:22:24 - INFO - Epoch:  85/800  Runtime: 10.83s  Iter_id: 2955  IterLoss: 1.1076157093  EpochLoss: 1.0473918217
+2024-11-03 09:22:34 - INFO - Epoch:  86/800  Runtime:  9.72s  Iter_id: 2991  IterLoss: 1.0800023079  EpochLoss: 1.0478842293
+2024-11-03 09:22:44 - INFO - Epoch:  87/800  Runtime:  9.74s  Iter_id: 3046  IterLoss: 1.0310471058  EpochLoss: 1.0414560693
+2024-11-03 09:22:53 - INFO - Epoch:  88/800  Runtime:  9.85s  Iter_id: 3070  IterLoss: 1.0668153763  EpochLoss: 1.0434897423
+2024-11-03 09:23:04 - INFO - Epoch:  89/800  Runtime: 10.18s  Iter_id: 3109  IterLoss: 1.0954222679  EpochLoss: 1.0425065909
+2024-11-03 09:23:14 - INFO - Epoch:  90/800  Runtime: 10.09s  Iter_id: 3135  IterLoss: 1.0720502138  EpochLoss: 1.0429856232
+2024-11-03 09:23:15 - INFO - Eval Epoch: 90
+2024-11-03 09:23:15 - INFO - Overall Accuracy: 69.55 || Mean Overall Accuracy: 44.03
+2024-11-03 09:23:15 - INFO - Mean IoU: 0.343 || Per-class IoU score:  Ground=0.711  Building=0.298  Trees=0.397  Low vegetation=0.293  Artifacts=0.018  
+2024-11-03 09:23:15 - INFO - Macro F1: 0.470 || Per-class  F1 score:  Ground=0.831  Building=0.460  Trees=0.569  Low vegetation=0.453  Artifacts=0.035  
+
+2024-11-03 09:23:24 - INFO - Epoch:  91/800  Runtime:  9.85s  Iter_id: 3179  IterLoss: 1.0587294102  EpochLoss: 1.0375642112
+2024-11-03 09:23:34 - INFO - Epoch:  92/800  Runtime:  9.52s  Iter_id: 3192  IterLoss: 1.0559120178  EpochLoss: 1.0379404800
+2024-11-03 09:23:44 - INFO - Epoch:  93/800  Runtime:  9.99s  Iter_id: 3232  IterLoss: 1.0126501322  EpochLoss: 1.0397704176
+2024-11-03 09:23:54 - INFO - Epoch:  94/800  Runtime: 10.08s  Iter_id: 3258  IterLoss: 1.0544834137  EpochLoss: 1.0411883116
+2024-11-03 09:24:04 - INFO - Epoch:  95/800  Runtime: 10.27s  Iter_id: 3322  IterLoss: 1.0144723654  EpochLoss: 1.0372319187
+2024-11-03 09:24:15 - INFO - Epoch:  96/800  Runtime: 10.55s  Iter_id: 3358  IterLoss: 1.0900688171  EpochLoss: 1.0365615487
+2024-11-03 09:24:25 - INFO - Epoch:  97/800  Runtime: 10.19s  Iter_id: 3385  IterLoss: 1.0432624817  EpochLoss: 1.0395971843
+2024-11-03 09:24:34 - INFO - Epoch:  98/800  Runtime:  9.11s  Iter_id: 3427  IterLoss: 1.0008242130  EpochLoss: 1.0402511801
+2024-11-03 09:24:45 - INFO - Epoch:  99/800  Runtime: 10.51s  Iter_id: 3462  IterLoss: 1.0017209053  EpochLoss: 1.0355213029
+2024-11-03 09:24:55 - INFO - Epoch: 100/800  Runtime: 10.45s  Iter_id: 3476  IterLoss: 1.0116324425  EpochLoss: 1.0396530935
+2024-11-03 09:25:05 - INFO - Epoch: 101/800  Runtime:  9.96s  Iter_id: 3522  IterLoss: 1.0695552826  EpochLoss: 1.0399540322
+2024-11-03 09:25:15 - INFO - Epoch: 102/800  Runtime:  9.78s  Iter_id: 3550  IterLoss: 0.9942796826  EpochLoss: 1.0371808103
+2024-11-03 09:25:25 - INFO - Epoch: 103/800  Runtime: 10.11s  Iter_id: 3599  IterLoss: 1.0393437147  EpochLoss: 1.0366315143
+2024-11-03 09:25:35 - INFO - Epoch: 104/800  Runtime:  9.62s  Iter_id: 3613  IterLoss: 1.0044068098  EpochLoss: 1.0366465637
+2024-11-03 09:25:44 - INFO - Epoch: 105/800  Runtime:  9.70s  Iter_id: 3660  IterLoss: 1.0280249119  EpochLoss: 1.0361032758
+2024-11-03 09:25:54 - INFO - Epoch: 106/800  Runtime:  9.88s  Iter_id: 3703  IterLoss: 1.0534611940  EpochLoss: 1.0405811599
+2024-11-03 09:26:04 - INFO - Epoch: 107/800  Runtime:  9.39s  Iter_id: 3715  IterLoss: 1.0132120848  EpochLoss: 1.0359916891
+2024-11-03 09:26:13 - INFO - Epoch: 108/800  Runtime:  9.50s  Iter_id: 3756  IterLoss: 0.9939335585  EpochLoss: 1.0332211171
+2024-11-03 09:26:23 - INFO - Epoch: 109/800  Runtime:  9.67s  Iter_id: 3796  IterLoss: 0.9838621020  EpochLoss: 1.0376343489
+2024-11-03 09:26:33 - INFO - Epoch: 110/800  Runtime: 10.34s  Iter_id: 3837  IterLoss: 1.0601463318  EpochLoss: 1.0335026605
+2024-11-03 09:26:44 - INFO - Epoch: 111/800  Runtime: 10.65s  Iter_id: 3870  IterLoss: 1.0373057127  EpochLoss: 1.0319838643
+2024-11-03 09:26:54 - INFO - Epoch: 112/800  Runtime:  9.84s  Iter_id: 3887  IterLoss: 1.0265151262  EpochLoss: 1.0342367905
+2024-11-03 09:27:04 - INFO - Epoch: 113/800  Runtime: 10.09s  Iter_id: 3932  IterLoss: 1.0707079172  EpochLoss: 1.0397347042
+2024-11-03 09:27:14 - INFO - Epoch: 114/800  Runtime: 10.05s  Iter_id: 3981  IterLoss: 1.0107920170  EpochLoss: 1.0354042394
+2024-11-03 09:27:24 - INFO - Epoch: 115/800  Runtime: 10.07s  Iter_id: 4014  IterLoss: 1.0278176069  EpochLoss: 1.0335047875
+2024-11-03 09:27:34 - INFO - Epoch: 116/800  Runtime: 10.24s  Iter_id: 4052  IterLoss: 1.0303560495  EpochLoss: 1.0325351238
+2024-11-03 09:27:44 - INFO - Epoch: 117/800  Runtime: 10.07s  Iter_id: 4076  IterLoss: 1.0648317337  EpochLoss: 1.0352420858
+2024-11-03 09:27:54 - INFO - Epoch: 118/800  Runtime:  9.75s  Iter_id: 4103  IterLoss: 1.0559208393  EpochLoss: 1.0361487900
+2024-11-03 09:28:04 - INFO - Epoch: 119/800  Runtime:  9.96s  Iter_id: 4138  IterLoss: 1.0319693089  EpochLoss: 1.0282125149
+2024-11-03 09:28:14 - INFO - Epoch: 120/800  Runtime:  9.76s  Iter_id: 4168  IterLoss: 1.0582302809  EpochLoss: 1.0306999207
+2024-11-03 09:28:14 - INFO - Eval Epoch: 120
+2024-11-03 09:28:14 - INFO - Overall Accuracy: 70.34 || Mean Overall Accuracy: 46.58
+2024-11-03 09:28:14 - INFO - Mean IoU: 0.364 || Per-class IoU score:  Ground=0.720  Building=0.323  Trees=0.431  Low vegetation=0.316  Artifacts=0.030  
+2024-11-03 09:28:14 - INFO - Macro F1: 0.493 || Per-class  F1 score:  Ground=0.837  Building=0.488  Trees=0.602  Low vegetation=0.480  Artifacts=0.059  
+
+2024-11-03 09:28:24 - INFO - Epoch: 121/800  Runtime: 10.04s  Iter_id: 4234  IterLoss: 1.0140283108  EpochLoss: 1.0345224994
+2024-11-03 09:28:34 - INFO - Epoch: 122/800  Runtime:  9.71s  Iter_id: 4238  IterLoss: 1.0280113220  EpochLoss: 1.0319648096
+2024-11-03 09:28:44 - INFO - Epoch: 123/800  Runtime:  9.86s  Iter_id: 4274  IterLoss: 1.0307018757  EpochLoss: 1.0335060716
+2024-11-03 09:28:54 - INFO - Epoch: 124/800  Runtime: 10.16s  Iter_id: 4335  IterLoss: 1.0406949520  EpochLoss: 1.0346755266
+2024-11-03 09:29:04 - INFO - Epoch: 125/800  Runtime:  9.87s  Iter_id: 4365  IterLoss: 1.0109652281  EpochLoss: 1.0362432872
+2024-11-03 09:29:14 - INFO - Epoch: 126/800  Runtime:  9.79s  Iter_id: 4377  IterLoss: 1.0207493305  EpochLoss: 1.0280140604
+2024-11-03 09:29:24 - INFO - Epoch: 127/800  Runtime:  9.73s  Iter_id: 4443  IterLoss: 1.0838288069  EpochLoss: 1.0325786369
+2024-11-03 09:29:33 - INFO - Epoch: 128/800  Runtime:  9.85s  Iter_id: 4458  IterLoss: 1.0020244122  EpochLoss: 1.0326441833
+2024-11-03 09:29:43 - INFO - Epoch: 129/800  Runtime:  9.34s  Iter_id: 4483  IterLoss: 1.1492776871  EpochLoss: 1.0356383783
+2024-11-03 09:29:52 - INFO - Epoch: 130/800  Runtime:  9.13s  Iter_id: 4547  IterLoss: 1.0312362909  EpochLoss: 1.0267135484
+2024-11-03 09:30:01 - INFO - Epoch: 131/800  Runtime:  9.45s  Iter_id: 4571  IterLoss: 1.0720142126  EpochLoss: 1.0309920873
+2024-11-03 09:30:11 - INFO - Epoch: 132/800  Runtime:  9.14s  Iter_id: 4616  IterLoss: 1.0235069990  EpochLoss: 1.0289675542
+2024-11-03 09:30:20 - INFO - Epoch: 133/800  Runtime:  9.30s  Iter_id: 4631  IterLoss: 1.0363289118  EpochLoss: 1.0288873638
+2024-11-03 09:30:30 - INFO - Epoch: 134/800  Runtime:  9.64s  Iter_id: 4688  IterLoss: 1.0232009888  EpochLoss: 1.0296992268
+2024-11-03 09:30:39 - INFO - Epoch: 135/800  Runtime:  9.57s  Iter_id: 4720  IterLoss: 1.0171936750  EpochLoss: 1.0269791824
+2024-11-03 09:30:49 - INFO - Epoch: 136/800  Runtime:  9.89s  Iter_id: 4758  IterLoss: 1.0275332928  EpochLoss: 1.0266898428
+2024-11-03 09:30:59 - INFO - Epoch: 137/800  Runtime:  9.83s  Iter_id: 4788  IterLoss: 1.0296775103  EpochLoss: 1.0250874247
+2024-11-03 09:31:09 - INFO - Epoch: 138/800  Runtime:  9.84s  Iter_id: 4820  IterLoss: 1.0044485331  EpochLoss: 1.0277144245
+2024-11-03 09:31:19 - INFO - Epoch: 139/800  Runtime: 10.26s  Iter_id: 4856  IterLoss: 1.0418739319  EpochLoss: 1.0284985900
+2024-11-03 09:31:30 - INFO - Epoch: 140/800  Runtime: 10.64s  Iter_id: 4871  IterLoss: 0.9933084249  EpochLoss: 1.0302378041
+2024-11-03 09:31:40 - INFO - Epoch: 141/800  Runtime: 10.40s  Iter_id: 4908  IterLoss: 1.0386874676  EpochLoss: 1.0318816457
+2024-11-03 09:31:50 - INFO - Epoch: 142/800  Runtime:  9.96s  Iter_id: 4957  IterLoss: 1.0646064281  EpochLoss: 1.0289739949
+2024-11-03 09:32:00 - INFO - Epoch: 143/800  Runtime: 10.12s  Iter_id: 5004  IterLoss: 1.0254095793  EpochLoss: 1.0316015346
+2024-11-03 09:32:10 - INFO - Epoch: 144/800  Runtime: 10.08s  Iter_id: 5023  IterLoss: 1.0444045067  EpochLoss: 1.0306664160
+2024-11-03 09:32:19 - INFO - Epoch: 145/800  Runtime:  9.16s  Iter_id: 5063  IterLoss: 1.0818312168  EpochLoss: 1.0253500240
+2024-11-03 09:32:29 - INFO - Epoch: 146/800  Runtime:  9.68s  Iter_id: 5086  IterLoss: 1.0368340015  EpochLoss: 1.0252050400
+2024-11-03 09:32:38 - INFO - Epoch: 147/800  Runtime:  9.43s  Iter_id: 5119  IterLoss: 1.0615313053  EpochLoss: 1.0276485596
+2024-11-03 09:32:48 - INFO - Epoch: 148/800  Runtime:  9.22s  Iter_id: 5166  IterLoss: 1.0182604790  EpochLoss: 1.0251129116
+2024-11-03 09:32:58 - INFO - Epoch: 149/800  Runtime:  9.90s  Iter_id: 5208  IterLoss: 1.1004779339  EpochLoss: 1.0255029815
+2024-11-03 09:33:08 - INFO - Epoch: 150/800  Runtime: 10.30s  Iter_id: 5234  IterLoss: 1.0382914543  EpochLoss: 1.0267010212
+2024-11-03 09:33:09 - INFO - Eval Epoch: 150
+2024-11-03 09:33:09 - INFO - Overall Accuracy: 74.22 || Mean Overall Accuracy: 53.31
+2024-11-03 09:33:09 - INFO - Mean IoU: 0.430 || Per-class IoU score:  Ground=0.741  Building=0.402  Trees=0.601  Low vegetation=0.373  Artifacts=0.032  
+2024-11-03 09:33:09 - INFO - Macro F1: 0.556 || Per-class  F1 score:  Ground=0.851  Building=0.574  Trees=0.751  Low vegetation=0.543  Artifacts=0.062  
+
+2024-11-03 09:33:19 - INFO - Epoch: 151/800  Runtime:  9.92s  Iter_id: 5278  IterLoss: 1.0529054403  EpochLoss: 1.0262199027
+2024-11-03 09:33:29 - INFO - Epoch: 152/800  Runtime: 10.03s  Iter_id: 5305  IterLoss: 1.0125806332  EpochLoss: 1.0244671464
+2024-11-03 09:33:39 - INFO - Epoch: 153/800  Runtime:  9.83s  Iter_id: 5331  IterLoss: 1.0713568926  EpochLoss: 1.0212881855
+2024-11-03 09:33:49 - INFO - Epoch: 154/800  Runtime: 10.16s  Iter_id: 5362  IterLoss: 1.0007225275  EpochLoss: 1.0259799651
+2024-11-03 09:33:59 - INFO - Epoch: 155/800  Runtime: 10.36s  Iter_id: 5402  IterLoss: 1.0122337341  EpochLoss: 1.0236830456
+2024-11-03 09:34:10 - INFO - Epoch: 156/800  Runtime: 10.55s  Iter_id: 5435  IterLoss: 1.0448951721  EpochLoss: 1.0229537163
+2024-11-03 09:34:20 - INFO - Epoch: 157/800  Runtime: 10.12s  Iter_id: 5466  IterLoss: 1.0214732885  EpochLoss: 1.0248666985
+2024-11-03 09:34:29 - INFO - Epoch: 158/800  Runtime:  9.54s  Iter_id: 5525  IterLoss: 1.0367082357  EpochLoss: 1.0242426140
+2024-11-03 09:34:39 - INFO - Epoch: 159/800  Runtime:  9.83s  Iter_id: 5546  IterLoss: 1.0012191534  EpochLoss: 1.0231387768
+2024-11-03 09:34:50 - INFO - Epoch: 160/800  Runtime: 10.47s  Iter_id: 5589  IterLoss: 1.0123025179  EpochLoss: 1.0231109210
+2024-11-03 09:35:00 - INFO - Epoch: 161/800  Runtime: 10.11s  Iter_id: 5608  IterLoss: 1.0366947651  EpochLoss: 1.0301457167
+2024-11-03 09:35:10 - INFO - Epoch: 162/800  Runtime:  9.93s  Iter_id: 5649  IterLoss: 1.0487449169  EpochLoss: 1.0236065711
+2024-11-03 09:35:20 - INFO - Epoch: 163/800  Runtime: 10.49s  Iter_id: 5690  IterLoss: 1.0168620348  EpochLoss: 1.0202256237
+2024-11-03 09:35:30 - INFO - Epoch: 164/800  Runtime: 10.00s  Iter_id: 5729  IterLoss: 0.9830122590  EpochLoss: 1.0256402390
+2024-11-03 09:35:40 - INFO - Epoch: 165/800  Runtime:  9.46s  Iter_id: 5758  IterLoss: 1.0023528337  EpochLoss: 1.0238856980
+2024-11-03 09:35:50 - INFO - Epoch: 166/800  Runtime: 10.31s  Iter_id: 5793  IterLoss: 1.0601224899  EpochLoss: 1.0204490423
+2024-11-03 09:36:00 - INFO - Epoch: 167/800  Runtime: 10.35s  Iter_id: 5838  IterLoss: 1.0308835506  EpochLoss: 1.0244683640
+2024-11-03 09:36:10 - INFO - Epoch: 168/800  Runtime:  9.87s  Iter_id: 5880  IterLoss: 1.0416616201  EpochLoss: 1.0242631674
+2024-11-03 09:36:20 - INFO - Epoch: 169/800  Runtime:  9.50s  Iter_id: 5892  IterLoss: 1.0202157497  EpochLoss: 1.0216056245
+2024-11-03 09:36:29 - INFO - Epoch: 170/800  Runtime:  9.88s  Iter_id: 5923  IterLoss: 1.0024602413  EpochLoss: 1.0183092032
+2024-11-03 09:36:40 - INFO - Epoch: 171/800  Runtime: 10.59s  Iter_id: 5959  IterLoss: 1.0146827698  EpochLoss: 1.0171698621
+2024-11-03 09:36:51 - INFO - Epoch: 172/800  Runtime: 10.46s  Iter_id: 6009  IterLoss: 0.9953393936  EpochLoss: 1.0179886886
+2024-11-03 09:37:01 - INFO - Epoch: 173/800  Runtime: 10.48s  Iter_id: 6045  IterLoss: 1.0246559381  EpochLoss: 1.0224745223
+2024-11-03 09:37:11 - INFO - Epoch: 174/800  Runtime:  9.95s  Iter_id: 6075  IterLoss: 1.0414361954  EpochLoss: 1.0237604141
+2024-11-03 09:37:21 - INFO - Epoch: 175/800  Runtime:  9.54s  Iter_id: 6106  IterLoss: 1.0100747347  EpochLoss: 1.0205347231
+2024-11-03 09:37:30 - INFO - Epoch: 176/800  Runtime:  9.86s  Iter_id: 6155  IterLoss: 1.0094782114  EpochLoss: 1.0181166904
+2024-11-03 09:37:40 - INFO - Epoch: 177/800  Runtime:  9.19s  Iter_id: 6166  IterLoss: 1.0026682615  EpochLoss: 1.0189036608
+2024-11-03 09:37:49 - INFO - Epoch: 178/800  Runtime:  9.75s  Iter_id: 6213  IterLoss: 1.0411969423  EpochLoss: 1.0208654165
+2024-11-03 09:38:00 - INFO - Epoch: 179/800  Runtime: 10.32s  Iter_id: 6258  IterLoss: 1.0406845808  EpochLoss: 1.0233060224
+2024-11-03 09:38:09 - INFO - Epoch: 180/800  Runtime:  9.22s  Iter_id: 6289  IterLoss: 1.0244239569  EpochLoss: 1.0210877963
+2024-11-03 09:38:10 - INFO - Eval Epoch: 180
+2024-11-03 09:38:10 - INFO - Overall Accuracy: 72.75 || Mean Overall Accuracy: 50.20
+2024-11-03 09:38:10 - INFO - Mean IoU: 0.408 || Per-class IoU score:  Ground=0.716  Building=0.407  Trees=0.590  Low vegetation=0.312  Artifacts=0.015  
+2024-11-03 09:38:10 - INFO - Macro F1: 0.532 || Per-class  F1 score:  Ground=0.835  Building=0.579  Trees=0.742  Low vegetation=0.476  Artifacts=0.030  
+
+2024-11-03 09:38:19 - INFO - Epoch: 181/800  Runtime:  9.60s  Iter_id: 6316  IterLoss: 1.0396734476  EpochLoss: 1.0221433009
+2024-11-03 09:38:28 - INFO - Epoch: 182/800  Runtime:  9.15s  Iter_id: 6359  IterLoss: 1.0697491169  EpochLoss: 1.0173870546
+2024-11-03 09:38:38 - INFO - Epoch: 183/800  Runtime:  9.83s  Iter_id: 6373  IterLoss: 0.9938743114  EpochLoss: 1.0201025997
+2024-11-03 09:38:48 - INFO - Epoch: 184/800  Runtime:  9.79s  Iter_id: 6439  IterLoss: 1.0325311422  EpochLoss: 1.0135868498
+2024-11-03 09:38:58 - INFO - Epoch: 185/800  Runtime: 10.13s  Iter_id: 6455  IterLoss: 0.9943467379  EpochLoss: 1.0164593032
+2024-11-03 09:39:08 - INFO - Epoch: 186/800  Runtime: 10.14s  Iter_id: 6481  IterLoss: 0.9888065457  EpochLoss: 1.0173594407
+2024-11-03 09:39:18 - INFO - Epoch: 187/800  Runtime:  9.46s  Iter_id: 6517  IterLoss: 1.0135440826  EpochLoss: 1.0186508025
+2024-11-03 09:39:28 - INFO - Epoch: 188/800  Runtime: 10.15s  Iter_id: 6561  IterLoss: 0.9801753163  EpochLoss: 1.0155507156
+2024-11-03 09:39:38 - INFO - Epoch: 189/800  Runtime: 10.53s  Iter_id: 6604  IterLoss: 1.0993082523  EpochLoss: 1.0166106462
+2024-11-03 09:39:49 - INFO - Epoch: 190/800  Runtime: 10.69s  Iter_id: 6642  IterLoss: 1.0089080334  EpochLoss: 1.0160651701
+2024-11-03 09:39:59 - INFO - Epoch: 191/800  Runtime: 10.27s  Iter_id: 6655  IterLoss: 1.0060583353  EpochLoss: 1.0153270279
+2024-11-03 09:40:09 - INFO - Epoch: 192/800  Runtime:  9.80s  Iter_id: 6715  IterLoss: 1.0062401295  EpochLoss: 1.0189239860
+2024-11-03 09:40:20 - INFO - Epoch: 193/800  Runtime: 10.35s  EpochLoss: 1.0151629652
+2024-11-03 09:40:29 - INFO - Epoch: 194/800  Runtime:  9.63s  Iter_id: 6757  IterLoss: 0.9872153997  EpochLoss: 1.0149779371
+2024-11-03 09:40:39 - INFO - Epoch: 195/800  Runtime:  9.92s  Iter_id: 6804  IterLoss: 1.0189718008  EpochLoss: 1.0158969453
+2024-11-03 09:40:49 - INFO - Epoch: 196/800  Runtime: 10.26s  Iter_id: 6859  IterLoss: 1.0417777300  EpochLoss: 1.0157992227
+2024-11-03 09:41:00 - INFO - Epoch: 197/800  Runtime: 10.56s  Iter_id: 6896  IterLoss: 0.9668228030  EpochLoss: 1.0179815207
+2024-11-03 09:41:10 - INFO - Epoch: 198/800  Runtime: 10.20s  Iter_id: 6930  IterLoss: 1.0424299240  EpochLoss: 1.0208079968
+2024-11-03 09:41:20 - INFO - Epoch: 199/800  Runtime: 10.10s  Iter_id: 6944  IterLoss: 1.0406887531  EpochLoss: 1.0151647295
+2024-11-03 09:41:31 - INFO - Epoch: 200/800  Runtime: 10.38s  Iter_id: 6998  IterLoss: 1.0876151323  EpochLoss: 1.0154211266
+2024-11-03 09:41:41 - INFO - Epoch: 201/800  Runtime: 10.11s  Iter_id: 7015  IterLoss: 1.0521465540  EpochLoss: 1.0142641544
+2024-11-03 09:41:51 - INFO - Epoch: 202/800  Runtime: 10.02s  Iter_id: 7065  IterLoss: 1.0152752399  EpochLoss: 1.0150362423
+2024-11-03 09:42:01 - INFO - Epoch: 203/800  Runtime:  9.83s  Iter_id: 7072  IterLoss: 1.0206022263  EpochLoss: 1.0113832457
+2024-11-03 09:42:10 - INFO - Epoch: 204/800  Runtime:  9.44s  Iter_id: 7112  IterLoss: 1.0164064169  EpochLoss: 1.0108837928
+2024-11-03 09:42:20 - INFO - Epoch: 205/800  Runtime:  9.99s  Iter_id: 7143  IterLoss: 1.0381292105  EpochLoss: 1.0138963001
+2024-11-03 09:42:30 - INFO - Epoch: 206/800  Runtime:  9.61s  Iter_id: 7206  IterLoss: 0.9469085932  EpochLoss: 1.0141841769
+2024-11-03 09:42:40 - INFO - Epoch: 207/800  Runtime: 10.12s  EpochLoss: 1.0125085797
+2024-11-03 09:42:50 - INFO - Epoch: 208/800  Runtime: 10.30s  Iter_id: 7262  IterLoss: 0.9952397346  EpochLoss: 1.0152767267
+2024-11-03 09:43:00 - INFO - Epoch: 209/800  Runtime: 10.01s  Iter_id: 7294  IterLoss: 1.0344825983  EpochLoss: 1.0153749977
+2024-11-03 09:43:10 - INFO - Epoch: 210/800  Runtime:  9.98s  Iter_id: 7349  IterLoss: 0.9814399481  EpochLoss: 1.0118653178
+2024-11-03 09:43:11 - INFO - Eval Epoch: 210
+2024-11-03 09:43:11 - INFO - Overall Accuracy: 73.05 || Mean Overall Accuracy: 56.71
+2024-11-03 09:43:11 - INFO - Mean IoU: 0.459 || Per-class IoU score:  Ground=0.721  Building=0.498  Trees=0.731  Low vegetation=0.337  Artifacts=0.009  
+2024-11-03 09:43:11 - INFO - Macro F1: 0.574 || Per-class  F1 score:  Ground=0.838  Building=0.665  Trees=0.845  Low vegetation=0.504  Artifacts=0.017  
+
+2024-11-03 09:43:21 - INFO - Epoch: 211/800  Runtime: 10.46s  Iter_id: 7369  IterLoss: 1.0060702562  EpochLoss: 1.0157942465
+2024-11-03 09:43:32 - INFO - Epoch: 212/800  Runtime: 10.28s  Iter_id: 7416  IterLoss: 1.0261774063  EpochLoss: 1.0153542348
+2024-11-03 09:43:42 - INFO - Epoch: 213/800  Runtime: 10.24s  Iter_id: 7443  IterLoss: 1.0327067375  EpochLoss: 1.0106602533
+2024-11-03 09:43:52 - INFO - Epoch: 214/800  Runtime:  9.75s  Iter_id: 7461  IterLoss: 1.0086905956  EpochLoss: 1.0108068943
+2024-11-03 09:44:02 - INFO - Epoch: 215/800  Runtime: 10.22s  Iter_id: 7502  IterLoss: 1.0345344543  EpochLoss: 1.0125345043
+2024-11-03 09:44:12 - INFO - Epoch: 216/800  Runtime: 10.04s  Iter_id: 7533  IterLoss: 1.0023820400  EpochLoss: 1.0137029886
+2024-11-03 09:44:22 - INFO - Epoch: 217/800  Runtime: 10.52s  Iter_id: 7590  IterLoss: 0.9910991788  EpochLoss: 1.0131845559
+2024-11-03 09:44:33 - INFO - Epoch: 218/800  Runtime: 10.54s  Iter_id: 7625  IterLoss: 0.9886220694  EpochLoss: 1.0103985310
+2024-11-03 09:44:43 - INFO - Epoch: 219/800  Runtime: 10.46s  Iter_id: 7657  IterLoss: 1.0133703947  EpochLoss: 1.0117719633
+2024-11-03 09:44:53 - INFO - Epoch: 220/800  Runtime: 10.07s  Iter_id: 7700  IterLoss: 0.9923287630  EpochLoss: 1.0086768082
+2024-11-03 09:45:04 - INFO - Epoch: 221/800  Runtime: 10.69s  EpochLoss: 1.0148484520
+2024-11-03 09:45:15 - INFO - Epoch: 222/800  Runtime: 10.48s  Iter_id: 7759  IterLoss: 0.9843219519  EpochLoss: 1.0138182112
+2024-11-03 09:45:25 - INFO - Epoch: 223/800  Runtime: 10.10s  Iter_id: 7784  IterLoss: 1.0064194202  EpochLoss: 1.0110257813
+2024-11-03 09:45:35 - INFO - Epoch: 224/800  Runtime: 10.00s  Iter_id: 7820  IterLoss: 1.0491619110  EpochLoss: 1.0157360179
+2024-11-03 09:45:45 - INFO - Epoch: 225/800  Runtime: 10.05s  EpochLoss: 1.0140712091
+2024-11-03 09:45:55 - INFO - Epoch: 226/800  Runtime: 10.42s  Iter_id: 7893  IterLoss: 1.0192186832  EpochLoss: 1.0083482879
+2024-11-03 09:46:05 - INFO - Epoch: 227/800  Runtime: 10.16s  Iter_id: 7936  IterLoss: 1.0296413898  EpochLoss: 1.0070943407
+2024-11-03 09:46:16 - INFO - Epoch: 228/800  Runtime: 10.20s  Iter_id: 7980  IterLoss: 0.9943996668  EpochLoss: 1.0135970916
+2024-11-03 09:46:26 - INFO - Epoch: 229/800  Runtime: 10.11s  Iter_id: 8015  IterLoss: 1.0329154730  EpochLoss: 1.0109047311
+2024-11-03 09:46:36 - INFO - Epoch: 230/800  Runtime: 10.03s  Iter_id: 8021  IterLoss: 1.0963472128  EpochLoss: 1.0116297058
+2024-11-03 09:46:46 - INFO - Epoch: 231/800  Runtime:  9.97s  Iter_id: 8055  IterLoss: 1.0334401131  EpochLoss: 1.0116221121
+2024-11-03 09:46:56 - INFO - Epoch: 232/800  Runtime: 10.28s  Iter_id: 8106  IterLoss: 1.0208935738  EpochLoss: 1.0118130445
+2024-11-03 09:47:07 - INFO - Epoch: 233/800  Runtime: 10.74s  Iter_id: 8140  IterLoss: 1.0346539021  EpochLoss: 1.0124575036
+2024-11-03 09:47:17 - INFO - Epoch: 234/800  Runtime: 10.05s  Iter_id: 8180  IterLoss: 1.0160422325  EpochLoss: 1.0116171496
+2024-11-03 09:47:27 - INFO - Epoch: 235/800  Runtime: 10.17s  Iter_id: 8218  IterLoss: 1.0420283079  EpochLoss: 1.0097121477
+2024-11-03 09:47:37 - INFO - Epoch: 236/800  Runtime: 10.00s  Iter_id: 8250  IterLoss: 1.0029456615  EpochLoss: 1.0096393466
+2024-11-03 09:47:46 - INFO - Epoch: 237/800  Runtime:  9.47s  Iter_id: 8277  IterLoss: 1.0507287979  EpochLoss: 1.0104111603
+2024-11-03 09:47:56 - INFO - Epoch: 238/800  Runtime:  9.74s  Iter_id: 8297  IterLoss: 1.0226955414  EpochLoss: 1.0120518412
+2024-11-03 09:48:06 - INFO - Epoch: 239/800  Runtime: 10.26s  Iter_id: 8344  IterLoss: 0.9786886573  EpochLoss: 1.0096766472
+2024-11-03 09:48:16 - INFO - Epoch: 240/800  Runtime:  9.93s  Iter_id: 8383  IterLoss: 1.0506969690  EpochLoss: 1.0098233036
+2024-11-03 09:48:17 - INFO - Eval Epoch: 240
+2024-11-03 09:48:17 - INFO - Overall Accuracy: 73.35 || Mean Overall Accuracy: 52.94
+2024-11-03 09:48:17 - INFO - Mean IoU: 0.427 || Per-class IoU score:  Ground=0.723  Building=0.421  Trees=0.654  Low vegetation=0.291  Artifacts=0.046  
+2024-11-03 09:48:17 - INFO - Macro F1: 0.552 || Per-class  F1 score:  Ground=0.839  Building=0.592  Trees=0.791  Low vegetation=0.451  Artifacts=0.088  
+
+2024-11-03 09:48:27 - INFO - Epoch: 241/800  Runtime: 10.28s  Iter_id: 8434  IterLoss: 1.0186258554  EpochLoss: 1.0102359874
+2024-11-03 09:48:37 - INFO - Epoch: 242/800  Runtime:  9.71s  Iter_id: 8441  IterLoss: 0.9672986865  EpochLoss: 1.0099407911
+2024-11-03 09:48:48 - INFO - Epoch: 243/800  Runtime: 10.43s  Iter_id: 8474  IterLoss: 1.0185177326  EpochLoss: 1.0100286824
+2024-11-03 09:48:58 - INFO - Epoch: 244/800  Runtime: 10.74s  Iter_id: 8536  IterLoss: 0.9758503437  EpochLoss: 1.0117413078
+2024-11-03 09:49:08 - INFO - Epoch: 245/800  Runtime:  9.80s  Iter_id: 8569  IterLoss: 1.0124436617  EpochLoss: 1.0093739152
+2024-11-03 09:49:18 - INFO - Epoch: 246/800  Runtime:  9.89s  Iter_id: 8580  IterLoss: 1.0079019070  EpochLoss: 1.0076646038
+2024-11-03 09:49:28 - INFO - Epoch: 247/800  Runtime:  9.79s  Iter_id: 8641  IterLoss: 0.9859084487  EpochLoss: 1.0116341063
+2024-11-03 09:49:37 - INFO - Epoch: 248/800  Runtime:  9.49s  Iter_id: 8658  IterLoss: 0.9994664192  EpochLoss: 1.0112219231
+2024-11-03 09:49:47 - INFO - Epoch: 249/800  Runtime: 10.05s  Iter_id: 8707  IterLoss: 1.0083287954  EpochLoss: 1.0097287076
+2024-11-03 09:49:56 - INFO - Epoch: 250/800  Runtime:  9.06s  Iter_id: 8726  IterLoss: 0.9728826880  EpochLoss: 1.0085976754
+2024-11-03 09:50:06 - INFO - Epoch: 251/800  Runtime:  9.68s  Iter_id: 8776  IterLoss: 1.0428333282  EpochLoss: 1.0091343369
+2024-11-03 09:50:16 - INFO - Epoch: 252/800  Runtime:  9.72s  Iter_id: 8788  IterLoss: 1.0146580935  EpochLoss: 1.0072128364
+2024-11-03 09:50:25 - INFO - Epoch: 253/800  Runtime:  9.55s  Iter_id: 8843  IterLoss: 1.0070087910  EpochLoss: 1.0089196512
+2024-11-03 09:50:35 - INFO - Epoch: 254/800  Runtime:  9.89s  Iter_id: 8882  IterLoss: 0.9886492491  EpochLoss: 1.0070661545
+2024-11-03 09:50:45 - INFO - Epoch: 255/800  Runtime:  9.98s  Iter_id: 8916  IterLoss: 0.9955258965  EpochLoss: 1.0110135521
+2024-11-03 09:50:55 - INFO - Epoch: 256/800  Runtime:  9.79s  Iter_id: 8948  IterLoss: 1.0362930298  EpochLoss: 1.0112031681
+2024-11-03 09:51:05 - INFO - Epoch: 257/800  Runtime:  9.68s  Iter_id: 8968  IterLoss: 0.9917033315  EpochLoss: 1.0085542355
+2024-11-03 09:51:15 - INFO - Epoch: 258/800  Runtime: 10.19s  Iter_id: 9017  IterLoss: 0.9741956592  EpochLoss: 1.0063548565
+2024-11-03 09:51:24 - INFO - Epoch: 259/800  Runtime:  9.45s  Iter_id: 9044  IterLoss: 1.0393425226  EpochLoss: 1.0070537720
+2024-11-03 09:51:34 - INFO - Epoch: 260/800  Runtime: 10.05s  Iter_id: 9078  IterLoss: 1.0330393314  EpochLoss: 1.0061120646
+2024-11-03 09:51:45 - INFO - Epoch: 261/800  Runtime: 10.08s  Iter_id: 9117  IterLoss: 0.9731376171  EpochLoss: 1.0034519775
+2024-11-03 09:51:55 - INFO - Epoch: 262/800  Runtime: 10.56s  Iter_id: 9167  IterLoss: 1.0251827240  EpochLoss: 1.0072394763
+2024-11-03 09:52:05 - INFO - Epoch: 263/800  Runtime:  9.95s  Iter_id: 9204  IterLoss: 1.0133068562  EpochLoss: 1.0030434081
+2024-11-03 09:52:15 - INFO - Epoch: 264/800  Runtime: 10.10s  Iter_id: 9230  IterLoss: 0.9973570108  EpochLoss: 1.0036299024
+2024-11-03 09:52:26 - INFO - Epoch: 265/800  Runtime: 10.38s  Iter_id: 9262  IterLoss: 1.0166078806  EpochLoss: 1.0052837287
+2024-11-03 09:52:36 - INFO - Epoch: 266/800  Runtime: 10.47s  Iter_id: 9299  IterLoss: 1.0248185396  EpochLoss: 1.0120357752
+2024-11-03 09:52:46 - INFO - Epoch: 267/800  Runtime: 10.35s  Iter_id: 9341  IterLoss: 0.9779352546  EpochLoss: 1.0081007634
+2024-11-03 09:52:57 - INFO - Epoch: 268/800  Runtime: 10.13s  Iter_id: 9377  IterLoss: 0.9603081346  EpochLoss: 1.0054963572
+2024-11-03 09:53:07 - INFO - Epoch: 269/800  Runtime: 10.01s  Iter_id: 9397  IterLoss: 0.9656803012  EpochLoss: 1.0058117679
+2024-11-03 09:53:16 - INFO - Epoch: 270/800  Runtime:  9.69s  Iter_id: 9419  IterLoss: 1.0066388845  EpochLoss: 1.0026666130
+2024-11-03 09:53:17 - INFO - Eval Epoch: 270
+2024-11-03 09:53:17 - INFO - Overall Accuracy: 67.02 || Mean Overall Accuracy: 52.48
+2024-11-03 09:53:17 - INFO - Mean IoU: 0.405 || Per-class IoU score:  Ground=0.654  Building=0.404  Trees=0.671  Low vegetation=0.281  Artifacts=0.018  
+2024-11-03 09:53:17 - INFO - Macro F1: 0.528 || Per-class  F1 score:  Ground=0.791  Building=0.575  Trees=0.803  Low vegetation=0.438  Artifacts=0.035  
+
+2024-11-03 09:53:27 - INFO - Epoch: 271/800  Runtime: 10.24s  Iter_id: 9469  IterLoss: 0.9760488272  EpochLoss: 1.0066117849
+2024-11-03 09:53:37 - INFO - Epoch: 272/800  Runtime: 10.09s  Iter_id: 9494  IterLoss: 0.9985792637  EpochLoss: 1.0088618517
+2024-11-03 09:53:47 - INFO - Epoch: 273/800  Runtime:  9.87s  Iter_id: 9545  IterLoss: 0.9908623695  EpochLoss: 1.0058411871
+2024-11-03 09:53:57 - INFO - Epoch: 274/800  Runtime:  9.35s  Iter_id: 9558  IterLoss: 0.9784106612  EpochLoss: 1.0066352316
+2024-11-03 09:54:07 - INFO - Epoch: 275/800  Runtime: 10.14s  Iter_id: 9610  IterLoss: 1.0549554825  EpochLoss: 1.0078275102
+2024-11-03 09:54:17 - INFO - Epoch: 276/800  Runtime: 10.30s  Iter_id: 9637  IterLoss: 1.0277209282  EpochLoss: 1.0077434489
+2024-11-03 09:54:27 - INFO - Epoch: 277/800  Runtime:  9.61s  Iter_id: 9677  IterLoss: 1.0191031694  EpochLoss: 1.0040222594
+2024-11-03 09:54:36 - INFO - Epoch: 278/800  Runtime:  9.86s  Iter_id: 9713  IterLoss: 1.0212266445  EpochLoss: 1.0051764607
+2024-11-03 09:54:46 - INFO - Epoch: 279/800  Runtime:  9.46s  Iter_id: 9754  IterLoss: 1.0574649572  EpochLoss: 1.0048149007
+2024-11-03 09:54:56 - INFO - Epoch: 280/800  Runtime:  9.83s  Iter_id: 9780  IterLoss: 0.9839858413  EpochLoss: 1.0040826712
+2024-11-03 09:55:06 - INFO - Epoch: 281/800  Runtime: 10.28s  Iter_id: 9823  IterLoss: 1.1073870659  EpochLoss: 1.0053882292
+2024-11-03 09:55:16 - INFO - Epoch: 282/800  Runtime: 10.17s  Iter_id: 9869  IterLoss: 1.0005190372  EpochLoss: 1.0050174338
+2024-11-03 09:55:27 - INFO - Epoch: 283/800  Runtime: 10.41s  Iter_id: 9879  IterLoss: 0.9932526946  EpochLoss: 1.0054557085
+2024-11-03 09:55:37 - INFO - Epoch: 284/800  Runtime: 10.08s  Iter_id: 9940  IterLoss: 1.0067932606  EpochLoss: 1.0048815966
+2024-11-03 09:55:47 - INFO - Epoch: 285/800  Runtime: 10.08s  Iter_id: 9960  IterLoss: 1.0005759001  EpochLoss: 1.0047800779
+2024-11-03 09:55:57 - INFO - Epoch: 286/800  Runtime:  9.80s  Iter_id: 10006 IterLoss: 1.0114296675  EpochLoss: 1.0017681650
+2024-11-03 09:56:06 - INFO - Epoch: 287/800  Runtime:  9.81s  Iter_id: 10045 IterLoss: 1.0149706602  EpochLoss: 1.0018942441
+2024-11-03 09:56:16 - INFO - Epoch: 288/800  Runtime:  9.98s  Iter_id: 10059 IterLoss: 0.9928715229  EpochLoss: 1.0080161895
+2024-11-03 09:56:25 - INFO - Epoch: 289/800  Runtime:  9.00s  Iter_id: 10092 IterLoss: 0.9729528427  EpochLoss: 1.0041822927
+2024-11-03 09:56:36 - INFO - Epoch: 290/800  Runtime: 10.19s  Iter_id: 10131 IterLoss: 1.0185818672  EpochLoss: 1.0033162526
+2024-11-03 09:56:45 - INFO - Epoch: 291/800  Runtime:  9.65s  Iter_id: 10166 IterLoss: 0.9748871326  EpochLoss: 1.0035297292
+2024-11-03 09:56:55 - INFO - Epoch: 292/800  Runtime:  9.48s  Iter_id: 10215 IterLoss: 0.9934065342  EpochLoss: 1.0061503530
+2024-11-03 09:57:05 - INFO - Epoch: 293/800  Runtime:  9.82s  Iter_id: 10241 IterLoss: 1.0312068462  EpochLoss: 1.0008976902
+2024-11-03 09:57:15 - INFO - Epoch: 294/800  Runtime: 10.27s  Iter_id: 10277 IterLoss: 1.0484124422  EpochLoss: 1.0038328137
+2024-11-03 09:57:25 - INFO - Epoch: 295/800  Runtime:  9.64s  Iter_id: 10295 IterLoss: 0.9901993275  EpochLoss: 1.0040704540
+2024-11-03 09:57:35 - INFO - Epoch: 296/800  Runtime: 10.07s  Iter_id: 10351 IterLoss: 0.9883837700  EpochLoss: 1.0029418622
+2024-11-03 09:57:44 - INFO - Epoch: 297/800  Runtime:  9.84s  Iter_id: 10387 IterLoss: 1.0411244631  EpochLoss: 1.0035045471
+2024-11-03 09:57:54 - INFO - Epoch: 298/800  Runtime:  9.76s  Iter_id: 10417 IterLoss: 1.0207129717  EpochLoss: 1.0024260827
+2024-11-03 09:58:04 - INFO - Epoch: 299/800  Runtime:  9.99s  Iter_id: 10463 IterLoss: 1.0395462513  EpochLoss: 1.0019641280
+2024-11-03 09:58:14 - INFO - Epoch: 300/800  Runtime:  9.86s  Iter_id: 10487 IterLoss: 0.9986434579  EpochLoss: 1.0029802697
+2024-11-03 09:58:15 - INFO - Eval Epoch: 300
+2024-11-03 09:58:15 - INFO - Overall Accuracy: 74.09 || Mean Overall Accuracy: 53.86
+2024-11-03 09:58:15 - INFO - Mean IoU: 0.435 || Per-class IoU score:  Ground=0.736  Building=0.403  Trees=0.658  Low vegetation=0.363  Artifacts=0.016  
+2024-11-03 09:58:15 - INFO - Macro F1: 0.556 || Per-class  F1 score:  Ground=0.848  Building=0.575  Trees=0.794  Low vegetation=0.533  Artifacts=0.032  
+
+2024-11-03 09:58:25 - INFO - Epoch: 301/800  Runtime: 10.24s  Iter_id: 10517 IterLoss: 1.0262695551  EpochLoss: 1.0023394755
+2024-11-03 09:58:35 - INFO - Epoch: 302/800  Runtime: 10.01s  Iter_id: 10556 IterLoss: 0.9871526957  EpochLoss: 1.0049059902
+2024-11-03 09:58:45 - INFO - Epoch: 303/800  Runtime:  9.82s  Iter_id: 10586 IterLoss: 0.9570680261  EpochLoss: 1.0009856548
+2024-11-03 09:58:55 - INFO - Epoch: 304/800  Runtime:  9.97s  Iter_id: 10628 IterLoss: 1.0380648375  EpochLoss: 1.0049883979
+2024-11-03 09:59:05 - INFO - Epoch: 305/800  Runtime: 10.23s  Iter_id: 10669 IterLoss: 0.9963725805  EpochLoss: 1.0107317039
+2024-11-03 09:59:15 - INFO - Epoch: 306/800  Runtime:  9.97s  Iter_id: 10705 IterLoss: 1.0391356945  EpochLoss: 1.0036643471
+2024-11-03 09:59:26 - INFO - Epoch: 307/800  Runtime: 10.42s  Iter_id: 10716 IterLoss: 0.9653059244  EpochLoss: 1.0002956782
+2024-11-03 09:59:36 - INFO - Epoch: 308/800  Runtime: 10.29s  Iter_id: 10771 IterLoss: 1.0060886145  EpochLoss: 1.0001093830
+2024-11-03 09:59:46 - INFO - Epoch: 309/800  Runtime: 10.38s  Iter_id: 10815 IterLoss: 1.0097166300  EpochLoss: 1.0033189842
+2024-11-03 09:59:56 - INFO - Epoch: 310/800  Runtime:  9.99s  Iter_id: 10821 IterLoss: 0.9895089269  EpochLoss: 1.0003608516
+2024-11-03 10:00:07 - INFO - Epoch: 311/800  Runtime: 10.34s  Iter_id: 10882 IterLoss: 1.0178531408  EpochLoss: 1.0006540673
+2024-11-03 10:00:16 - INFO - Epoch: 312/800  Runtime:  9.64s  Iter_id: 10913 IterLoss: 0.9950370789  EpochLoss: 1.0020268849
+2024-11-03 10:00:26 - INFO - Epoch: 313/800  Runtime:  9.85s  Iter_id: 10931 IterLoss: 0.9923225045  EpochLoss: 1.0021461214
+2024-11-03 10:00:36 - INFO - Epoch: 314/800  Runtime:  9.60s  Iter_id: 10960 IterLoss: 1.0136967897  EpochLoss: 0.9998307330
+2024-11-03 10:00:46 - INFO - Epoch: 315/800  Runtime: 10.33s  Iter_id: 10997 IterLoss: 0.9730048180  EpochLoss: 1.0022135087
+2024-11-03 10:00:56 - INFO - Epoch: 316/800  Runtime:  9.93s  Iter_id: 11045 IterLoss: 0.9962548614  EpochLoss: 1.0018409644
+2024-11-03 10:01:06 - INFO - Epoch: 317/800  Runtime: 10.57s  Iter_id: 11063 IterLoss: 0.9901618361  EpochLoss: 0.9981305259
+2024-11-03 10:01:17 - INFO - Epoch: 318/800  Runtime: 10.15s  Iter_id: 11127 IterLoss: 0.9865810275  EpochLoss: 1.0006271192
+2024-11-03 10:01:26 - INFO - Epoch: 319/800  Runtime:  9.40s  Iter_id: 11143 IterLoss: 1.0209344625  EpochLoss: 1.0045075825
+2024-11-03 10:01:36 - INFO - Epoch: 320/800  Runtime:  9.78s  Iter_id: 11187 IterLoss: 1.0220409632  EpochLoss: 1.0042170576
+2024-11-03 10:01:46 - INFO - Epoch: 321/800  Runtime:  9.77s  Iter_id: 11208 IterLoss: 0.9889428020  EpochLoss: 0.9992101346
+2024-11-03 10:01:55 - INFO - Epoch: 322/800  Runtime:  9.38s  Iter_id: 11251 IterLoss: 1.0224654675  EpochLoss: 1.0011065279
+2024-11-03 10:02:05 - INFO - Epoch: 323/800  Runtime:  9.90s  Iter_id: 11283 IterLoss: 1.0131986141  EpochLoss: 1.0029175588
+2024-11-03 10:02:14 - INFO - Epoch: 324/800  Runtime:  9.48s  Iter_id: 11340 IterLoss: 1.0192642212  EpochLoss: 1.0025296365
+2024-11-03 10:02:24 - INFO - Epoch: 325/800  Runtime:  9.73s  Iter_id: 11366 IterLoss: 1.0127158165  EpochLoss: 0.9998604809
+2024-11-03 10:02:35 - INFO - Epoch: 326/800  Runtime: 10.49s  Iter_id: 11382 IterLoss: 1.0271258354  EpochLoss: 0.9989700522
+2024-11-03 10:02:45 - INFO - Epoch: 327/800  Runtime: 10.22s  Iter_id: 11413 IterLoss: 0.9910712838  EpochLoss: 1.0000701257
+2024-11-03 10:02:54 - INFO - Epoch: 328/800  Runtime:  9.65s  Iter_id: 11464 IterLoss: 1.0379214287  EpochLoss: 0.9996279989
+2024-11-03 10:03:04 - INFO - Epoch: 329/800  Runtime:  9.48s  Iter_id: 11482 IterLoss: 1.0108101368  EpochLoss: 1.0023335321
+2024-11-03 10:03:14 - INFO - Epoch: 330/800  Runtime: 10.34s  Iter_id: 11551 IterLoss: 0.9803650379  EpochLoss: 0.9999017801
+2024-11-03 10:03:15 - INFO - Eval Epoch: 330
+2024-11-03 10:03:15 - INFO - Overall Accuracy: 71.66 || Mean Overall Accuracy: 51.82
+2024-11-03 10:03:15 - INFO - Mean IoU: 0.411 || Per-class IoU score:  Ground=0.719  Building=0.404  Trees=0.542  Low vegetation=0.365  Artifacts=0.023  
+2024-11-03 10:03:15 - INFO - Macro F1: 0.539 || Per-class  F1 score:  Ground=0.837  Building=0.575  Trees=0.703  Low vegetation=0.535  Artifacts=0.045  
+
+2024-11-03 10:03:25 - INFO - Epoch: 331/800  Runtime:  9.66s  Iter_id: 11552 IterLoss: 1.0124282837  EpochLoss: 0.9986659901
+2024-11-03 10:03:34 - INFO - Epoch: 332/800  Runtime:  9.39s  Iter_id: 11608 IterLoss: 0.9438857436  EpochLoss: 0.9984419635
+2024-11-03 10:03:44 - INFO - Epoch: 333/800  Runtime:  9.78s  Iter_id: 11626 IterLoss: 0.9893632531  EpochLoss: 0.9969692537
+2024-11-03 10:03:54 - INFO - Epoch: 334/800  Runtime:  9.71s  Iter_id: 11664 IterLoss: 0.9823616743  EpochLoss: 0.9969755530
+2024-11-03 10:04:04 - INFO - Epoch: 335/800  Runtime: 10.33s  Iter_id: 11704 IterLoss: 0.9988821745  EpochLoss: 1.0005076000
+2024-11-03 10:04:14 - INFO - Epoch: 336/800  Runtime: 10.14s  Iter_id: 11730 IterLoss: 0.9940532446  EpochLoss: 0.9981149503
+2024-11-03 10:04:23 - INFO - Epoch: 337/800  Runtime:  9.37s  Iter_id: 11777 IterLoss: 1.0037497282  EpochLoss: 0.9992898890
+2024-11-03 10:04:33 - INFO - Epoch: 338/800  Runtime:  9.62s  Iter_id: 11808 IterLoss: 0.9899389744  EpochLoss: 0.9963159646
+2024-11-03 10:04:43 - INFO - Epoch: 339/800  Runtime: 10.05s  Iter_id: 11836 IterLoss: 0.9682606459  EpochLoss: 0.9956336124
+2024-11-03 10:04:53 - INFO - Epoch: 340/800  Runtime:  9.77s  Iter_id: 11877 IterLoss: 1.0051729679  EpochLoss: 0.9985631858
+2024-11-03 10:05:02 - INFO - Epoch: 341/800  Runtime:  9.40s  Iter_id: 11921 IterLoss: 0.9995459914  EpochLoss: 0.9985615066
+2024-11-03 10:05:12 - INFO - Epoch: 342/800  Runtime:  9.75s  Iter_id: 11946 IterLoss: 0.9922644496  EpochLoss: 0.9965244498
+2024-11-03 10:05:22 - INFO - Epoch: 343/800  Runtime:  9.41s  Iter_id: 11976 IterLoss: 0.9984205961  EpochLoss: 1.0009392159
+2024-11-03 10:05:31 - INFO - Epoch: 344/800  Runtime:  9.93s  Iter_id: 12041 IterLoss: 1.0199029446  EpochLoss: 1.0020489011
+2024-11-03 10:05:41 - INFO - Epoch: 345/800  Runtime:  9.86s  Iter_id: 12061 IterLoss: 0.9576140046  EpochLoss: 0.9988206625
+2024-11-03 10:05:51 - INFO - Epoch: 346/800  Runtime:  9.93s  Iter_id: 12088 IterLoss: 0.9837663770  EpochLoss: 0.9996937939
+2024-11-03 10:06:01 - INFO - Epoch: 347/800  Runtime:  9.55s  Iter_id: 12141 IterLoss: 1.0011708736  EpochLoss: 0.9987425566
+2024-11-03 10:06:11 - INFO - Epoch: 348/800  Runtime: 10.11s  Iter_id: 12163 IterLoss: 0.9766093493  EpochLoss: 0.9980745469
+2024-11-03 10:06:21 - INFO - Epoch: 349/800  Runtime: 10.18s  Iter_id: 12206 IterLoss: 0.9884768128  EpochLoss: 0.9996471081
+2024-11-03 10:06:32 - INFO - Epoch: 350/800  Runtime: 10.43s  Iter_id: 12248 IterLoss: 0.9672206044  EpochLoss: 0.9959094082
+2024-11-03 10:06:41 - INFO - Epoch: 351/800  Runtime:  9.52s  Iter_id: 12279 IterLoss: 0.9822158217  EpochLoss: 0.9972611853
+2024-11-03 10:06:51 - INFO - Epoch: 352/800  Runtime:  9.62s  Iter_id: 12290 IterLoss: 0.9953270555  EpochLoss: 0.9992568851
+2024-11-03 10:07:01 - INFO - Epoch: 353/800  Runtime: 10.47s  Iter_id: 12341 IterLoss: 0.9743576050  EpochLoss: 0.9984901939
+2024-11-03 10:07:11 - INFO - Epoch: 354/800  Runtime:  9.83s  Iter_id: 12380 IterLoss: 0.9935468435  EpochLoss: 0.9995867968
+2024-11-03 10:07:21 - INFO - Epoch: 355/800  Runtime: 10.24s  Iter_id: 12412 IterLoss: 0.9944750071  EpochLoss: 0.9961155244
+2024-11-03 10:07:32 - INFO - Epoch: 356/800  Runtime: 10.27s  Iter_id: 12450 IterLoss: 0.9871649146  EpochLoss: 0.9989820480
+2024-11-03 10:07:42 - INFO - Epoch: 357/800  Runtime: 10.50s  Iter_id: 12483 IterLoss: 1.0177344084  EpochLoss: 0.9931485959
+2024-11-03 10:07:53 - INFO - Epoch: 358/800  Runtime: 10.47s  Iter_id: 12530 IterLoss: 1.0159444809  EpochLoss: 0.9984909313
+2024-11-03 10:08:02 - INFO - Epoch: 359/800  Runtime:  9.67s  Iter_id: 12553 IterLoss: 1.0066226721  EpochLoss: 0.9968023964
+2024-11-03 10:08:12 - INFO - Epoch: 360/800  Runtime:  9.63s  Iter_id: 12601 IterLoss: 0.9777565002  EpochLoss: 0.9990080850
+2024-11-03 10:08:13 - INFO - Eval Epoch: 360
+2024-11-03 10:08:13 - INFO - Overall Accuracy: 74.40 || Mean Overall Accuracy: 55.89
+2024-11-03 10:08:13 - INFO - Mean IoU: 0.451 || Per-class IoU score:  Ground=0.739  Building=0.457  Trees=0.665  Low vegetation=0.370  Artifacts=0.022  
+2024-11-03 10:08:13 - INFO - Macro F1: 0.572 || Per-class  F1 score:  Ground=0.850  Building=0.627  Trees=0.799  Low vegetation=0.540  Artifacts=0.043  
+
+2024-11-03 10:08:22 - INFO - Epoch: 361/800  Runtime:  9.46s  Iter_id: 12622 IterLoss: 0.9850181937  EpochLoss: 0.9973461662
+2024-11-03 10:08:33 - INFO - Epoch: 362/800  Runtime: 10.49s  Iter_id: 12661 IterLoss: 1.0290524960  EpochLoss: 0.9994422913
+2024-11-03 10:08:43 - INFO - Epoch: 363/800  Runtime: 10.31s  Iter_id: 12672 IterLoss: 0.9932498932  EpochLoss: 0.9981299434
+2024-11-03 10:08:52 - INFO - Epoch: 364/800  Runtime:  9.56s  Iter_id: 12721 IterLoss: 0.9531544447  EpochLoss: 0.9969131981
+2024-11-03 10:09:02 - INFO - Epoch: 365/800  Runtime:  9.83s  Iter_id: 12776 IterLoss: 1.0225944519  EpochLoss: 0.9943886893
+2024-11-03 10:09:12 - INFO - Epoch: 366/800  Runtime:  9.68s  Iter_id: 12807 IterLoss: 0.9740598798  EpochLoss: 0.9968977554
+2024-11-03 10:09:21 - INFO - Epoch: 367/800  Runtime:  9.32s  Iter_id: 12835 IterLoss: 0.9740387201  EpochLoss: 0.9963351965
+2024-11-03 10:09:31 - INFO - Epoch: 368/800  Runtime:  9.72s  Iter_id: 12855 IterLoss: 1.0170786381  EpochLoss: 0.9991424935
+2024-11-03 10:09:40 - INFO - Epoch: 369/800  Runtime:  9.34s  Iter_id: 12907 IterLoss: 1.0142881870  EpochLoss: 0.9974156822
+2024-11-03 10:09:50 - INFO - Epoch: 370/800  Runtime:  9.82s  Iter_id: 12937 IterLoss: 1.0080600977  EpochLoss: 1.0011485117
+2024-11-03 10:10:00 - INFO - Epoch: 371/800  Runtime:  9.42s  Iter_id: 12969 IterLoss: 1.0091570616  EpochLoss: 0.9978376116
+2024-11-03 10:10:09 - INFO - Epoch: 372/800  Runtime:  8.97s  Iter_id: 12992 IterLoss: 1.0034539700  EpochLoss: 0.9937136837
+2024-11-03 10:10:18 - INFO - Epoch: 373/800  Runtime:  9.45s  Iter_id: 13035 IterLoss: 1.0093399286  EpochLoss: 0.9964713114
+2024-11-03 10:10:28 - INFO - Epoch: 374/800  Runtime:  9.66s  Iter_id: 13068 IterLoss: 0.9595551491  EpochLoss: 0.9937789576
+2024-11-03 10:10:37 - INFO - Epoch: 375/800  Runtime:  9.66s  Iter_id: 13118 IterLoss: 0.9644733071  EpochLoss: 0.9963924238
+2024-11-03 10:10:47 - INFO - Epoch: 376/800  Runtime:  9.93s  Iter_id: 13136 IterLoss: 0.9732250571  EpochLoss: 0.9979658536
+2024-11-03 10:10:57 - INFO - Epoch: 377/800  Runtime:  9.72s  Iter_id: 13164 IterLoss: 1.0198087692  EpochLoss: 0.9973504305
+2024-11-03 10:11:07 - INFO - Epoch: 378/800  Runtime:  9.87s  Iter_id: 13225 IterLoss: 0.9963790178  EpochLoss: 0.9951907362
+2024-11-03 10:11:17 - INFO - Epoch: 379/800  Runtime:  9.63s  Iter_id: 13237 IterLoss: 1.0029412508  EpochLoss: 0.9942882555
+2024-11-03 10:11:26 - INFO - Epoch: 380/800  Runtime:  9.17s  Iter_id: 13290 IterLoss: 0.9824898243  EpochLoss: 0.9955072045
+2024-11-03 10:11:35 - INFO - Epoch: 381/800  Runtime:  9.71s  Iter_id: 13334 IterLoss: 0.9572821259  EpochLoss: 0.9988217643
+2024-11-03 10:11:45 - INFO - Epoch: 382/800  Runtime:  9.82s  Iter_id: 13348 IterLoss: 1.0003271103  EpochLoss: 0.9919409752
+2024-11-03 10:11:56 - INFO - Epoch: 383/800  Runtime: 10.56s  Iter_id: 13383 IterLoss: 0.9699544907  EpochLoss: 0.9950668267
+2024-11-03 10:12:06 - INFO - Epoch: 384/800  Runtime: 10.04s  Iter_id: 13429 IterLoss: 1.0018184185  EpochLoss: 1.0003276042
+2024-11-03 10:12:16 - INFO - Epoch: 385/800  Runtime: 10.47s  Iter_id: 13467 IterLoss: 1.0093598366  EpochLoss: 0.9939645137
+2024-11-03 10:12:26 - INFO - Epoch: 386/800  Runtime:  9.68s  Iter_id: 13500 IterLoss: 1.0007904768  EpochLoss: 0.9936502150
+2024-11-03 10:12:37 - INFO - Epoch: 387/800  Runtime: 10.71s  Iter_id: 13536 IterLoss: 1.0078049898  EpochLoss: 0.9976358652
+2024-11-03 10:12:47 - INFO - Epoch: 388/800  Runtime: 10.10s  Iter_id: 13565 IterLoss: 0.9873462319  EpochLoss: 1.0013465660
+2024-11-03 10:12:57 - INFO - Epoch: 389/800  Runtime:  9.69s  Iter_id: 13604 IterLoss: 0.9821189046  EpochLoss: 0.9994891984
+2024-11-03 10:13:06 - INFO - Epoch: 390/800  Runtime:  9.36s  Iter_id: 13626 IterLoss: 1.0240883827  EpochLoss: 0.9965844853
+2024-11-03 10:13:07 - INFO - Eval Epoch: 390
+2024-11-03 10:13:07 - INFO - Overall Accuracy: 72.76 || Mean Overall Accuracy: 55.18
+2024-11-03 10:13:07 - INFO - Mean IoU: 0.450 || Per-class IoU score:  Ground=0.716  Building=0.467  Trees=0.723  Low vegetation=0.321  Artifacts=0.025  
+2024-11-03 10:13:07 - INFO - Macro F1: 0.569 || Per-class  F1 score:  Ground=0.834  Building=0.637  Trees=0.839  Low vegetation=0.486  Artifacts=0.049  
+
+2024-11-03 10:13:17 - INFO - Epoch: 391/800  Runtime: 10.28s  Iter_id: 13686 IterLoss: 1.0108375549  EpochLoss: 0.9952091030
+2024-11-03 10:13:28 - INFO - Epoch: 392/800  Runtime: 10.53s  Iter_id: 13697 IterLoss: 0.9696127176  EpochLoss: 0.9950899414
+2024-11-03 10:13:37 - INFO - Epoch: 393/800  Runtime:  9.82s  Iter_id: 13726 IterLoss: 0.9610303044  EpochLoss: 0.9946049809
+2024-11-03 10:13:47 - INFO - Epoch: 394/800  Runtime:  9.43s  Iter_id: 13778 IterLoss: 0.9673585296  EpochLoss: 0.9953171338
+2024-11-03 10:13:56 - INFO - Epoch: 395/800  Runtime:  9.32s  Iter_id: 13815 IterLoss: 0.9837958813  EpochLoss: 0.9943121944
+2024-11-03 10:14:06 - INFO - Epoch: 396/800  Runtime:  9.71s  Iter_id: 13842 IterLoss: 1.0151799917  EpochLoss: 0.9915299279
+2024-11-03 10:14:16 - INFO - Epoch: 397/800  Runtime: 10.16s  Iter_id: 13883 IterLoss: 0.9728050828  EpochLoss: 0.9928689872
+2024-11-03 10:14:26 - INFO - Epoch: 398/800  Runtime:  9.98s  Iter_id: 13928 IterLoss: 1.0113966465  EpochLoss: 0.9948812059
+2024-11-03 10:14:36 - INFO - Epoch: 399/800  Runtime:  9.80s  Iter_id: 13958 IterLoss: 1.0026671886  EpochLoss: 0.9941795843
+2024-11-03 10:14:46 - INFO - Epoch: 400/800  Runtime: 10.40s  Iter_id: 13967 IterLoss: 0.9450507164  EpochLoss: 0.9951279828
+2024-11-03 10:14:56 - INFO - Epoch: 401/800  Runtime:  9.46s  Iter_id: 14016 IterLoss: 0.9823874831  EpochLoss: 0.9920436314
+2024-11-03 10:15:06 - INFO - Epoch: 402/800  Runtime: 10.03s  Iter_id: 14043 IterLoss: 1.0250569582  EpochLoss: 0.9906922698
+2024-11-03 10:15:16 - INFO - Epoch: 403/800  Runtime: 10.25s  Iter_id: 14086 IterLoss: 0.9877029657  EpochLoss: 0.9953118188
+2024-11-03 10:15:26 - INFO - Epoch: 404/800  Runtime:  9.86s  Iter_id: 14115 IterLoss: 0.9939265251  EpochLoss: 0.9947107553
+2024-11-03 10:15:36 - INFO - Epoch: 405/800  Runtime: 10.27s  Iter_id: 14154 IterLoss: 1.0132704973  EpochLoss: 0.9929413744
+2024-11-03 10:15:46 - INFO - Epoch: 406/800  Runtime:  9.82s  Iter_id: 14181 IterLoss: 1.0328698158  EpochLoss: 0.9945883802
+2024-11-03 10:15:56 - INFO - Epoch: 407/800  Runtime:  9.64s  Iter_id: 14218 IterLoss: 0.9808056951  EpochLoss: 0.9949217762
+2024-11-03 10:16:05 - INFO - Epoch: 408/800  Runtime:  9.63s  Iter_id: 14266 IterLoss: 0.9786767960  EpochLoss: 0.9927849667
+2024-11-03 10:16:15 - INFO - Epoch: 409/800  Runtime:  9.81s  Iter_id: 14289 IterLoss: 0.9940361977  EpochLoss: 0.9952496478
+2024-11-03 10:16:25 - INFO - Epoch: 410/800  Runtime:  9.78s  Iter_id: 14325 IterLoss: 0.9750482440  EpochLoss: 0.9928269352
+2024-11-03 10:16:34 - INFO - Epoch: 411/800  Runtime:  9.55s  Iter_id: 14356 IterLoss: 0.9668601751  EpochLoss: 0.9940389344
+2024-11-03 10:16:45 - INFO - Epoch: 412/800  Runtime: 10.12s  Iter_id: 14389 IterLoss: 0.9907742143  EpochLoss: 0.9937394023
+2024-11-03 10:16:54 - INFO - Epoch: 413/800  Runtime:  9.80s  Iter_id: 14423 IterLoss: 1.0082634687  EpochLoss: 0.9934406485
+2024-11-03 10:17:05 - INFO - Epoch: 414/800  Runtime: 10.23s  Iter_id: 14469 IterLoss: 0.9815274477  EpochLoss: 0.9939201389
+2024-11-03 10:17:15 - INFO - Epoch: 415/800  Runtime: 10.49s  Iter_id: 14505 IterLoss: 0.9803016186  EpochLoss: 0.9959973948
+2024-11-03 10:17:25 - INFO - Epoch: 416/800  Runtime:  9.62s  Iter_id: 14537 IterLoss: 0.9834907651  EpochLoss: 0.9915740592
+2024-11-03 10:17:34 - INFO - Epoch: 417/800  Runtime:  9.60s  Iter_id: 14584 IterLoss: 0.9882118702  EpochLoss: 0.9932915773
+2024-11-03 10:17:44 - INFO - Epoch: 418/800  Runtime: 10.22s  Iter_id: 14602 IterLoss: 0.9737382531  EpochLoss: 0.9924686602
+2024-11-03 10:17:55 - INFO - Epoch: 419/800  Runtime: 10.27s  Iter_id: 14665 IterLoss: 1.0102599859  EpochLoss: 0.9932217887
+2024-11-03 10:18:04 - INFO - Epoch: 420/800  Runtime:  9.27s  Iter_id: 14690 IterLoss: 1.0028200150  EpochLoss: 0.9954244699
+2024-11-03 10:18:05 - INFO - Eval Epoch: 420
+2024-11-03 10:18:05 - INFO - Overall Accuracy: 74.20 || Mean Overall Accuracy: 58.53
+2024-11-03 10:18:05 - INFO - Mean IoU: 0.472 || Per-class IoU score:  Ground=0.725  Building=0.484  Trees=0.707  Low vegetation=0.371  Artifacts=0.071  
+2024-11-03 10:18:05 - INFO - Macro F1: 0.599 || Per-class  F1 score:  Ground=0.841  Building=0.653  Trees=0.829  Low vegetation=0.541  Artifacts=0.133  
+
+2024-11-03 10:18:15 - INFO - Epoch: 421/800  Runtime:  9.71s  Iter_id: 14706 IterLoss: 0.9984281659  EpochLoss: 0.9903896826
+2024-11-03 10:18:24 - INFO - Epoch: 422/800  Runtime:  9.66s  Iter_id: 14743 IterLoss: 0.9861872792  EpochLoss: 0.9936094046
+2024-11-03 10:18:34 - INFO - Epoch: 423/800  Runtime:  9.74s  Iter_id: 14773 IterLoss: 0.9884395599  EpochLoss: 0.9937475766
+2024-11-03 10:18:44 - INFO - Epoch: 424/800  Runtime:  9.71s  Iter_id: 14835 IterLoss: 1.0313550234  EpochLoss: 0.9944516403
+2024-11-03 10:18:53 - INFO - Epoch: 425/800  Runtime:  9.73s  Iter_id: 14845 IterLoss: 0.9894939661  EpochLoss: 0.9956445149
+2024-11-03 10:19:04 - INFO - Epoch: 426/800  Runtime: 10.33s  Iter_id: 14907 IterLoss: 1.0281854868  EpochLoss: 0.9967068706
+2024-11-03 10:19:13 - INFO - Epoch: 427/800  Runtime:  9.77s  Iter_id: 14935 IterLoss: 0.9760296345  EpochLoss: 0.9892113975
+2024-11-03 10:19:23 - INFO - Epoch: 428/800  Runtime:  9.71s  Iter_id: 14952 IterLoss: 0.9610143304  EpochLoss: 0.9929758140
+2024-11-03 10:19:32 - INFO - Epoch: 429/800  Runtime:  9.25s  Iter_id: 14992 IterLoss: 0.9823289514  EpochLoss: 0.9915749209
+2024-11-03 10:19:43 - INFO - Epoch: 430/800  Runtime: 10.07s  Iter_id: 15031 IterLoss: 1.0038348436  EpochLoss: 0.9925798467
+2024-11-03 10:19:52 - INFO - Epoch: 431/800  Runtime:  9.73s  Iter_id: 15079 IterLoss: 0.9781587124  EpochLoss: 0.9932215469
+2024-11-03 10:20:03 - INFO - Epoch: 432/800  Runtime: 10.53s  Iter_id: 15110 IterLoss: 0.9873191714  EpochLoss: 0.9936752081
+2024-11-03 10:20:13 - INFO - Epoch: 433/800  Runtime:  9.98s  Iter_id: 15140 IterLoss: 1.0284892321  EpochLoss: 0.9891271251
+2024-11-03 10:20:23 - INFO - Epoch: 434/800  Runtime:  9.77s  EpochLoss: 0.9901643378
+2024-11-03 10:20:33 - INFO - Epoch: 435/800  Runtime:  9.92s  Iter_id: 15218 IterLoss: 0.9862673283  EpochLoss: 0.9919184566
+2024-11-03 10:20:43 - INFO - Epoch: 436/800  Runtime: 10.19s  Iter_id: 15241 IterLoss: 0.9515727162  EpochLoss: 0.9912424667
+2024-11-03 10:20:53 - INFO - Epoch: 437/800  Runtime:  9.80s  Iter_id: 15264 IterLoss: 0.9939851761  EpochLoss: 0.9926087822
+2024-11-03 10:21:02 - INFO - Epoch: 438/800  Runtime:  9.55s  Iter_id: 15306 IterLoss: 0.9801380634  EpochLoss: 0.9909873979
+2024-11-03 10:21:12 - INFO - Epoch: 439/800  Runtime: 10.10s  Iter_id: 15353 IterLoss: 0.9797922373  EpochLoss: 0.9934637070
+2024-11-03 10:21:22 - INFO - Epoch: 440/800  Runtime:  9.59s  Iter_id: 15370 IterLoss: 1.0147927999  EpochLoss: 0.9892890317
+2024-11-03 10:21:31 - INFO - Epoch: 441/800  Runtime:  9.33s  Iter_id: 15407 IterLoss: 0.9902126193  EpochLoss: 0.9942458238
+2024-11-03 10:21:40 - INFO - Epoch: 442/800  Runtime:  9.17s  Iter_id: 15446 IterLoss: 0.9734103680  EpochLoss: 0.9924081326
+2024-11-03 10:21:50 - INFO - Epoch: 443/800  Runtime:  9.86s  Iter_id: 15499 IterLoss: 0.9866757989  EpochLoss: 0.9908430900
+2024-11-03 10:22:00 - INFO - Epoch: 444/800  Runtime: 10.07s  Iter_id: 15531 IterLoss: 0.9645504951  EpochLoss: 0.9959339176
+2024-11-03 10:22:10 - INFO - Epoch: 445/800  Runtime:  9.43s  Iter_id: 15559 IterLoss: 0.9849798083  EpochLoss: 0.9911572065
+2024-11-03 10:22:20 - INFO - Epoch: 446/800  Runtime: 10.16s  Iter_id: 15590 IterLoss: 0.9589411020  EpochLoss: 0.9903366481
+2024-11-03 10:22:30 - INFO - Epoch: 447/800  Runtime:  9.79s  Iter_id: 15645 IterLoss: 1.0006719828  EpochLoss: 0.9924157279
+2024-11-03 10:22:39 - INFO - Epoch: 448/800  Runtime:  9.63s  Iter_id: 15654 IterLoss: 0.9827707410  EpochLoss: 0.9935218811
+2024-11-03 10:22:49 - INFO - Epoch: 449/800  Runtime: 10.09s  Iter_id: 15682 IterLoss: 0.9930483103  EpochLoss: 0.9919787850
+2024-11-03 10:22:59 - INFO - Epoch: 450/800  Runtime:  9.55s  Iter_id: 15720 IterLoss: 0.9714666605  EpochLoss: 0.9909453256
+2024-11-03 10:23:00 - INFO - Eval Epoch: 450
+2024-11-03 10:23:00 - INFO - Overall Accuracy: 76.22 || Mean Overall Accuracy: 57.63
+2024-11-03 10:23:00 - INFO - Mean IoU: 0.474 || Per-class IoU score:  Ground=0.747  Building=0.449  Trees=0.736  Low vegetation=0.417  Artifacts=0.019  
+2024-11-03 10:23:00 - INFO - Macro F1: 0.590 || Per-class  F1 score:  Ground=0.855  Building=0.620  Trees=0.848  Low vegetation=0.589  Artifacts=0.037  
+
+2024-11-03 10:23:10 - INFO - Epoch: 451/800  Runtime: 10.04s  Iter_id: 15752 IterLoss: 1.0170321465  EpochLoss: 0.9890476022
+2024-11-03 10:23:20 - INFO - Epoch: 452/800  Runtime: 10.02s  Iter_id: 15821 IterLoss: 0.9675739408  EpochLoss: 0.9896863341
+2024-11-03 10:23:30 - INFO - Epoch: 453/800  Runtime:  9.84s  Iter_id: 15830 IterLoss: 1.0014425516  EpochLoss: 0.9887277211
+2024-11-03 10:23:40 - INFO - Epoch: 454/800  Runtime: 10.04s  Iter_id: 15857 IterLoss: 0.9942885637  EpochLoss: 0.9898059590
+2024-11-03 10:23:49 - INFO - Epoch: 455/800  Runtime:  9.70s  Iter_id: 15909 IterLoss: 0.9943965673  EpochLoss: 0.9895272289
+2024-11-03 10:23:59 - INFO - Epoch: 456/800  Runtime:  9.94s  Iter_id: 15941 IterLoss: 1.0322271585  EpochLoss: 0.9922104444
+2024-11-03 10:24:09 - INFO - Epoch: 457/800  Runtime:  9.25s  Iter_id: 15985 IterLoss: 1.0450719595  EpochLoss: 0.9922906467
+2024-11-03 10:24:18 - INFO - Epoch: 458/800  Runtime:  8.99s  Iter_id: 16017 IterLoss: 1.0380744934  EpochLoss: 0.9918188368
+2024-11-03 10:24:27 - INFO - Epoch: 459/800  Runtime:  9.48s  Iter_id: 16055 IterLoss: 0.9728783369  EpochLoss: 0.9903542570
+2024-11-03 10:24:37 - INFO - Epoch: 460/800  Runtime:  9.52s  Iter_id: 16075 IterLoss: 0.9903632998  EpochLoss: 0.9886186923
+2024-11-03 10:24:46 - INFO - Epoch: 461/800  Runtime:  9.67s  Iter_id: 16118 IterLoss: 0.9913079739  EpochLoss: 0.9906548960
+2024-11-03 10:24:55 - INFO - Epoch: 462/800  Runtime:  9.13s  Iter_id: 16163 IterLoss: 0.9762323499  EpochLoss: 0.9890943578
+2024-11-03 10:25:05 - INFO - Epoch: 463/800  Runtime:  9.21s  Iter_id: 16201 IterLoss: 1.0057014227  EpochLoss: 0.9893393006
+2024-11-03 10:25:14 - INFO - Epoch: 464/800  Runtime:  9.54s  Iter_id: 16221 IterLoss: 0.9929235578  EpochLoss: 0.9919823357
+2024-11-03 10:25:23 - INFO - Epoch: 465/800  Runtime:  9.02s  Iter_id: 16270 IterLoss: 0.9738680720  EpochLoss: 0.9886309505
+2024-11-03 10:25:33 - INFO - Epoch: 466/800  Runtime:  9.93s  Iter_id: 16298 IterLoss: 0.9809129834  EpochLoss: 0.9918732320
+2024-11-03 10:25:43 - INFO - Epoch: 467/800  Runtime: 10.38s  Iter_id: 16321 IterLoss: 0.9623232484  EpochLoss: 0.9890669789
+2024-11-03 10:25:54 - INFO - Epoch: 468/800  Runtime: 10.30s  Iter_id: 16374 IterLoss: 0.9923723936  EpochLoss: 0.9876681720
+2024-11-03 10:26:04 - INFO - Epoch: 469/800  Runtime:  9.95s  Iter_id: 16384 IterLoss: 0.9538741112  EpochLoss: 0.9902593306
+2024-11-03 10:26:13 - INFO - Epoch: 470/800  Runtime:  9.15s  Iter_id: 16429 IterLoss: 1.0276851654  EpochLoss: 0.9926049352
+2024-11-03 10:26:23 - INFO - Epoch: 471/800  Runtime:  9.91s  Iter_id: 16471 IterLoss: 0.9838653803  EpochLoss: 0.9875682490
+2024-11-03 10:26:32 - INFO - Epoch: 472/800  Runtime:  9.36s  Iter_id: 16521 IterLoss: 0.9600017667  EpochLoss: 0.9915287665
+2024-11-03 10:26:41 - INFO - Epoch: 473/800  Runtime:  9.09s  Iter_id: 16527 IterLoss: 0.9898978472  EpochLoss: 0.9902978863
+2024-11-03 10:26:51 - INFO - Epoch: 474/800  Runtime:  9.86s  Iter_id: 16585 IterLoss: 0.9763380289  EpochLoss: 0.9902131081
+2024-11-03 10:27:00 - INFO - Epoch: 475/800  Runtime:  9.18s  Iter_id: 16626 IterLoss: 0.9801681042  EpochLoss: 0.9882105793
+2024-11-03 10:27:10 - INFO - Epoch: 476/800  Runtime:  9.34s  Iter_id: 16628 IterLoss: 0.9905994534  EpochLoss: 0.9876733133
+2024-11-03 10:27:20 - INFO - Epoch: 477/800  Runtime: 10.50s  Iter_id: 16681 IterLoss: 0.9598410726  EpochLoss: 0.9888666272
+2024-11-03 10:27:30 - INFO - Epoch: 478/800  Runtime:  9.73s  Iter_id: 16719 IterLoss: 1.0079011917  EpochLoss: 0.9898405058
+2024-11-03 10:27:40 - INFO - Epoch: 479/800  Runtime:  9.91s  Iter_id: 16753 IterLoss: 0.9827126861  EpochLoss: 0.9893444725
+2024-11-03 10:27:49 - INFO - Epoch: 480/800  Runtime:  9.25s  Iter_id: 16776 IterLoss: 1.0484061241  EpochLoss: 0.9880265117
+2024-11-03 10:27:50 - INFO - Eval Epoch: 480
+2024-11-03 10:27:50 - INFO - Overall Accuracy: 70.48 || Mean Overall Accuracy: 54.98
+2024-11-03 10:27:50 - INFO - Mean IoU: 0.417 || Per-class IoU score:  Ground=0.685  Building=0.364  Trees=0.621  Low vegetation=0.409  Artifacts=0.008  
+2024-11-03 10:27:50 - INFO - Macro F1: 0.542 || Per-class  F1 score:  Ground=0.813  Building=0.533  Trees=0.766  Low vegetation=0.581  Artifacts=0.016  
+
+2024-11-03 10:27:59 - INFO - Epoch: 481/800  Runtime:  9.47s  Iter_id: 16822 IterLoss: 0.9668400288  EpochLoss: 0.9905060087
+2024-11-03 10:28:09 - INFO - Epoch: 482/800  Runtime:  9.73s  Iter_id: 16840 IterLoss: 0.9716587067  EpochLoss: 0.9879233394
+2024-11-03 10:28:19 - INFO - Epoch: 483/800  Runtime:  9.63s  Iter_id: 16902 IterLoss: 0.9799164534  EpochLoss: 0.9907442893
+2024-11-03 10:28:29 - INFO - Epoch: 484/800  Runtime: 10.05s  Iter_id: 16931 IterLoss: 0.9994164705  EpochLoss: 0.9877045427
+2024-11-03 10:28:39 - INFO - Epoch: 485/800  Runtime: 10.37s  Iter_id: 16963 IterLoss: 0.9796339869  EpochLoss: 0.9893854822
+2024-11-03 10:28:49 - INFO - Epoch: 486/800  Runtime:  9.80s  Iter_id: 16988 IterLoss: 1.0166777372  EpochLoss: 0.9890266674
+2024-11-03 10:28:59 - INFO - Epoch: 487/800  Runtime:  9.87s  Iter_id: 17032 IterLoss: 0.9864535928  EpochLoss: 0.9892256345
+2024-11-03 10:29:09 - INFO - Epoch: 488/800  Runtime: 10.08s  Iter_id: 17048 IterLoss: 0.9513391256  EpochLoss: 0.9891551750
+2024-11-03 10:29:19 - INFO - Epoch: 489/800  Runtime:  9.76s  Iter_id: 17098 IterLoss: 0.9858618975  EpochLoss: 0.9890655364
+2024-11-03 10:29:28 - INFO - Epoch: 490/800  Runtime:  9.05s  Iter_id: 17133 IterLoss: 0.9665209651  EpochLoss: 0.9872198156
+2024-11-03 10:29:37 - INFO - Epoch: 491/800  Runtime:  9.05s  Iter_id: 17177 IterLoss: 0.9795884490  EpochLoss: 0.9930244241
+2024-11-03 10:29:47 - INFO - Epoch: 492/800  Runtime:  9.74s  Iter_id: 17218 IterLoss: 0.9954034090  EpochLoss: 0.9897660800
+2024-11-03 10:29:56 - INFO - Epoch: 493/800  Runtime:  9.54s  Iter_id: 17231 IterLoss: 0.9724127650  EpochLoss: 0.9874097671
+2024-11-03 10:30:05 - INFO - Epoch: 494/800  Runtime:  9.09s  Iter_id: 17272 IterLoss: 0.9969970584  EpochLoss: 0.9885171941
+2024-11-03 10:30:15 - INFO - Epoch: 495/800  Runtime:  9.66s  Iter_id: 17315 IterLoss: 0.9870064259  EpochLoss: 0.9898490412
+2024-11-03 10:30:24 - INFO - Epoch: 496/800  Runtime:  9.40s  Iter_id: 17346 IterLoss: 1.0390926600  EpochLoss: 0.9867874384
+2024-11-03 10:30:35 - INFO - Epoch: 497/800  Runtime: 10.35s  Iter_id: 17362 IterLoss: 1.0239439011  EpochLoss: 0.9907314743
+2024-11-03 10:30:45 - INFO - Epoch: 498/800  Runtime: 10.52s  Iter_id: 17401 IterLoss: 0.9890294075  EpochLoss: 0.9894184981
+2024-11-03 10:30:55 - INFO - Epoch: 499/800  Runtime:  9.53s  Iter_id: 17434 IterLoss: 0.9887908101  EpochLoss: 0.9877613596
+2024-11-03 10:31:05 - INFO - Epoch: 500/800  Runtime:  9.92s  Iter_id: 17498 IterLoss: 0.9909427166  EpochLoss: 0.9864615713
+2024-11-03 10:31:15 - INFO - Epoch: 501/800  Runtime: 10.12s  Iter_id: 17523 IterLoss: 0.9829666018  EpochLoss: 0.9885242019
+2024-11-03 10:31:25 - INFO - Epoch: 502/800  Runtime: 10.12s  Iter_id: 17537 IterLoss: 0.9830085635  EpochLoss: 0.9867989148
+2024-11-03 10:31:34 - INFO - Epoch: 503/800  Runtime:  9.50s  Iter_id: 17575 IterLoss: 0.9856167436  EpochLoss: 0.9865824529
+2024-11-03 10:31:45 - INFO - Epoch: 504/800  Runtime: 10.17s  Iter_id: 17621 IterLoss: 1.0137287378  EpochLoss: 0.9876362375
+2024-11-03 10:31:55 - INFO - Epoch: 505/800  Runtime: 10.23s  Iter_id: 17669 IterLoss: 0.9988459945  EpochLoss: 0.9897895847
+2024-11-03 10:32:05 - INFO - Epoch: 506/800  Runtime:  9.96s  Iter_id: 17693 IterLoss: 1.0344071388  EpochLoss: 0.9878331474
+2024-11-03 10:32:14 - INFO - Epoch: 507/800  Runtime:  9.51s  Iter_id: 17716 IterLoss: 0.9590007663  EpochLoss: 0.9851156558
+2024-11-03 10:32:25 - INFO - Epoch: 508/800  Runtime: 10.56s  Iter_id: 17748 IterLoss: 1.0002754927  EpochLoss: 0.9861424565
+2024-11-03 10:32:35 - INFO - Epoch: 509/800  Runtime: 10.20s  Iter_id: 17798 IterLoss: 0.9811695218  EpochLoss: 0.9893604687
+2024-11-03 10:32:45 - INFO - Epoch: 510/800  Runtime: 10.04s  Iter_id: 17817 IterLoss: 0.9672883749  EpochLoss: 0.9871830804
+2024-11-03 10:32:46 - INFO - Eval Epoch: 510
+2024-11-03 10:32:46 - INFO - Overall Accuracy: 74.17 || Mean Overall Accuracy: 57.20
+2024-11-03 10:32:46 - INFO - Mean IoU: 0.457 || Per-class IoU score:  Ground=0.723  Building=0.436  Trees=0.736  Low vegetation=0.365  Artifacts=0.025  
+2024-11-03 10:32:46 - INFO - Macro F1: 0.575 || Per-class  F1 score:  Ground=0.839  Building=0.607  Trees=0.848  Low vegetation=0.534  Artifacts=0.048  
+
+2024-11-03 10:32:56 - INFO - Epoch: 511/800  Runtime:  9.65s  Iter_id: 17857 IterLoss: 0.9711356759  EpochLoss: 0.9859976411
+2024-11-03 10:33:06 - INFO - Epoch: 512/800  Runtime: 10.14s  Iter_id: 17919 IterLoss: 0.9844164252  EpochLoss: 0.9900112459
+2024-11-03 10:33:16 - INFO - Epoch: 513/800  Runtime: 10.21s  Iter_id: 17929 IterLoss: 1.0060501099  EpochLoss: 0.9858880128
+2024-11-03 10:33:25 - INFO - Epoch: 514/800  Runtime:  8.99s  Iter_id: 17987 IterLoss: 0.9683071971  EpochLoss: 0.9844608120
+2024-11-03 10:33:35 - INFO - Epoch: 515/800  Runtime:  9.89s  Iter_id: 18025 IterLoss: 1.0247024298  EpochLoss: 0.9864216634
+2024-11-03 10:33:45 - INFO - Epoch: 516/800  Runtime:  9.70s  EpochLoss: 0.9845582911
+2024-11-03 10:33:55 - INFO - Epoch: 517/800  Runtime: 10.22s  Iter_id: 18073 IterLoss: 1.0144976377  EpochLoss: 0.9891205294
+2024-11-03 10:34:05 - INFO - Epoch: 518/800  Runtime: 10.25s  Iter_id: 18110 IterLoss: 1.0037595034  EpochLoss: 0.9891307524
+2024-11-03 10:34:15 - INFO - Epoch: 519/800  Runtime:  9.70s  Iter_id: 18142 IterLoss: 0.9887946248  EpochLoss: 0.9881512267
+2024-11-03 10:34:25 - INFO - Epoch: 520/800  Runtime: 10.22s  Iter_id: 18201 IterLoss: 0.9810378551  EpochLoss: 0.9865890895
+2024-11-03 10:34:34 - INFO - Epoch: 521/800  Runtime:  9.51s  Iter_id: 18221 IterLoss: 0.9442440271  EpochLoss: 0.9834351301
+2024-11-03 10:34:44 - INFO - Epoch: 522/800  Runtime:  9.63s  Iter_id: 18261 IterLoss: 0.9762336016  EpochLoss: 0.9849210228
+2024-11-03 10:34:54 - INFO - Epoch: 523/800  Runtime: 10.19s  Iter_id: 18286 IterLoss: 0.9608304501  EpochLoss: 0.9856621061
+2024-11-03 10:35:04 - INFO - Epoch: 524/800  Runtime:  9.58s  Iter_id: 18321 IterLoss: 0.9760683179  EpochLoss: 0.9870226758
+2024-11-03 10:35:14 - INFO - Epoch: 525/800  Runtime: 10.33s  Iter_id: 18343 IterLoss: 0.9587866068  EpochLoss: 0.9854950564
+2024-11-03 10:35:24 - INFO - Epoch: 526/800  Runtime:  9.80s  Iter_id: 18407 IterLoss: 0.9882210493  EpochLoss: 0.9874473436
+2024-11-03 10:35:34 - INFO - Epoch: 527/800  Runtime:  9.78s  Iter_id: 18439 IterLoss: 0.9525092244  EpochLoss: 0.9843901174
+2024-11-03 10:35:44 - INFO - Epoch: 528/800  Runtime: 10.06s  Iter_id: 18464 IterLoss: 0.9494859576  EpochLoss: 0.9852264864
+2024-11-03 10:35:54 - INFO - Epoch: 529/800  Runtime: 10.39s  Iter_id: 18492 IterLoss: 0.9979561567  EpochLoss: 0.9882114376
+2024-11-03 10:36:05 - INFO - Epoch: 530/800  Runtime: 10.71s  Iter_id: 18520 IterLoss: 0.9805213213  EpochLoss: 0.9865515368
+2024-11-03 10:36:15 - INFO - Epoch: 531/800  Runtime: 10.45s  Iter_id: 18579 IterLoss: 0.9616920948  EpochLoss: 0.9823260631
+2024-11-03 10:36:25 - INFO - Epoch: 532/800  Runtime:  9.72s  Iter_id: 18598 IterLoss: 0.9836276174  EpochLoss: 0.9848449843
+2024-11-03 10:36:34 - INFO - Epoch: 533/800  Runtime:  9.32s  Iter_id: 18642 IterLoss: 1.0328117609  EpochLoss: 0.9855870826
+2024-11-03 10:36:44 - INFO - Epoch: 534/800  Runtime:  9.32s  Iter_id: 18672 IterLoss: 1.0246485472  EpochLoss: 0.9862703068
+2024-11-03 10:36:53 - INFO - Epoch: 535/800  Runtime:  9.29s  Iter_id: 18709 IterLoss: 1.0748077631  EpochLoss: 0.9876337375
+2024-11-03 10:37:03 - INFO - Epoch: 536/800  Runtime:  9.67s  Iter_id: 18742 IterLoss: 0.9748243093  EpochLoss: 0.9861812575
+2024-11-03 10:37:13 - INFO - Epoch: 537/800  Runtime: 10.00s  Iter_id: 18782 IterLoss: 0.9757087231  EpochLoss: 0.9849669712
+2024-11-03 10:37:23 - INFO - Epoch: 538/800  Runtime:  9.98s  Iter_id: 18801 IterLoss: 0.9927355647  EpochLoss: 0.9864885109
+2024-11-03 10:37:33 - INFO - Epoch: 539/800  Runtime: 10.18s  Iter_id: 18858 IterLoss: 0.9810760021  EpochLoss: 0.9899241090
+2024-11-03 10:37:43 - INFO - Epoch: 540/800  Runtime:  9.84s  Iter_id: 18896 IterLoss: 0.9594124556  EpochLoss: 0.9884037563
+2024-11-03 10:37:44 - INFO - Eval Epoch: 540
+2024-11-03 10:37:44 - INFO - Overall Accuracy: 71.96 || Mean Overall Accuracy: 49.74
+2024-11-03 10:37:44 - INFO - Mean IoU: 0.400 || Per-class IoU score:  Ground=0.716  Building=0.360  Trees=0.585  Low vegetation=0.322  Artifacts=0.018  
+2024-11-03 10:37:44 - INFO - Macro F1: 0.525 || Per-class  F1 score:  Ground=0.835  Building=0.529  Trees=0.738  Low vegetation=0.487  Artifacts=0.035  
+
+2024-11-03 10:37:54 - INFO - Epoch: 541/800  Runtime:  9.95s  Iter_id: 18902 IterLoss: 0.9874230027  EpochLoss: 0.9849258082
+2024-11-03 10:38:04 - INFO - Epoch: 542/800  Runtime:  9.95s  Iter_id: 18965 IterLoss: 0.9890710115  EpochLoss: 0.9882862568
+2024-11-03 10:38:13 - INFO - Epoch: 543/800  Runtime:  9.89s  Iter_id: 18989 IterLoss: 1.0032504797  EpochLoss: 0.9881652866
+2024-11-03 10:38:23 - INFO - Epoch: 544/800  Runtime:  9.57s  Iter_id: 19010 IterLoss: 1.0066323280  EpochLoss: 0.9848370109
+2024-11-03 10:38:33 - INFO - Epoch: 545/800  Runtime:  9.73s  Iter_id: 19051 IterLoss: 0.9997490048  EpochLoss: 0.9887119549
+2024-11-03 10:38:42 - INFO - Epoch: 546/800  Runtime:  9.59s  Iter_id: 19104 IterLoss: 0.9949377775  EpochLoss: 0.9847902928
+2024-11-03 10:38:52 - INFO - Epoch: 547/800  Runtime:  9.58s  Iter_id: 19120 IterLoss: 0.9763908982  EpochLoss: 0.9831037079
+2024-11-03 10:39:02 - INFO - Epoch: 548/800  Runtime: 10.01s  Iter_id: 19158 IterLoss: 0.9526321888  EpochLoss: 0.9822006634
+2024-11-03 10:39:12 - INFO - Epoch: 549/800  Runtime:  9.99s  Iter_id: 19186 IterLoss: 0.9934128523  EpochLoss: 0.9802055103
+2024-11-03 10:39:22 - INFO - Epoch: 550/800  Runtime: 10.16s  Iter_id: 19247 IterLoss: 0.9852434993  EpochLoss: 0.9874379635
+2024-11-03 10:39:32 - INFO - Epoch: 551/800  Runtime:  9.89s  Iter_id: 19260 IterLoss: 0.9575091004  EpochLoss: 0.9831644109
+2024-11-03 10:39:42 - INFO - Epoch: 552/800  Runtime: 10.47s  Iter_id: 19293 IterLoss: 0.9772378802  EpochLoss: 0.9849480748
+2024-11-03 10:39:52 - INFO - Epoch: 553/800  Runtime:  9.63s  Iter_id: 19332 IterLoss: 0.9745026231  EpochLoss: 0.9835886189
+2024-11-03 10:40:02 - INFO - Epoch: 554/800  Runtime:  9.92s  Iter_id: 19378 IterLoss: 0.9849484563  EpochLoss: 0.9840058821
+2024-11-03 10:40:12 - INFO - Epoch: 555/800  Runtime:  9.86s  Iter_id: 19411 IterLoss: 0.9744222164  EpochLoss: 0.9867797954
+2024-11-03 10:40:21 - INFO - Epoch: 556/800  Runtime:  8.91s  Iter_id: 19444 IterLoss: 0.9774216413  EpochLoss: 0.9849250606
+2024-11-03 10:40:30 - INFO - Epoch: 557/800  Runtime:  8.87s  Iter_id: 19483 IterLoss: 0.9681766033  EpochLoss: 0.9832597664
+2024-11-03 10:40:39 - INFO - Epoch: 558/800  Runtime:  9.42s  Iter_id: 19507 IterLoss: 0.9767454267  EpochLoss: 0.9836802551
+2024-11-03 10:40:49 - INFO - Epoch: 559/800  Runtime: 10.00s  Iter_id: 19537 IterLoss: 0.9850198030  EpochLoss: 0.9843012588
+2024-11-03 10:40:59 - INFO - Epoch: 560/800  Runtime:  9.56s  Iter_id: 19570 IterLoss: 0.9680885673  EpochLoss: 0.9832306913
+2024-11-03 10:41:08 - INFO - Epoch: 561/800  Runtime:  9.37s  Iter_id: 19630 IterLoss: 0.9942683578  EpochLoss: 0.9883839045
+2024-11-03 10:41:18 - INFO - Epoch: 562/800  Runtime:  9.71s  Iter_id: 19657 IterLoss: 1.0768676996  EpochLoss: 0.9853503381
+2024-11-03 10:41:27 - INFO - Epoch: 563/800  Runtime:  9.31s  Iter_id: 19692 IterLoss: 0.9896670580  EpochLoss: 0.9832864455
+2024-11-03 10:41:37 - INFO - Epoch: 564/800  Runtime:  9.89s  Iter_id: 19731 IterLoss: 0.9795069098  EpochLoss: 0.9843138831
+2024-11-03 10:41:46 - INFO - Epoch: 565/800  Runtime:  9.40s  Iter_id: 19767 IterLoss: 0.9606747031  EpochLoss: 0.9848554526
+2024-11-03 10:41:55 - INFO - Epoch: 566/800  Runtime:  8.87s  Iter_id: 19795 IterLoss: 0.9986380935  EpochLoss: 0.9831006697
+2024-11-03 10:42:04 - INFO - Epoch: 567/800  Runtime:  8.86s  EpochLoss: 0.9825082592
+2024-11-03 10:42:14 - INFO - Epoch: 568/800  Runtime:  9.47s  Iter_id: 19850 IterLoss: 1.0140405893  EpochLoss: 0.9846189669
+2024-11-03 10:42:24 - INFO - Epoch: 569/800  Runtime: 10.00s  Iter_id: 19904 IterLoss: 1.0042755604  EpochLoss: 0.9849086199
+2024-11-03 10:42:34 - INFO - Epoch: 570/800  Runtime: 10.16s  Iter_id: 19918 IterLoss: 0.9941629171  EpochLoss: 0.9865817717
+2024-11-03 10:42:35 - INFO - Eval Epoch: 570
+2024-11-03 10:42:35 - INFO - Overall Accuracy: 73.01 || Mean Overall Accuracy: 53.13
+2024-11-03 10:42:35 - INFO - Mean IoU: 0.438 || Per-class IoU score:  Ground=0.712  Building=0.450  Trees=0.667  Low vegetation=0.336  Artifacts=0.024  
+2024-11-03 10:42:35 - INFO - Macro F1: 0.560 || Per-class  F1 score:  Ground=0.832  Building=0.621  Trees=0.800  Low vegetation=0.503  Artifacts=0.047  
+
+2024-11-03 10:42:45 - INFO - Epoch: 571/800  Runtime:  9.96s  Iter_id: 19973 IterLoss: 0.9505653977  EpochLoss: 0.9834596123
+2024-11-03 10:42:54 - INFO - Epoch: 572/800  Runtime:  9.51s  Iter_id: 20007 IterLoss: 0.9951757193  EpochLoss: 0.9846813066
+2024-11-03 10:43:04 - INFO - Epoch: 573/800  Runtime:  9.47s  Iter_id: 20043 IterLoss: 1.0037788153  EpochLoss: 0.9822782687
+2024-11-03 10:43:13 - INFO - Epoch: 574/800  Runtime:  9.39s  Iter_id: 20060 IterLoss: 0.9711027145  EpochLoss: 0.9855951701
+2024-11-03 10:43:22 - INFO - Epoch: 575/800  Runtime:  9.53s  Iter_id: 20113 IterLoss: 0.9905959368  EpochLoss: 0.9842591609
+2024-11-03 10:43:32 - INFO - Epoch: 576/800  Runtime:  9.34s  Iter_id: 20160 IterLoss: 0.9711179137  EpochLoss: 0.9824391127
+2024-11-03 10:43:42 - INFO - Epoch: 577/800  Runtime:  9.95s  Iter_id: 20189 IterLoss: 0.9471491575  EpochLoss: 0.9804857067
+2024-11-03 10:43:52 - INFO - Epoch: 578/800  Runtime: 10.18s  Iter_id: 20229 IterLoss: 1.0150905848  EpochLoss: 0.9820950099
+2024-11-03 10:44:02 - INFO - Epoch: 579/800  Runtime:  9.95s  Iter_id: 20252 IterLoss: 0.9935674667  EpochLoss: 0.9846718958
+2024-11-03 10:44:12 - INFO - Epoch: 580/800  Runtime: 10.13s  Iter_id: 20295 IterLoss: 0.9639111161  EpochLoss: 0.9871791533
+2024-11-03 10:44:22 - INFO - Epoch: 581/800  Runtime: 10.02s  Iter_id: 20332 IterLoss: 0.9888127446  EpochLoss: 0.9860163399
+2024-11-03 10:44:32 - INFO - Epoch: 582/800  Runtime:  9.91s  Iter_id: 20369 IterLoss: 0.9614304304  EpochLoss: 0.9851434418
+2024-11-03 10:44:42 - INFO - Epoch: 583/800  Runtime:  9.93s  Iter_id: 20387 IterLoss: 0.9457165599  EpochLoss: 0.9863070369
+2024-11-03 10:44:51 - INFO - Epoch: 584/800  Runtime:  9.01s  Iter_id: 20420 IterLoss: 0.9797492027  EpochLoss: 0.9819174392
+2024-11-03 10:45:01 - INFO - Epoch: 585/800  Runtime:  9.83s  Iter_id: 20463 IterLoss: 0.9742799401  EpochLoss: 0.9847429412
+2024-11-03 10:45:10 - INFO - Epoch: 586/800  Runtime:  8.85s  Iter_id: 20488 IterLoss: 0.9467665553  EpochLoss: 0.9822041529
+2024-11-03 10:45:19 - INFO - Epoch: 587/800  Runtime:  8.98s  Iter_id: 20537 IterLoss: 0.9831975698  EpochLoss: 0.9824521916
+2024-11-03 10:45:28 - INFO - Epoch: 588/800  Runtime:  9.37s  Iter_id: 20574 IterLoss: 0.9777396321  EpochLoss: 0.9850725395
+2024-11-03 10:45:37 - INFO - Epoch: 589/800  Runtime:  9.24s  Iter_id: 20583 IterLoss: 1.0017372370  EpochLoss: 0.9828653557
+2024-11-03 10:45:47 - INFO - Epoch: 590/800  Runtime:  9.60s  Iter_id: 20625 IterLoss: 0.9569277763  EpochLoss: 0.9820214357
+2024-11-03 10:45:56 - INFO - Epoch: 591/800  Runtime:  9.14s  Iter_id: 20677 IterLoss: 0.9359534979  EpochLoss: 0.9811911259
+2024-11-03 10:46:06 - INFO - Epoch: 592/800  Runtime:  9.68s  Iter_id: 20713 IterLoss: 0.9792582393  EpochLoss: 0.9809606041
+2024-11-03 10:46:15 - INFO - Epoch: 593/800  Runtime:  9.42s  Iter_id: 20743 IterLoss: 0.9839529395  EpochLoss: 0.9826041171
+2024-11-03 10:46:25 - INFO - Epoch: 594/800  Runtime:  9.81s  Iter_id: 20791 IterLoss: 0.9765484333  EpochLoss: 0.9800984791
+2024-11-03 10:46:35 - INFO - Epoch: 595/800  Runtime: 10.38s  Iter_id: 20810 IterLoss: 0.9800865054  EpochLoss: 0.9830101047
+2024-11-03 10:46:45 - INFO - Epoch: 596/800  Runtime:  9.95s  Iter_id: 20857 IterLoss: 0.9250990152  EpochLoss: 0.9817175099
+2024-11-03 10:46:55 - INFO - Epoch: 597/800  Runtime:  9.85s  Iter_id: 20867 IterLoss: 1.0004781485  EpochLoss: 0.9835845317
+2024-11-03 10:47:05 - INFO - Epoch: 598/800  Runtime: 10.32s  Iter_id: 20911 IterLoss: 0.9544376731  EpochLoss: 0.9791591304
+2024-11-03 10:47:15 - INFO - Epoch: 599/800  Runtime: 10.03s  Iter_id: 20941 IterLoss: 0.9877199531  EpochLoss: 0.9826601676
+2024-11-03 10:47:25 - INFO - Epoch: 600/800  Runtime:  9.66s  Iter_id: 20990 IterLoss: 0.9928660393  EpochLoss: 0.9822895970
+2024-11-03 10:47:26 - INFO - Eval Epoch: 600
+2024-11-03 10:47:26 - INFO - Overall Accuracy: 76.09 || Mean Overall Accuracy: 60.76
+2024-11-03 10:47:26 - INFO - Mean IoU: 0.491 || Per-class IoU score:  Ground=0.747  Building=0.504  Trees=0.719  Low vegetation=0.389  Artifacts=0.094  
+2024-11-03 10:47:26 - INFO - Macro F1: 0.619 || Per-class  F1 score:  Ground=0.855  Building=0.670  Trees=0.836  Low vegetation=0.561  Artifacts=0.173  
+
+2024-11-03 10:47:36 - INFO - Epoch: 601/800  Runtime:  9.92s  Iter_id: 21025 IterLoss: 0.9776844978  EpochLoss: 0.9813181315
+2024-11-03 10:47:46 - INFO - Epoch: 602/800  Runtime: 10.22s  Iter_id: 21059 IterLoss: 0.9893290401  EpochLoss: 0.9809210828
+2024-11-03 10:47:56 - INFO - Epoch: 603/800  Runtime:  9.66s  Iter_id: 21074 IterLoss: 1.0016833544  EpochLoss: 0.9832138709
+2024-11-03 10:48:06 - INFO - Epoch: 604/800  Runtime: 10.14s  Iter_id: 21136 IterLoss: 0.9936326742  EpochLoss: 0.9799653956
+2024-11-03 10:48:16 - INFO - Epoch: 605/800  Runtime: 10.16s  Iter_id: 21169 IterLoss: 0.9614002109  EpochLoss: 0.9836562599
+2024-11-03 10:48:25 - INFO - Epoch: 606/800  Runtime:  9.17s  Iter_id: 21201 IterLoss: 0.9591206908  EpochLoss: 0.9858578495
+2024-11-03 10:48:35 - INFO - Epoch: 607/800  Runtime:  9.90s  Iter_id: 21244 IterLoss: 1.0223379135  EpochLoss: 0.9818909560
+2024-11-03 10:48:45 - INFO - Epoch: 608/800  Runtime:  9.92s  Iter_id: 21269 IterLoss: 0.9815884829  EpochLoss: 0.9827651773
+2024-11-03 10:48:54 - INFO - Epoch: 609/800  Runtime:  9.28s  Iter_id: 21315 IterLoss: 0.9557190537  EpochLoss: 0.9825800010
+2024-11-03 10:49:04 - INFO - Epoch: 610/800  Runtime:  9.33s  EpochLoss: 0.9823721715
+2024-11-03 10:49:13 - INFO - Epoch: 611/800  Runtime:  9.67s  Iter_id: 21367 IterLoss: 0.9722144604  EpochLoss: 0.9823484080
+2024-11-03 10:49:23 - INFO - Epoch: 612/800  Runtime:  9.74s  Iter_id: 21394 IterLoss: 0.9791972041  EpochLoss: 0.9827389342
+2024-11-03 10:49:33 - INFO - Epoch: 613/800  Runtime:  9.63s  Iter_id: 21451 IterLoss: 0.9657219648  EpochLoss: 0.9840237566
+2024-11-03 10:49:43 - INFO - Epoch: 614/800  Runtime: 10.22s  Iter_id: 21481 IterLoss: 0.9667468071  EpochLoss: 0.9811753290
+2024-11-03 10:49:53 - INFO - Epoch: 615/800  Runtime: 10.48s  Iter_id: 21510 IterLoss: 0.9720806479  EpochLoss: 0.9800094826
+2024-11-03 10:50:04 - INFO - Epoch: 616/800  Runtime: 10.78s  Iter_id: 21558 IterLoss: 0.9330036044  EpochLoss: 0.9815385597
+2024-11-03 10:50:15 - INFO - Epoch: 617/800  Runtime: 10.34s  Iter_id: 21564 IterLoss: 0.9650143385  EpochLoss: 0.9824194653
+2024-11-03 10:50:25 - INFO - Epoch: 618/800  Runtime: 10.72s  Iter_id: 21601 IterLoss: 0.9680434465  EpochLoss: 0.9817239472
+2024-11-03 10:50:35 - INFO - Epoch: 619/800  Runtime: 10.09s  Iter_id: 21660 IterLoss: 0.9721186161  EpochLoss: 0.9830091221
+2024-11-03 10:50:45 - INFO - Epoch: 620/800  Runtime:  9.82s  Iter_id: 21685 IterLoss: 0.9714486003  EpochLoss: 0.9846521684
+2024-11-03 10:50:55 - INFO - Epoch: 621/800  Runtime: 10.09s  Iter_id: 21702 IterLoss: 0.9379276633  EpochLoss: 0.9824575612
+2024-11-03 10:51:05 - INFO - Epoch: 622/800  Runtime:  9.72s  Iter_id: 21745 IterLoss: 0.9710722566  EpochLoss: 0.9834093605
+2024-11-03 10:51:14 - INFO - Epoch: 623/800  Runtime:  9.12s  Iter_id: 21772 IterLoss: 0.9485381842  EpochLoss: 0.9818337713
+2024-11-03 10:51:24 - INFO - Epoch: 624/800  Runtime:  9.71s  Iter_id: 21839 IterLoss: 1.0132262707  EpochLoss: 0.9803557226
+2024-11-03 10:51:34 - INFO - Epoch: 625/800  Runtime:  9.83s  Iter_id: 21852 IterLoss: 0.9937688708  EpochLoss: 0.9811499953
+2024-11-03 10:51:44 - INFO - Epoch: 626/800  Runtime: 10.16s  Iter_id: 21891 IterLoss: 1.0147587061  EpochLoss: 0.9795552526
+2024-11-03 10:51:53 - INFO - Epoch: 627/800  Runtime:  9.43s  Iter_id: 21939 IterLoss: 0.9875930548  EpochLoss: 0.9824539287
+2024-11-03 10:52:03 - INFO - Epoch: 628/800  Runtime:  9.78s  Iter_id: 21952 IterLoss: 0.9723634720  EpochLoss: 0.9804921797
+2024-11-03 10:52:13 - INFO - Epoch: 629/800  Runtime:  9.47s  Iter_id: 22011 IterLoss: 0.9641655684  EpochLoss: 0.9828560574
+2024-11-03 10:52:22 - INFO - Epoch: 630/800  Runtime:  9.03s  Iter_id: 22045 IterLoss: 0.9485961199  EpochLoss: 0.9793537515
+2024-11-03 10:52:22 - INFO - Eval Epoch: 630
+2024-11-03 10:52:22 - INFO - Overall Accuracy: 65.89 || Mean Overall Accuracy: 55.19
+2024-11-03 10:52:22 - INFO - Mean IoU: 0.421 || Per-class IoU score:  Ground=0.613  Building=0.452  Trees=0.726  Low vegetation=0.297  Artifacts=0.015  
+2024-11-03 10:52:22 - INFO - Macro F1: 0.542 || Per-class  F1 score:  Ground=0.760  Building=0.623  Trees=0.841  Low vegetation=0.458  Artifacts=0.030  
+
+2024-11-03 10:52:32 - INFO - Epoch: 631/800  Runtime:  9.71s  Iter_id: 22065 IterLoss: 0.9797733426  EpochLoss: 0.9794222321
+2024-11-03 10:52:42 - INFO - Epoch: 632/800  Runtime: 10.07s  Iter_id: 22103 IterLoss: 0.9766864181  EpochLoss: 0.9806534699
+2024-11-03 10:52:52 - INFO - Epoch: 633/800  Runtime: 10.23s  Iter_id: 22140 IterLoss: 0.9539322257  EpochLoss: 0.9801380294
+2024-11-03 10:53:03 - INFO - Epoch: 634/800  Runtime: 10.36s  Iter_id: 22159 IterLoss: 0.9758090973  EpochLoss: 0.9826854910
+2024-11-03 10:53:13 - INFO - Epoch: 635/800  Runtime:  9.92s  Iter_id: 22193 IterLoss: 0.9827242494  EpochLoss: 0.9780442340
+2024-11-03 10:53:22 - INFO - Epoch: 636/800  Runtime:  9.42s  Iter_id: 22242 IterLoss: 0.9562678337  EpochLoss: 0.9824100256
+2024-11-03 10:53:32 - INFO - Epoch: 637/800  Runtime:  9.42s  Iter_id: 22293 IterLoss: 0.9757130146  EpochLoss: 0.9812938912
+2024-11-03 10:53:41 - INFO - Epoch: 638/800  Runtime:  9.33s  Iter_id: 22314 IterLoss: 0.9974997044  EpochLoss: 0.9792948638
+2024-11-03 10:53:51 - INFO - Epoch: 639/800  Runtime:  9.86s  Iter_id: 22335 IterLoss: 0.9450558424  EpochLoss: 0.9803828665
+2024-11-03 10:54:01 - INFO - Epoch: 640/800  Runtime: 10.30s  Iter_id: 22388 IterLoss: 0.9701288342  EpochLoss: 0.9796249083
+2024-11-03 10:54:11 - INFO - Epoch: 641/800  Runtime:  9.76s  Iter_id: 22425 IterLoss: 0.9623997808  EpochLoss: 0.9820319942
+2024-11-03 10:54:21 - INFO - Epoch: 642/800  Runtime:  9.96s  Iter_id: 22456 IterLoss: 0.9591186047  EpochLoss: 0.9833905067
+2024-11-03 10:54:30 - INFO - Epoch: 643/800  Runtime:  9.24s  Iter_id: 22493 IterLoss: 0.9455469251  EpochLoss: 0.9792103597
+2024-11-03 10:54:40 - INFO - Epoch: 644/800  Runtime: 10.14s  Iter_id: 22534 IterLoss: 0.9815247655  EpochLoss: 0.9796659538
+2024-11-03 10:54:50 - INFO - Epoch: 645/800  Runtime: 10.15s  Iter_id: 22574 IterLoss: 1.0159823895  EpochLoss: 0.9797737309
+2024-11-03 10:55:00 - INFO - Epoch: 646/800  Runtime: 10.00s  Iter_id: 22591 IterLoss: 0.9859992266  EpochLoss: 0.9794110043
+2024-11-03 10:55:10 - INFO - Epoch: 647/800  Runtime:  9.84s  Iter_id: 22616 IterLoss: 0.9974585176  EpochLoss: 0.9810089690
+2024-11-03 10:55:20 - INFO - Epoch: 648/800  Runtime:  9.89s  Iter_id: 22651 IterLoss: 0.9882333279  EpochLoss: 0.9795657907
+2024-11-03 10:55:30 - INFO - Epoch: 649/800  Runtime:  9.96s  Iter_id: 22702 IterLoss: 0.9701839685  EpochLoss: 0.9799148338
+2024-11-03 10:55:40 - INFO - Epoch: 650/800  Runtime: 10.14s  Iter_id: 22739 IterLoss: 0.9504581690  EpochLoss: 0.9827178308
+2024-11-03 10:55:51 - INFO - Epoch: 651/800  Runtime: 10.38s  Iter_id: 22779 IterLoss: 1.0208321810  EpochLoss: 0.9832253303
+2024-11-03 10:56:01 - INFO - Epoch: 652/800  Runtime: 10.50s  Iter_id: 22787 IterLoss: 0.9925673604  EpochLoss: 0.9791355218
+2024-11-03 10:56:11 - INFO - Epoch: 653/800  Runtime:  9.97s  Iter_id: 22856 IterLoss: 1.0613594055  EpochLoss: 0.9831349492
+2024-11-03 10:56:21 - INFO - Epoch: 654/800  Runtime: 10.14s  Iter_id: 22890 IterLoss: 0.9526638389  EpochLoss: 0.9824590036
+2024-11-03 10:56:31 - INFO - Epoch: 655/800  Runtime:  9.95s  Iter_id: 22926 IterLoss: 0.9837518334  EpochLoss: 0.9802706225
+2024-11-03 10:56:41 - INFO - Epoch: 656/800  Runtime:  9.76s  Iter_id: 22957 IterLoss: 0.9692249894  EpochLoss: 0.9777283481
+2024-11-03 10:56:51 - INFO - Epoch: 657/800  Runtime:  9.71s  Iter_id: 22972 IterLoss: 0.9398047328  EpochLoss: 0.9798273001
+2024-11-03 10:57:01 - INFO - Epoch: 658/800  Runtime: 10.10s  Iter_id: 23006 IterLoss: 0.9875721931  EpochLoss: 0.9799459321
+2024-11-03 10:57:10 - INFO - Epoch: 659/800  Runtime:  9.59s  Iter_id: 23033 IterLoss: 1.0091975927  EpochLoss: 0.9808229821
+2024-11-03 10:57:20 - INFO - Epoch: 660/800  Runtime:  9.58s  Iter_id: 23082 IterLoss: 0.9693359733  EpochLoss: 0.9799228396
+2024-11-03 10:57:21 - INFO - Eval Epoch: 660
+2024-11-03 10:57:21 - INFO - Overall Accuracy: 72.79 || Mean Overall Accuracy: 59.52
+2024-11-03 10:57:21 - INFO - Mean IoU: 0.483 || Per-class IoU score:  Ground=0.689  Building=0.478  Trees=0.720  Low vegetation=0.380  Artifacts=0.146  
+2024-11-03 10:57:21 - INFO - Macro F1: 0.621 || Per-class  F1 score:  Ground=0.816  Building=0.646  Trees=0.837  Low vegetation=0.551  Artifacts=0.255  
+
+2024-11-03 10:57:30 - INFO - Epoch: 661/800  Runtime:  9.70s  Iter_id: 23110 IterLoss: 0.9597785473  EpochLoss: 0.9808962277
+2024-11-03 10:57:40 - INFO - Epoch: 662/800  Runtime:  9.93s  Iter_id: 23139 IterLoss: 0.9864755869  EpochLoss: 0.9797214900
+2024-11-03 10:57:51 - INFO - Epoch: 663/800  Runtime: 10.23s  Iter_id: 23193 IterLoss: 0.9874608517  EpochLoss: 0.9783479639
+2024-11-03 10:58:00 - INFO - Epoch: 664/800  Runtime:  9.57s  Iter_id: 23224 IterLoss: 1.0235953331  EpochLoss: 0.9776026402
+2024-11-03 10:58:10 - INFO - Epoch: 665/800  Runtime:  9.47s  Iter_id: 23253 IterLoss: 0.9816750884  EpochLoss: 0.9821799346
+2024-11-03 10:58:19 - INFO - Epoch: 666/800  Runtime:  9.30s  Iter_id: 23293 IterLoss: 0.9646940231  EpochLoss: 0.9797023075
+2024-11-03 10:58:28 - INFO - Epoch: 667/800  Runtime:  9.21s  Iter_id: 23336 IterLoss: 0.9887042046  EpochLoss: 0.9816218802
+2024-11-03 10:58:38 - INFO - Epoch: 668/800  Runtime:  9.80s  Iter_id: 23381 IterLoss: 1.0087280273  EpochLoss: 0.9835147159
+2024-11-03 10:58:48 - INFO - Epoch: 669/800  Runtime:  9.81s  Iter_id: 23408 IterLoss: 0.9363870621  EpochLoss: 0.9777237432
+2024-11-03 10:58:57 - INFO - Epoch: 670/800  Runtime:  9.28s  Iter_id: 23428 IterLoss: 0.9620213509  EpochLoss: 0.9797560641
+2024-11-03 10:59:07 - INFO - Epoch: 671/800  Runtime:  9.76s  Iter_id: 23486 IterLoss: 1.0434606075  EpochLoss: 0.9776786906
+2024-11-03 10:59:16 - INFO - Epoch: 672/800  Runtime:  9.58s  Iter_id: 23495 IterLoss: 0.9740357995  EpochLoss: 0.9800936716
+2024-11-03 10:59:26 - INFO - Epoch: 673/800  Runtime:  9.96s  Iter_id: 23531 IterLoss: 0.9753852487  EpochLoss: 0.9769354905
+2024-11-03 10:59:36 - INFO - Epoch: 674/800  Runtime: 10.06s  Iter_id: 23591 IterLoss: 1.0203866959  EpochLoss: 0.9822716032
+2024-11-03 10:59:46 - INFO - Epoch: 675/800  Runtime:  9.57s  Iter_id: 23593 IterLoss: 0.9696798921  EpochLoss: 0.9797159536
+2024-11-03 10:59:56 - INFO - Epoch: 676/800  Runtime:  9.56s  Iter_id: 23654 IterLoss: 0.9981731772  EpochLoss: 0.9791167327
+2024-11-03 11:00:06 - INFO - Epoch: 677/800  Runtime: 10.35s  Iter_id: 23693 IterLoss: 0.9677730799  EpochLoss: 0.9773916125
+2024-11-03 11:00:17 - INFO - Epoch: 678/800  Runtime: 10.57s  Iter_id: 23728 IterLoss: 0.9664205313  EpochLoss: 0.9805505872
+2024-11-03 11:00:27 - INFO - Epoch: 679/800  Runtime: 10.05s  Iter_id: 23747 IterLoss: 0.9887071252  EpochLoss: 0.9819084355
+2024-11-03 11:00:35 - INFO - Epoch: 680/800  Runtime:  8.86s  Iter_id: 23792 IterLoss: 0.9487876296  EpochLoss: 0.9788022671
+2024-11-03 11:00:45 - INFO - Epoch: 681/800  Runtime:  9.30s  Iter_id: 23815 IterLoss: 1.0094596148  EpochLoss: 0.9750397205
+2024-11-03 11:00:55 - INFO - Epoch: 682/800  Runtime:  9.94s  Iter_id: 23838 IterLoss: 0.9869254827  EpochLoss: 0.9799899987
+2024-11-03 11:01:05 - INFO - Epoch: 683/800  Runtime: 10.33s  Iter_id: 23875 IterLoss: 0.9372447133  EpochLoss: 0.9760297894
+2024-11-03 11:01:15 - INFO - Epoch: 684/800  Runtime: 10.29s  Iter_id: 23917 IterLoss: 0.9754862189  EpochLoss: 0.9791402544
+2024-11-03 11:01:26 - INFO - Epoch: 685/800  Runtime: 10.18s  Iter_id: 23974 IterLoss: 0.9823480248  EpochLoss: 0.9782034074
+2024-11-03 11:01:35 - INFO - Epoch: 686/800  Runtime:  9.71s  Iter_id: 23993 IterLoss: 1.0041812658  EpochLoss: 0.9773231183
+2024-11-03 11:01:46 - INFO - Epoch: 687/800  Runtime: 10.33s  Iter_id: 24019 IterLoss: 0.9745605588  EpochLoss: 0.9820704273
+2024-11-03 11:01:56 - INFO - Epoch: 688/800  Runtime: 10.04s  Iter_id: 24066 IterLoss: 0.9610219598  EpochLoss: 0.9756644130
+2024-11-03 11:02:05 - INFO - Epoch: 689/800  Runtime:  9.32s  Iter_id: 24110 IterLoss: 0.9885366559  EpochLoss: 0.9750026907
+2024-11-03 11:02:15 - INFO - Epoch: 690/800  Runtime: 10.13s  Iter_id: 24139 IterLoss: 0.9871150851  EpochLoss: 0.9752496072
+2024-11-03 11:02:16 - INFO - Eval Epoch: 690
+2024-11-03 11:02:16 - INFO - Overall Accuracy: 71.59 || Mean Overall Accuracy: 59.13
+2024-11-03 11:02:16 - INFO - Mean IoU: 0.457 || Per-class IoU score:  Ground=0.669  Building=0.432  Trees=0.731  Low vegetation=0.422  Artifacts=0.033  
+2024-11-03 11:02:16 - INFO - Macro F1: 0.581 || Per-class  F1 score:  Ground=0.801  Building=0.603  Trees=0.845  Low vegetation=0.593  Artifacts=0.064  
+
+2024-11-03 11:02:25 - INFO - Epoch: 691/800  Runtime:  9.44s  Iter_id: 24179 IterLoss: 0.9817915559  EpochLoss: 0.9766568150
+2024-11-03 11:02:35 - INFO - Epoch: 692/800  Runtime:  9.96s  Iter_id: 24213 IterLoss: 1.0132763386  EpochLoss: 0.9778020024
+2024-11-03 11:02:45 - INFO - Epoch: 693/800  Runtime:  9.63s  Iter_id: 24243 IterLoss: 0.9849551916  EpochLoss: 0.9781320793
+2024-11-03 11:02:55 - INFO - Epoch: 694/800  Runtime:  9.75s  Iter_id: 24258 IterLoss: 0.9879066348  EpochLoss: 0.9799146056
+2024-11-03 11:03:04 - INFO - Epoch: 695/800  Runtime:  9.00s  Iter_id: 24305 IterLoss: 0.9616323113  EpochLoss: 0.9802923015
+2024-11-03 11:03:13 - INFO - Epoch: 696/800  Runtime:  9.50s  EpochLoss: 0.9805844358
+2024-11-03 11:03:23 - INFO - Epoch: 697/800  Runtime: 10.19s  Iter_id: 24378 IterLoss: 1.0105495453  EpochLoss: 0.9767558575
+2024-11-03 11:03:34 - INFO - Epoch: 698/800  Runtime: 10.29s  EpochLoss: 0.9752385889
+2024-11-03 11:03:44 - INFO - Epoch: 699/800  Runtime: 10.22s  Iter_id: 24461 IterLoss: 0.9511689544  EpochLoss: 0.9748293826
+2024-11-03 11:03:54 - INFO - Epoch: 700/800  Runtime: 10.16s  Iter_id: 24471 IterLoss: 0.9543426037  EpochLoss: 0.9770184551
+2024-11-03 11:04:04 - INFO - Epoch: 701/800  Runtime:  9.66s  Iter_id: 24509 IterLoss: 0.9792752862  EpochLoss: 0.9799095528
+2024-11-03 11:04:13 - INFO - Epoch: 702/800  Runtime:  9.40s  Iter_id: 24553 IterLoss: 0.9559658170  EpochLoss: 0.9763660891
+2024-11-03 11:04:22 - INFO - Epoch: 703/800  Runtime:  9.40s  Iter_id: 24591 IterLoss: 1.0113855600  EpochLoss: 0.9777418647
+2024-11-03 11:04:32 - INFO - Epoch: 704/800  Runtime:  9.95s  Iter_id: 24627 IterLoss: 0.9821885228  EpochLoss: 0.9756474614
+2024-11-03 11:04:43 - INFO - Epoch: 705/800  Runtime: 10.18s  Iter_id: 24660 IterLoss: 0.9736779332  EpochLoss: 0.9789374096
+2024-11-03 11:04:52 - INFO - Epoch: 706/800  Runtime:  9.68s  Iter_id: 24678 IterLoss: 0.9650541544  EpochLoss: 0.9793579068
+2024-11-03 11:05:02 - INFO - Epoch: 707/800  Runtime:  9.60s  Iter_id: 24723 IterLoss: 0.9658545852  EpochLoss: 0.9754704390
+2024-11-03 11:05:12 - INFO - Epoch: 708/800  Runtime:  9.99s  Iter_id: 24779 IterLoss: 0.9756630063  EpochLoss: 0.9747938599
+2024-11-03 11:05:22 - INFO - Epoch: 709/800  Runtime: 10.04s  Iter_id: 24801 IterLoss: 0.9482700229  EpochLoss: 0.9764631765
+2024-11-03 11:05:31 - INFO - Epoch: 710/800  Runtime:  9.42s  Iter_id: 24818 IterLoss: 0.9540468454  EpochLoss: 0.9737421768
+2024-11-03 11:05:41 - INFO - Epoch: 711/800  Runtime:  9.63s  Iter_id: 24883 IterLoss: 0.9765098691  EpochLoss: 0.9729385802
+2024-11-03 11:05:51 - INFO - Epoch: 712/800  Runtime:  9.67s  Iter_id: 24921 IterLoss: 0.9500636458  EpochLoss: 0.9746642062
+2024-11-03 11:06:00 - INFO - Epoch: 713/800  Runtime:  9.26s  Iter_id: 24941 IterLoss: 0.9873154759  EpochLoss: 0.9781290361
+2024-11-03 11:06:10 - INFO - Epoch: 714/800  Runtime: 10.22s  Iter_id: 24960 IterLoss: 0.9578070045  EpochLoss: 0.9783638733
+2024-11-03 11:06:20 - INFO - Epoch: 715/800  Runtime: 10.08s  Iter_id: 24993 IterLoss: 1.0012370348  EpochLoss: 0.9760479808
+2024-11-03 11:06:30 - INFO - Epoch: 716/800  Runtime:  9.99s  Iter_id: 25030 IterLoss: 1.0015760660  EpochLoss: 0.9754268868
+2024-11-03 11:06:40 - INFO - Epoch: 717/800  Runtime:  9.57s  Iter_id: 25092 IterLoss: 0.9676331878  EpochLoss: 0.9770279663
+2024-11-03 11:06:50 - INFO - Epoch: 718/800  Runtime: 10.00s  Iter_id: 25123 IterLoss: 0.9655342102  EpochLoss: 0.9754093051
+2024-11-03 11:06:59 - INFO - Epoch: 719/800  Runtime:  9.64s  Iter_id: 25157 IterLoss: 0.9518110752  EpochLoss: 0.9798507486
+2024-11-03 11:07:09 - INFO - Epoch: 720/800  Runtime:  9.24s  Iter_id: 25180 IterLoss: 0.9983521104  EpochLoss: 0.9800334930
+2024-11-03 11:07:10 - INFO - Eval Epoch: 720
+2024-11-03 11:07:10 - INFO - Overall Accuracy: 65.76 || Mean Overall Accuracy: 55.11
+2024-11-03 11:07:10 - INFO - Mean IoU: 0.426 || Per-class IoU score:  Ground=0.601  Building=0.480  Trees=0.711  Low vegetation=0.326  Artifacts=0.014  
+2024-11-03 11:07:10 - INFO - Macro F1: 0.550 || Per-class  F1 score:  Ground=0.750  Building=0.648  Trees=0.831  Low vegetation=0.492  Artifacts=0.027  
+
+2024-11-03 11:07:20 - INFO - Epoch: 721/800  Runtime: 10.12s  Iter_id: 25203 IterLoss: 1.0284252167  EpochLoss: 0.9772244641
+2024-11-03 11:07:29 - INFO - Epoch: 722/800  Runtime:  9.84s  Iter_id: 25260 IterLoss: 1.0186711550  EpochLoss: 0.9766124249
+2024-11-03 11:07:38 - INFO - Epoch: 723/800  Runtime:  8.97s  Iter_id: 25295 IterLoss: 0.9708298445  EpochLoss: 0.9770054391
+2024-11-03 11:07:48 - INFO - Epoch: 724/800  Runtime:  9.49s  Iter_id: 25322 IterLoss: 0.9881851077  EpochLoss: 0.9755026937
+2024-11-03 11:07:57 - INFO - Epoch: 725/800  Runtime:  9.49s  Iter_id: 25357 IterLoss: 0.9752176404  EpochLoss: 0.9767861758
+2024-11-03 11:08:07 - INFO - Epoch: 726/800  Runtime:  9.82s  Iter_id: 25383 IterLoss: 1.0306700468  EpochLoss: 0.9809665442
+2024-11-03 11:08:17 - INFO - Epoch: 727/800  Runtime: 10.04s  Iter_id: 25414 IterLoss: 0.9899650216  EpochLoss: 0.9768075653
+2024-11-03 11:08:27 - INFO - Epoch: 728/800  Runtime:  9.84s  Iter_id: 25452 IterLoss: 0.9984284043  EpochLoss: 0.9737850445
+2024-11-03 11:08:37 - INFO - Epoch: 729/800  Runtime:  9.65s  Iter_id: 25495 IterLoss: 0.9771465659  EpochLoss: 0.9756950872
+2024-11-03 11:08:46 - INFO - Epoch: 730/800  Runtime:  9.54s  Iter_id: 25526 IterLoss: 0.9685986042  EpochLoss: 0.9755473239
+2024-11-03 11:08:55 - INFO - Epoch: 731/800  Runtime:  8.98s  Iter_id: 25585 IterLoss: 1.0229843855  EpochLoss: 0.9778172680
+2024-11-03 11:09:05 - INFO - Epoch: 732/800  Runtime:  9.39s  Iter_id: 25613 IterLoss: 0.9728745818  EpochLoss: 0.9771990129
+2024-11-03 11:09:14 - INFO - Epoch: 733/800  Runtime:  9.18s  Iter_id: 25627 IterLoss: 0.9498282075  EpochLoss: 0.9737409166
+2024-11-03 11:09:24 - INFO - Epoch: 734/800  Runtime:  9.81s  Iter_id: 25678 IterLoss: 0.9827440977  EpochLoss: 0.9772059986
+2024-11-03 11:09:33 - INFO - Epoch: 735/800  Runtime:  9.72s  Iter_id: 25717 IterLoss: 1.0029555559  EpochLoss: 0.9767538088
+2024-11-03 11:09:43 - INFO - Epoch: 736/800  Runtime:  9.21s  Iter_id: 25734 IterLoss: 0.9748572111  EpochLoss: 0.9748765860
+2024-11-03 11:09:52 - INFO - Epoch: 737/800  Runtime:  9.75s  Iter_id: 25787 IterLoss: 0.9628045559  EpochLoss: 0.9750729782
+2024-11-03 11:10:02 - INFO - Epoch: 738/800  Runtime:  9.83s  Iter_id: 25825 IterLoss: 1.0110447407  EpochLoss: 0.9739929455
+2024-11-03 11:10:12 - INFO - Epoch: 739/800  Runtime:  9.72s  Iter_id: 25847 IterLoss: 0.9783290625  EpochLoss: 0.9755105410
+2024-11-03 11:10:22 - INFO - Epoch: 740/800  Runtime:  9.96s  Iter_id: 25869 IterLoss: 0.9760014415  EpochLoss: 0.9765392542
+2024-11-03 11:10:32 - INFO - Epoch: 741/800  Runtime:  9.82s  Iter_id: 25903 IterLoss: 0.9477931857  EpochLoss: 0.9744601267
+2024-11-03 11:10:41 - INFO - Epoch: 742/800  Runtime:  9.03s  Iter_id: 25970 IterLoss: 0.9701676369  EpochLoss: 0.9740270461
+2024-11-03 11:10:51 - INFO - Epoch: 743/800  Runtime:  9.81s  Iter_id: 25985 IterLoss: 0.9791166186  EpochLoss: 0.9783293298
+2024-11-03 11:11:01 - INFO - Epoch: 744/800  Runtime:  9.95s  Iter_id: 26018 IterLoss: 1.0168551207  EpochLoss: 0.9751995342
+2024-11-03 11:11:10 - INFO - Epoch: 745/800  Runtime:  9.03s  Iter_id: 26047 IterLoss: 0.9620282054  EpochLoss: 0.9759946159
+2024-11-03 11:11:19 - INFO - Epoch: 746/800  Runtime:  9.09s  Iter_id: 26080 IterLoss: 0.9545646310  EpochLoss: 0.9757671833
+2024-11-03 11:11:29 - INFO - Epoch: 747/800  Runtime: 10.46s  Iter_id: 26126 IterLoss: 0.9634841681  EpochLoss: 0.9723743864
+2024-11-03 11:11:38 - INFO - Epoch: 748/800  Runtime:  9.27s  Iter_id: 26179 IterLoss: 0.9614999294  EpochLoss: 0.9734410541
+2024-11-03 11:11:48 - INFO - Epoch: 749/800  Runtime:  9.86s  Iter_id: 26185 IterLoss: 0.9769715071  EpochLoss: 0.9763633285
+2024-11-03 11:11:58 - INFO - Epoch: 750/800  Runtime:  9.40s  Iter_id: 26243 IterLoss: 0.9801401496  EpochLoss: 0.9773916602
+2024-11-03 11:11:59 - INFO - Eval Epoch: 750
+2024-11-03 11:11:59 - INFO - Overall Accuracy: 65.71 || Mean Overall Accuracy: 53.73
+2024-11-03 11:11:59 - INFO - Mean IoU: 0.412 || Per-class IoU score:  Ground=0.615  Building=0.418  Trees=0.653  Low vegetation=0.338  Artifacts=0.035  
+2024-11-03 11:11:59 - INFO - Macro F1: 0.543 || Per-class  F1 score:  Ground=0.761  Building=0.589  Trees=0.790  Low vegetation=0.505  Artifacts=0.067  
+
+2024-11-03 11:12:08 - INFO - Epoch: 751/800  Runtime:  9.11s  Iter_id: 26260 IterLoss: 0.9898082614  EpochLoss: 0.9776226827
+2024-11-03 11:12:17 - INFO - Epoch: 752/800  Runtime:  9.53s  Iter_id: 26316 IterLoss: 0.9856653214  EpochLoss: 0.9774693097
+2024-11-03 11:12:27 - INFO - Epoch: 753/800  Runtime: 10.02s  Iter_id: 26335 IterLoss: 1.0033146143  EpochLoss: 0.9746390445
+2024-11-03 11:12:37 - INFO - Epoch: 754/800  Runtime:  9.78s  Iter_id: 26369 IterLoss: 0.9616403580  EpochLoss: 0.9745734964
+2024-11-03 11:12:46 - INFO - Epoch: 755/800  Runtime:  9.39s  Iter_id: 26417 IterLoss: 0.9645041823  EpochLoss: 0.9752286162
+2024-11-03 11:12:56 - INFO - Epoch: 756/800  Runtime:  9.35s  Iter_id: 26445 IterLoss: 0.9542496800  EpochLoss: 0.9763750383
+2024-11-03 11:13:06 - INFO - Epoch: 757/800  Runtime: 10.38s  Iter_id: 26482 IterLoss: 0.9765180349  EpochLoss: 0.9779077632
+2024-11-03 11:13:16 - INFO - Epoch: 758/800  Runtime: 10.04s  Iter_id: 26526 IterLoss: 0.9395099282  EpochLoss: 0.9751894253
+2024-11-03 11:13:26 - INFO - Epoch: 759/800  Runtime:  9.46s  Iter_id: 26549 IterLoss: 0.9891186357  EpochLoss: 0.9724106107
+2024-11-03 11:13:36 - INFO - Epoch: 760/800  Runtime:  9.90s  Iter_id: 26572 IterLoss: 0.9757428169  EpochLoss: 0.9756760529
+2024-11-03 11:13:45 - INFO - Epoch: 761/800  Runtime:  9.91s  Iter_id: 26614 IterLoss: 0.9704625010  EpochLoss: 0.9771930150
+2024-11-03 11:13:55 - INFO - Epoch: 762/800  Runtime:  9.59s  Iter_id: 26640 IterLoss: 0.9702803493  EpochLoss: 0.9774397186
+2024-11-03 11:14:04 - INFO - Epoch: 763/800  Runtime:  9.06s  Iter_id: 26685 IterLoss: 0.9542565346  EpochLoss: 0.9795070274
+2024-11-03 11:14:14 - INFO - Epoch: 764/800  Runtime:  9.70s  Iter_id: 26732 IterLoss: 0.9770210385  EpochLoss: 0.9738500408
+2024-11-03 11:14:23 - INFO - Epoch: 765/800  Runtime:  9.41s  Iter_id: 26759 IterLoss: 0.9627628922  EpochLoss: 0.9732528772
+2024-11-03 11:14:33 - INFO - Epoch: 766/800  Runtime:  9.89s  Iter_id: 26800 IterLoss: 1.0174087286  EpochLoss: 0.9727821299
+2024-11-03 11:14:42 - INFO - Epoch: 767/800  Runtime:  9.06s  Iter_id: 26816 IterLoss: 0.9838004708  EpochLoss: 0.9755359939
+2024-11-03 11:14:51 - INFO - Epoch: 768/800  Runtime:  9.12s  Iter_id: 26874 IterLoss: 0.9977795482  EpochLoss: 0.9755366802
+2024-11-03 11:15:01 - INFO - Epoch: 769/800  Runtime:  9.72s  Iter_id: 26910 IterLoss: 0.9599245191  EpochLoss: 0.9734006303
+2024-11-03 11:15:11 - INFO - Epoch: 770/800  Runtime: 10.29s  Iter_id: 26924 IterLoss: 0.9825673699  EpochLoss: 0.9768546786
+2024-11-03 11:15:21 - INFO - Epoch: 771/800  Runtime:  9.45s  Iter_id: 26970 IterLoss: 0.9694699049  EpochLoss: 0.9736037595
+2024-11-03 11:15:31 - INFO - Epoch: 772/800  Runtime: 10.09s  Iter_id: 26993 IterLoss: 1.0148741007  EpochLoss: 0.9786122901
+2024-11-03 11:15:41 - INFO - Epoch: 773/800  Runtime:  9.95s  Iter_id: 27049 IterLoss: 0.9666284323  EpochLoss: 0.9761545215
+2024-11-03 11:15:50 - INFO - Epoch: 774/800  Runtime:  9.18s  Iter_id: 27084 IterLoss: 0.9685111642  EpochLoss: 0.9740267617
+2024-11-03 11:16:00 - INFO - Epoch: 775/800  Runtime:  9.53s  EpochLoss: 0.9727841650
+2024-11-03 11:16:09 - INFO - Epoch: 776/800  Runtime:  9.72s  Iter_id: 27144 IterLoss: 0.9564734697  EpochLoss: 0.9750438860
+2024-11-03 11:16:19 - INFO - Epoch: 777/800  Runtime: 10.20s  Iter_id: 27167 IterLoss: 0.9456655383  EpochLoss: 0.9735232064
+2024-11-03 11:16:29 - INFO - Epoch: 778/800  Runtime:  9.41s  Iter_id: 27222 IterLoss: 0.9534936547  EpochLoss: 0.9737953901
+2024-11-03 11:16:39 - INFO - Epoch: 779/800  Runtime: 10.08s  Iter_id: 27245 IterLoss: 0.9272909760  EpochLoss: 0.9727014559
+2024-11-03 11:16:49 - INFO - Epoch: 780/800  Runtime: 10.43s  Iter_id: 27293 IterLoss: 0.9724971056  EpochLoss: 0.9733337300
+2024-11-03 11:16:50 - INFO - Eval Epoch: 780
+2024-11-03 11:16:50 - INFO - Overall Accuracy: 75.36 || Mean Overall Accuracy: 59.08
+2024-11-03 11:16:50 - INFO - Mean IoU: 0.486 || Per-class IoU score:  Ground=0.734  Building=0.452  Trees=0.716  Low vegetation=0.404  Artifacts=0.124  
+2024-11-03 11:16:50 - INFO - Macro F1: 0.620 || Per-class  F1 score:  Ground=0.847  Building=0.622  Trees=0.835  Low vegetation=0.575  Artifacts=0.221  
+
+2024-11-03 11:17:01 - INFO - Epoch: 781/800  Runtime: 10.38s  Iter_id: 27329 IterLoss: 0.9514393210  EpochLoss: 0.9722339732
+2024-11-03 11:17:10 - INFO - Epoch: 782/800  Runtime:  9.92s  Iter_id: 27343 IterLoss: 0.9633918405  EpochLoss: 0.9739500982
+2024-11-03 11:17:20 - INFO - Epoch: 783/800  Runtime:  9.64s  Iter_id: 27393 IterLoss: 0.9535498619  EpochLoss: 0.9747997471
+2024-11-03 11:17:29 - INFO - Epoch: 784/800  Runtime:  9.33s  Iter_id: 27432 IterLoss: 0.9811045527  EpochLoss: 0.9762133939
+2024-11-03 11:17:40 - INFO - Epoch: 785/800  Runtime: 10.14s  Iter_id: 27476 IterLoss: 0.9818951488  EpochLoss: 0.9731838856
+2024-11-03 11:17:50 - INFO - Epoch: 786/800  Runtime: 10.32s  Iter_id: 27485 IterLoss: 1.0022068024  EpochLoss: 0.9809984888
+2024-11-03 11:18:00 - INFO - Epoch: 787/800  Runtime: 10.30s  Iter_id: 27519 IterLoss: 1.0004570484  EpochLoss: 0.9769975168
+2024-11-03 11:18:10 - INFO - Epoch: 788/800  Runtime: 10.26s  Iter_id: 27576 IterLoss: 0.9765785933  EpochLoss: 0.9758922424
+2024-11-03 11:18:20 - INFO - Epoch: 789/800  Runtime:  9.80s  Iter_id: 27600 IterLoss: 0.9844736457  EpochLoss: 0.9724392857
+2024-11-03 11:18:30 - INFO - Epoch: 790/800  Runtime:  9.79s  Iter_id: 27648 IterLoss: 0.9764721394  EpochLoss: 0.9729534200
+2024-11-03 11:18:40 - INFO - Epoch: 791/800  Runtime:  9.54s  Iter_id: 27685 IterLoss: 1.0008808374  EpochLoss: 0.9725236297
+2024-11-03 11:18:49 - INFO - Epoch: 792/800  Runtime:  9.43s  Iter_id: 27713 IterLoss: 0.9755539298  EpochLoss: 0.9750250970
+2024-11-03 11:18:59 - INFO - Epoch: 793/800  Runtime:  9.62s  Iter_id: 27735 IterLoss: 0.9779976606  EpochLoss: 0.9725288374
+2024-11-03 11:19:09 - INFO - Epoch: 794/800  Runtime: 10.19s  Iter_id: 27784 IterLoss: 1.0057039261  EpochLoss: 0.9770708765
+2024-11-03 11:19:19 - INFO - Epoch: 795/800  Runtime: 10.28s  Iter_id: 27809 IterLoss: 0.9602513909  EpochLoss: 0.9709940689
+2024-11-03 11:19:29 - INFO - Epoch: 796/800  Runtime: 10.20s  Iter_id: 27843 IterLoss: 0.9923393726  EpochLoss: 0.9741771374
+2024-11-03 11:19:40 - INFO - Epoch: 797/800  Runtime: 10.46s  Iter_id: 27868 IterLoss: 0.9419237971  EpochLoss: 0.9709641150
+2024-11-03 11:19:50 - INFO - Epoch: 798/800  Runtime:  9.74s  Iter_id: 27901 IterLoss: 0.9745582938  EpochLoss: 0.9741174902
+2024-11-03 11:19:59 - INFO - Epoch: 799/800  Runtime:  9.66s  Iter_id: 27960 IterLoss: 0.9668532014  EpochLoss: 0.9764715144
+2024-11-03 11:20:10 - INFO - Epoch: 800/800  Runtime: 10.30s  Iter_id: 27982 IterLoss: 0.9563980103  EpochLoss: 0.9782697116
+2024-11-03 11:20:10 - INFO - Eval Epoch: 800
+2024-11-03 11:20:10 - INFO - Overall Accuracy: 73.86 || Mean Overall Accuracy: 56.89
+2024-11-03 11:20:10 - INFO - Mean IoU: 0.461 || Per-class IoU score:  Ground=0.724  Building=0.445  Trees=0.710  Low vegetation=0.352  Artifacts=0.075  
+2024-11-03 11:20:10 - INFO - Macro F1: 0.589 || Per-class  F1 score:  Ground=0.840  Building=0.616  Trees=0.830  Low vegetation=0.521  Artifacts=0.140  
+
+2024-11-03 11:20:10 - INFO - 训练结束 总耗时：2:11:53.194576
