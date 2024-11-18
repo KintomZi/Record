@@ -1,0 +1,602 @@
+2024-11-17 17:29:24 - INFO - 初始化训练数据集和数据加载器
+2024-11-17 17:29:24 - INFO - 设备设置为：cuda
+2024-11-17 17:29:28 - INFO - 网络模型加载...
+MinkUNet14C(
+  (conv0p1s1): MinkowskiConvolution(in=3, out=32, kernel_size=[5, 5, 5], stride=[1, 1, 1], dilation=[1, 1, 1])
+  (bn0): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (conv1p1s2): MinkowskiConvolution(in=32, out=32, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block1): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=32, out=32, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=32, out=32, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (conv2p2s2): MinkowskiConvolution(in=32, out=32, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn2): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block2): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=32, out=64, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=64, out=64, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=32, out=64, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (conv3p4s2): MinkowskiConvolution(in=64, out=64, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn3): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block3): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=64, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=64, out=128, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (conv4p8s2): MinkowskiConvolution(in=128, out=128, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn4): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block4): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=128, out=256, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (convtr4p16s2): MinkowskiConvolutionTranspose(in=256, out=192, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr4): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block5): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=320, out=192, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=192, out=192, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=320, out=192, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (convtr5p8s2): MinkowskiConvolutionTranspose(in=192, out=192, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr5): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block6): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=256, out=192, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=192, out=192, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=256, out=192, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (convtr6p4s2): MinkowskiConvolutionTranspose(in=192, out=128, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr6): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block7): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=160, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=160, out=128, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (convtr7p2s2): MinkowskiConvolutionTranspose(in=128, out=128, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr7): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block8): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=160, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=160, out=128, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (final): MinkowskiConvolution(in=128, out=8, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+  (relu): MinkowskiReLU()
+)
+
+2024-11-17 17:29:28 - INFO - 优化器加载...
+Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.001
+    weight_decay: 0
+)
+
+2024-11-17 17:29:28 - INFO - 调度器加载...
+<torch.optim.lr_scheduler.OneCycleLR object at 0x7f6da7ddf460>
+
+2024-11-17 17:29:28 - INFO - 损失函数加载...
+CrossEntropyLoss()
+
+2024-11-17 17:29:28 - INFO - 开始训练...
+2024-11-17 17:33:24 - INFO - Epoch:    1/300  Runtime: 236.38s  EpochLoss: 0.5672885125  RandomIterLoss: 0.3963368237  lr: 4.009e-04  
+2024-11-17 17:37:16 - INFO - Epoch:    2/300  Runtime: 231.58s  EpochLoss: 0.3516773845  RandomIterLoss: 0.3914898336  lr: 4.049e-04  
+2024-11-17 17:41:08 - INFO - Epoch:    3/300  Runtime: 231.72s  EpochLoss: 0.3155632827  RandomIterLoss: 0.2656477690  lr: 4.177e-04  
+2024-11-17 17:45:00 - INFO - Epoch:    4/300  Runtime: 232.54s  EpochLoss: 0.2929639548  RandomIterLoss: 0.2412799448  lr: 4.372e-04  
+2024-11-17 17:48:51 - INFO - Epoch:    5/300  Runtime: 230.67s  EpochLoss: 0.2665600617  RandomIterLoss: 0.2943285704  lr: 4.545e-04  
+2024-11-17 17:52:44 - INFO - Epoch:    6/300  Runtime: 232.79s  EpochLoss: 0.2630063527  RandomIterLoss: 0.2244822681  lr: 4.918e-04  
+2024-11-17 17:56:38 - INFO - Epoch:    7/300  Runtime: 234.80s  EpochLoss: 0.2538337732  RandomIterLoss: 0.2878414690  lr: 5.069e-04  
+2024-11-17 18:00:33 - INFO - Epoch:    8/300  Runtime: 234.64s  EpochLoss: 0.2432598236  RandomIterLoss: 0.2047313303  lr: 5.656e-04  
+2024-11-17 18:03:21 - INFO - Eval Epoch: 8
+2024-11-17 18:03:21 - INFO - Overall Accuracy: 79.02 || Mean Overall Accuracy: 36.71
+2024-11-17 18:03:21 - INFO - Mean IoU: 0.300 || Per-class IoU score:  Ground=0.538  Vegetation=0.834  Trucks2Cars=0.036  Power Lines=0.266  Fences=0.131  Poles=0.103  Buildings=0.489  
+2024-11-17 18:03:21 - INFO - Macro F1: 0.397 || Per-class  F1 score:  Ground=0.699  Vegetation=0.909  Trucks2Cars=0.069  Power Lines=0.420  Fences=0.232  Poles=0.187  Buildings=0.657  
+
+2024-11-17 18:07:16 - INFO - Epoch:    9/300  Runtime: 234.69s  EpochLoss: 0.2401579795  RandomIterLoss: 0.2184953392  lr: 6.128e-04  
+2024-11-17 18:11:09 - INFO - Epoch:   10/300  Runtime: 232.81s  EpochLoss: 0.2350980417  RandomIterLoss: 0.1921455115  lr: 6.506e-04  
+2024-11-17 18:15:03 - INFO - Epoch:   11/300  Runtime: 234.77s  EpochLoss: 0.2308038330  RandomIterLoss: 0.2162995934  lr: 7.166e-04  
+2024-11-17 18:18:54 - INFO - Epoch:   12/300  Runtime: 230.92s  EpochLoss: 0.2338700261  RandomIterLoss: 0.2310468554  lr: 7.863e-04  
+2024-11-17 18:22:49 - INFO - Epoch:   13/300  Runtime: 234.57s  EpochLoss: 0.2251682945  RandomIterLoss: 0.1936803907  lr: 8.373e-04  
+2024-11-17 18:26:42 - INFO - Epoch:   14/300  Runtime: 233.13s  EpochLoss: 0.2206728526  RandomIterLoss: 0.2416947782  lr: 9.318e-04  
+2024-11-17 18:30:35 - INFO - Epoch:   15/300  Runtime: 233.29s  EpochLoss: 0.2164208804  RandomIterLoss: 0.2458800375  lr: 9.665e-04  
+2024-11-17 18:34:31 - INFO - Epoch:   16/300  Runtime: 235.75s  EpochLoss: 0.2150803776  RandomIterLoss: 0.2618515193  lr: 1.090e-03  
+2024-11-17 18:37:18 - INFO - Eval Epoch: 16
+2024-11-17 18:37:18 - INFO - Overall Accuracy: 88.33 || Mean Overall Accuracy: 48.64
+2024-11-17 18:37:18 - INFO - Mean IoU: 0.431 || Per-class IoU score:  Ground=0.794  Vegetation=0.869  Trucks2Cars=0.114  Power Lines=0.446  Fences=0.245  Poles=0.311  Buildings=0.667  
+2024-11-17 18:37:18 - INFO - Macro F1: 0.538 || Per-class  F1 score:  Ground=0.885  Vegetation=0.930  Trucks2Cars=0.204  Power Lines=0.617  Fences=0.393  Poles=0.475  Buildings=0.800  
+
+2024-11-17 18:41:11 - INFO - Epoch:   17/300  Runtime: 233.01s  EpochLoss: 0.2104985540  RandomIterLoss: 0.1944428384  lr: 1.180e-03  
+2024-11-17 18:45:05 - INFO - Epoch:   18/300  Runtime: 234.37s  EpochLoss: 0.2088509342  RandomIterLoss: 0.1797810346  lr: 1.249e-03  
+2024-11-17 18:49:00 - INFO - Epoch:   19/300  Runtime: 234.68s  EpochLoss: 0.2047721506  RandomIterLoss: 0.2049542964  lr: 1.363e-03  
+2024-11-17 18:52:53 - INFO - Epoch:   20/300  Runtime: 233.32s  EpochLoss: 0.2080724651  RandomIterLoss: 0.2119005322  lr: 1.477e-03  
+2024-11-17 18:56:49 - INFO - Epoch:   21/300  Runtime: 235.94s  EpochLoss: 0.2060874794  RandomIterLoss: 0.1802719980  lr: 1.558e-03  
+2024-11-17 19:00:42 - INFO - Epoch:   22/300  Runtime: 232.53s  EpochLoss: 0.1998733446  RandomIterLoss: 0.2126022279  lr: 1.703e-03  
+2024-11-17 19:04:35 - INFO - Epoch:   23/300  Runtime: 233.54s  EpochLoss: 0.1990215575  RandomIterLoss: 0.2337175012  lr: 1.754e-03  
+2024-11-17 19:08:32 - INFO - Epoch:   24/300  Runtime: 236.39s  EpochLoss: 0.2000763477  RandomIterLoss: 0.2321359068  lr: 1.932e-03  
+2024-11-17 19:11:21 - INFO - Eval Epoch: 24
+2024-11-17 19:11:21 - INFO - Overall Accuracy: 92.16 || Mean Overall Accuracy: 59.26
+2024-11-17 19:11:21 - INFO - Mean IoU: 0.536 || Per-class IoU score:  Ground=0.884  Vegetation=0.887  Trucks2Cars=0.408  Power Lines=0.552  Fences=0.445  Poles=0.339  Buildings=0.776  
+2024-11-17 19:11:21 - INFO - Macro F1: 0.646 || Per-class  F1 score:  Ground=0.938  Vegetation=0.940  Trucks2Cars=0.579  Power Lines=0.711  Fences=0.616  Poles=0.507  Buildings=0.874  
+
+2024-11-17 19:15:16 - INFO - Epoch:   25/300  Runtime: 234.68s  EpochLoss: 0.1943111709  RandomIterLoss: 0.1790506095  lr: 2.059e-03  
+2024-11-17 19:19:10 - INFO - Epoch:   26/300  Runtime: 233.79s  EpochLoss: 0.1944330486  RandomIterLoss: 0.1639340967  lr: 2.153e-03  
+2024-11-17 19:23:05 - INFO - Epoch:   27/300  Runtime: 234.65s  EpochLoss: 0.1897453321  RandomIterLoss: 0.1841615140  lr: 2.307e-03  
+2024-11-17 19:26:57 - INFO - Epoch:   28/300  Runtime: 232.75s  EpochLoss: 0.1988080473  RandomIterLoss: 0.1804958731  lr: 2.457e-03  
+2024-11-17 19:30:53 - INFO - Epoch:   29/300  Runtime: 235.40s  EpochLoss: 0.1924596804  RandomIterLoss: 0.1723831296  lr: 2.561e-03  
+2024-11-17 19:34:48 - INFO - Epoch:   30/300  Runtime: 235.09s  EpochLoss: 0.1879891769  RandomIterLoss: 0.1982443482  lr: 2.744e-03  
+2024-11-17 19:38:42 - INFO - Epoch:   31/300  Runtime: 234.43s  EpochLoss: 0.1876041203  RandomIterLoss: 0.2160195857  lr: 2.809e-03  
+2024-11-17 19:42:38 - INFO - Epoch:   32/300  Runtime: 236.11s  EpochLoss: 0.1882602325  RandomIterLoss: 0.2416558415  lr: 3.028e-03  
+2024-11-17 19:45:25 - INFO - Eval Epoch: 32
+2024-11-17 19:45:25 - INFO - Overall Accuracy: 93.02 || Mean Overall Accuracy: 68.90
+2024-11-17 19:45:25 - INFO - Mean IoU: 0.594 || Per-class IoU score:  Ground=0.908  Vegetation=0.879  Trucks2Cars=0.578  Power Lines=0.646  Fences=0.465  Poles=0.452  Buildings=0.826  
+2024-11-17 19:45:25 - INFO - Macro F1: 0.696 || Per-class  F1 score:  Ground=0.952  Vegetation=0.936  Trucks2Cars=0.733  Power Lines=0.785  Fences=0.635  Poles=0.622  Buildings=0.905  
+
+2024-11-17 19:49:19 - INFO - Epoch:   33/300  Runtime: 233.88s  EpochLoss: 0.1824446943  RandomIterLoss: 0.1745627671  lr: 3.181e-03  
+2024-11-17 19:53:12 - INFO - Epoch:   34/300  Runtime: 233.00s  EpochLoss: 0.1883173399  RandomIterLoss: 0.1588571221  lr: 3.294e-03  
+2024-11-17 19:57:08 - INFO - Epoch:   35/300  Runtime: 235.75s  EpochLoss: 0.1826916938  RandomIterLoss: 0.1701411903  lr: 3.475e-03  
+2024-11-17 20:01:00 - INFO - Epoch:   36/300  Runtime: 231.97s  EpochLoss: 0.1901804258  RandomIterLoss: 0.1821090430  lr: 3.649e-03  
+2024-11-17 20:04:55 - INFO - Epoch:   37/300  Runtime: 235.91s  EpochLoss: 0.1827868146  RandomIterLoss: 0.1675781310  lr: 3.769e-03  
+2024-11-17 20:08:49 - INFO - Epoch:   38/300  Runtime: 233.08s  EpochLoss: 0.1790053066  RandomIterLoss: 0.1859907806  lr: 3.976e-03  
+2024-11-17 20:12:42 - INFO - Epoch:   39/300  Runtime: 233.38s  EpochLoss: 0.1818827912  RandomIterLoss: 0.2048614770  lr: 4.049e-03  
+2024-11-17 20:16:38 - INFO - Epoch:   40/300  Runtime: 236.13s  EpochLoss: 0.1833715776  RandomIterLoss: 0.2169547230  lr: 4.292e-03  
+2024-11-17 20:19:30 - INFO - Eval Epoch: 40
+2024-11-17 20:19:30 - INFO - Overall Accuracy: 94.16 || Mean Overall Accuracy: 71.19
+2024-11-17 20:19:30 - INFO - Mean IoU: 0.628 || Per-class IoU score:  Ground=0.905  Vegetation=0.899  Trucks2Cars=0.628  Power Lines=0.746  Fences=0.457  Poles=0.503  Buildings=0.887  
+2024-11-17 20:19:30 - INFO - Macro F1: 0.720 || Per-class  F1 score:  Ground=0.950  Vegetation=0.947  Trucks2Cars=0.771  Power Lines=0.854  Fences=0.627  Poles=0.670  Buildings=0.940  
+
+2024-11-17 20:23:23 - INFO - Epoch:   41/300  Runtime: 232.67s  EpochLoss: 0.1787168437  RandomIterLoss: 0.1669840068  lr: 4.460e-03  
+2024-11-17 20:27:17 - INFO - Epoch:   42/300  Runtime: 233.68s  EpochLoss: 0.1786874020  RandomIterLoss: 0.1569405049  lr: 4.582e-03  
+2024-11-17 20:31:11 - INFO - Epoch:   43/300  Runtime: 234.63s  EpochLoss: 0.1734415421  RandomIterLoss: 0.1580393463  lr: 4.776e-03  
+2024-11-17 20:35:03 - INFO - Epoch:   44/300  Runtime: 232.05s  EpochLoss: 0.1754363721  RandomIterLoss: 0.1735309511  lr: 4.961e-03  
+2024-11-17 20:38:59 - INFO - Epoch:   45/300  Runtime: 235.60s  EpochLoss: 0.1735133115  RandomIterLoss: 0.1583664566  lr: 5.087e-03  
+2024-11-17 20:42:53 - INFO - Epoch:   46/300  Runtime: 233.82s  EpochLoss: 0.1716769814  RandomIterLoss: 0.1772082746  lr: 5.303e-03  
+2024-11-17 20:46:46 - INFO - Epoch:   47/300  Runtime: 233.32s  EpochLoss: 0.1714778864  RandomIterLoss: 0.2056928724  lr: 5.378e-03  
+2024-11-17 20:50:44 - INFO - Epoch:   48/300  Runtime: 237.49s  EpochLoss: 0.1784642258  RandomIterLoss: 0.2360833436  lr: 5.627e-03  
+2024-11-17 20:53:34 - INFO - Eval Epoch: 48
+2024-11-17 20:53:34 - INFO - Overall Accuracy: 91.76 || Mean Overall Accuracy: 73.16
+2024-11-17 20:53:34 - INFO - Mean IoU: 0.614 || Per-class IoU score:  Ground=0.905  Vegetation=0.852  Trucks2Cars=0.625  Power Lines=0.786  Fences=0.478  Poles=0.492  Buildings=0.775  
+2024-11-17 20:53:34 - INFO - Macro F1: 0.713 || Per-class  F1 score:  Ground=0.950  Vegetation=0.920  Trucks2Cars=0.770  Power Lines=0.880  Fences=0.647  Poles=0.660  Buildings=0.873  
+
+2024-11-17 20:57:27 - INFO - Epoch:   49/300  Runtime: 233.58s  EpochLoss: 0.1751027479  RandomIterLoss: 0.1761834472  lr: 5.796e-03  
+2024-11-17 21:01:21 - INFO - Epoch:   50/300  Runtime: 233.39s  EpochLoss: 0.1730680418  RandomIterLoss: 0.1635181606  lr: 5.918e-03  
+2024-11-17 21:05:16 - INFO - Epoch:   51/300  Runtime: 235.18s  EpochLoss: 0.1705400491  RandomIterLoss: 0.1615549475  lr: 6.111e-03  
+2024-11-17 21:09:08 - INFO - Epoch:   52/300  Runtime: 232.39s  EpochLoss: 0.1808790303  RandomIterLoss: 0.1726985127  lr: 6.292e-03  
+2024-11-17 21:13:04 - INFO - Epoch:   53/300  Runtime: 235.90s  EpochLoss: 0.1740243047  RandomIterLoss: 0.1551121175  lr: 6.414e-03  
+2024-11-17 21:16:59 - INFO - Epoch:   54/300  Runtime: 234.87s  EpochLoss: 0.1666323842  RandomIterLoss: 0.1737467051  lr: 6.622e-03  
+2024-11-17 21:20:54 - INFO - Epoch:   55/300  Runtime: 234.75s  EpochLoss: 0.1698496662  RandomIterLoss: 0.1863761693  lr: 6.693e-03  
+2024-11-17 21:24:50 - INFO - Epoch:   56/300  Runtime: 235.80s  EpochLoss: 0.1691550764  RandomIterLoss: 0.1873949021  lr: 6.928e-03  
+2024-11-17 21:27:40 - INFO - Eval Epoch: 56
+2024-11-17 21:27:40 - INFO - Overall Accuracy: 87.83 || Mean Overall Accuracy: 72.40
+2024-11-17 21:27:40 - INFO - Mean IoU: 0.575 || Per-class IoU score:  Ground=0.898  Vegetation=0.775  Trucks2Cars=0.640  Power Lines=0.737  Fences=0.373  Poles=0.517  Buildings=0.662  
+2024-11-17 21:27:40 - INFO - Macro F1: 0.684 || Per-class  F1 score:  Ground=0.946  Vegetation=0.873  Trucks2Cars=0.781  Power Lines=0.848  Fences=0.543  Poles=0.681  Buildings=0.796  
+
+2024-11-17 21:31:34 - INFO - Epoch:   57/300  Runtime: 234.06s  EpochLoss: 0.1701276145  RandomIterLoss: 0.1595298499  lr: 7.086e-03  
+2024-11-17 21:35:28 - INFO - Epoch:   58/300  Runtime: 234.23s  EpochLoss: 0.1670064202  RandomIterLoss: 0.1475874782  lr: 7.199e-03  
+2024-11-17 21:39:23 - INFO - Epoch:   59/300  Runtime: 235.21s  EpochLoss: 0.1619433472  RandomIterLoss: 0.1488257945  lr: 7.374e-03  
+2024-11-17 21:43:15 - INFO - Epoch:   60/300  Runtime: 231.90s  EpochLoss: 0.1645756859  RandomIterLoss: 0.1553958058  lr: 7.538e-03  
+2024-11-17 21:47:11 - INFO - Epoch:   61/300  Runtime: 235.64s  EpochLoss: 0.1732469277  RandomIterLoss: 0.1585015506  lr: 7.647e-03  
+2024-11-17 21:51:05 - INFO - Epoch:   62/300  Runtime: 233.79s  EpochLoss: 0.1677683208  RandomIterLoss: 0.1739842743  lr: 7.831e-03  
+2024-11-17 21:54:59 - INFO - Epoch:   63/300  Runtime: 234.27s  EpochLoss: 0.1641903179  RandomIterLoss: 0.1933201402  lr: 7.893e-03  
+2024-11-17 21:58:54 - INFO - Epoch:   64/300  Runtime: 235.38s  EpochLoss: 0.1633073813  RandomIterLoss: 0.1821757108  lr: 8.096e-03  
+2024-11-17 22:01:42 - INFO - Eval Epoch: 64
+2024-11-17 22:01:42 - INFO - Overall Accuracy: 94.63 || Mean Overall Accuracy: 74.00
+2024-11-17 22:01:42 - INFO - Mean IoU: 0.638 || Per-class IoU score:  Ground=0.911  Vegetation=0.910  Trucks2Cars=0.628  Power Lines=0.787  Fences=0.458  Poles=0.510  Buildings=0.900  
+2024-11-17 22:01:42 - INFO - Macro F1: 0.726 || Per-class  F1 score:  Ground=0.953  Vegetation=0.953  Trucks2Cars=0.771  Power Lines=0.881  Fences=0.628  Poles=0.676  Buildings=0.947  
+
+2024-11-17 22:05:35 - INFO - Epoch:   65/300  Runtime: 233.76s  EpochLoss: 0.1629150105  RandomIterLoss: 0.1578422487  lr: 8.230e-03  
+2024-11-17 22:09:29 - INFO - Epoch:   66/300  Runtime: 233.48s  EpochLoss: 0.1632939143  RandomIterLoss: 0.1416215003  lr: 8.324e-03  
+2024-11-17 22:13:24 - INFO - Epoch:   67/300  Runtime: 235.19s  EpochLoss: 0.1608933861  RandomIterLoss: 0.1497450918  lr: 8.470e-03  
+2024-11-17 22:17:17 - INFO - Epoch:   68/300  Runtime: 232.56s  EpochLoss: 0.1637787727  RandomIterLoss: 0.1515994221  lr: 8.603e-03  
+2024-11-17 22:21:12 - INFO - Epoch:   69/300  Runtime: 235.61s  EpochLoss: 0.1605384997  RandomIterLoss: 0.1515540332  lr: 8.691e-03  
+2024-11-17 22:25:06 - INFO - Epoch:   70/300  Runtime: 234.17s  EpochLoss: 0.1601902400  RandomIterLoss: 0.1629898697  lr: 8.836e-03  
+2024-11-17 22:29:01 - INFO - Epoch:   71/300  Runtime: 234.51s  EpochLoss: 0.1567025879  RandomIterLoss: 0.1783877313  lr: 8.884e-03  
+2024-11-17 22:32:57 - INFO - Epoch:   72/300  Runtime: 236.36s  EpochLoss: 0.1562810797  RandomIterLoss: 0.1747322977  lr: 9.039e-03  
+2024-11-17 22:35:44 - INFO - Eval Epoch: 72
+2024-11-17 22:35:44 - INFO - Overall Accuracy: 93.72 || Mean Overall Accuracy: 74.42
+2024-11-17 22:35:44 - INFO - Mean IoU: 0.630 || Per-class IoU score:  Ground=0.899  Vegetation=0.892  Trucks2Cars=0.646  Power Lines=0.811  Fences=0.315  Poles=0.575  Buildings=0.903  
+2024-11-17 22:35:44 - INFO - Macro F1: 0.716 || Per-class  F1 score:  Ground=0.947  Vegetation=0.943  Trucks2Cars=0.785  Power Lines=0.896  Fences=0.479  Poles=0.730  Buildings=0.949  
+
+2024-11-17 22:39:37 - INFO - Epoch:   73/300  Runtime: 233.05s  EpochLoss: 0.1552883499  RandomIterLoss: 0.1504851133  lr: 9.139e-03  
+2024-11-17 22:43:32 - INFO - Epoch:   74/300  Runtime: 234.16s  EpochLoss: 0.1581855156  RandomIterLoss: 0.1326705068  lr: 9.208e-03  
+2024-11-17 22:47:26 - INFO - Epoch:   75/300  Runtime: 234.16s  EpochLoss: 0.1679777368  RandomIterLoss: 0.1483350545  lr: 9.312e-03  
+2024-11-17 22:51:18 - INFO - Epoch:   76/300  Runtime: 232.53s  EpochLoss: 0.1643326920  RandomIterLoss: 0.1501994878  lr: 9.404e-03  
+2024-11-17 22:55:15 - INFO - Epoch:   77/300  Runtime: 237.17s  EpochLoss: 0.1566802977  RandomIterLoss: 0.1446942091  lr: 9.464e-03  
+2024-11-17 22:59:08 - INFO - Epoch:   78/300  Runtime: 232.23s  EpochLoss: 0.1578096720  RandomIterLoss: 0.1616051346  lr: 9.559e-03  
+2024-11-17 23:03:02 - INFO - Epoch:   79/300  Runtime: 234.08s  EpochLoss: 0.1665106376  RandomIterLoss: 0.2036124766  lr: 9.589e-03  
+2024-11-17 23:06:58 - INFO - Epoch:   80/300  Runtime: 236.35s  EpochLoss: 0.1587537702  RandomIterLoss: 0.1734162867  lr: 9.684e-03  
+2024-11-17 23:09:45 - INFO - Eval Epoch: 80
+2024-11-17 23:09:45 - INFO - Overall Accuracy: 91.16 || Mean Overall Accuracy: 73.21
+2024-11-17 23:09:45 - INFO - Mean IoU: 0.603 || Per-class IoU score:  Ground=0.882  Vegetation=0.847  Trucks2Cars=0.673  Power Lines=0.700  Fences=0.402  Poles=0.543  Buildings=0.780  
+2024-11-17 23:09:45 - INFO - Macro F1: 0.705 || Per-class  F1 score:  Ground=0.938  Vegetation=0.917  Trucks2Cars=0.805  Power Lines=0.824  Fences=0.573  Poles=0.704  Buildings=0.876  
+
+2024-11-17 23:13:38 - INFO - Epoch:   81/300  Runtime: 233.25s  EpochLoss: 0.1542529758  RandomIterLoss: 0.1475969106  lr: 9.742e-03  
+2024-11-17 23:17:32 - INFO - Epoch:   82/300  Runtime: 233.62s  EpochLoss: 0.1553036174  RandomIterLoss: 0.1328617781  lr: 9.781e-03  
+2024-11-17 23:21:28 - INFO - Epoch:   83/300  Runtime: 235.81s  EpochLoss: 0.1516240711  RandomIterLoss: 0.1405198425  lr: 9.835e-03  
+2024-11-17 23:25:19 - INFO - Epoch:   84/300  Runtime: 231.40s  EpochLoss: 0.1526821495  RandomIterLoss: 0.1415382326  lr: 9.880e-03  
+2024-11-17 23:29:14 - INFO - Epoch:   85/300  Runtime: 235.18s  EpochLoss: 0.1527283338  RandomIterLoss: 0.1436157972  lr: 9.906e-03  
+2024-11-17 23:33:07 - INFO - Epoch:   86/300  Runtime: 232.71s  EpochLoss: 0.1506696730  RandomIterLoss: 0.1566382349  lr: 9.944e-03  
+2024-11-17 23:37:02 - INFO - Epoch:   87/300  Runtime: 234.73s  EpochLoss: 0.1508067450  RandomIterLoss: 0.1676733345  lr: 9.955e-03  
+2024-11-17 23:40:59 - INFO - Epoch:   88/300  Runtime: 237.42s  EpochLoss: 0.1495095610  RandomIterLoss: 0.1663085222  lr: 9.983e-03  
+2024-11-17 23:43:49 - INFO - Eval Epoch: 88
+2024-11-17 23:43:49 - INFO - Overall Accuracy: 93.62 || Mean Overall Accuracy: 74.42
+2024-11-17 23:43:49 - INFO - Mean IoU: 0.639 || Per-class IoU score:  Ground=0.900  Vegetation=0.888  Trucks2Cars=0.680  Power Lines=0.821  Fences=0.325  Poles=0.605  Buildings=0.895  
+2024-11-17 23:43:49 - INFO - Macro F1: 0.724 || Per-class  F1 score:  Ground=0.947  Vegetation=0.941  Trucks2Cars=0.810  Power Lines=0.902  Fences=0.490  Poles=0.754  Buildings=0.945  
+
+2024-11-17 23:47:43 - INFO - Epoch:   89/300  Runtime: 233.98s  EpochLoss: 0.1485331200  RandomIterLoss: 0.1466114521  lr: 9.994e-03  
+2024-11-17 23:51:36 - INFO - Epoch:   90/300  Runtime: 233.17s  EpochLoss: 0.1536406953  RandomIterLoss: 0.1287355125  lr: 9.999e-03  
+2024-11-17 23:55:31 - INFO - Epoch:   91/300  Runtime: 235.00s  EpochLoss: 0.1502569424  RandomIterLoss: 0.1374238282  lr: 1.000e-02  
+2024-11-17 23:59:23 - INFO - Epoch:   92/300  Runtime: 231.67s  EpochLoss: 0.1570898166  RandomIterLoss: 0.1397041678  lr: 9.999e-03  
+2024-11-18 00:03:19 - INFO - Epoch:   93/300  Runtime: 236.75s  EpochLoss: 0.1581662667  RandomIterLoss: 0.1468348205  lr: 9.997e-03  
+2024-11-18 00:07:14 - INFO - Epoch:   94/300  Runtime: 234.70s  EpochLoss: 0.1531671595  RandomIterLoss: 0.1573048085  lr: 9.993e-03  
+2024-11-18 00:11:09 - INFO - Epoch:   95/300  Runtime: 234.50s  EpochLoss: 0.1482321689  RandomIterLoss: 0.1727251559  lr: 9.991e-03  
+2024-11-18 00:15:06 - INFO - Epoch:   96/300  Runtime: 237.31s  EpochLoss: 0.1464864312  RandomIterLoss: 0.1579683125  lr: 9.983e-03  
+2024-11-18 00:17:54 - INFO - Eval Epoch: 96
+2024-11-18 00:17:54 - INFO - Overall Accuracy: 91.33 || Mean Overall Accuracy: 73.26
+2024-11-18 00:17:54 - INFO - Mean IoU: 0.610 || Per-class IoU score:  Ground=0.870  Vegetation=0.848  Trucks2Cars=0.612  Power Lines=0.805  Fences=0.313  Poles=0.598  Buildings=0.834  
+2024-11-18 00:17:54 - INFO - Macro F1: 0.704 || Per-class  F1 score:  Ground=0.931  Vegetation=0.918  Trucks2Cars=0.760  Power Lines=0.892  Fences=0.477  Poles=0.748  Buildings=0.910  
+
+2024-11-18 00:21:49 - INFO - Epoch:   97/300  Runtime: 234.27s  EpochLoss: 0.1461734154  RandomIterLoss: 0.1465857476  lr: 9.976e-03  
+2024-11-18 00:25:43 - INFO - Epoch:   98/300  Runtime: 234.49s  EpochLoss: 0.1449146624  RandomIterLoss: 0.1284129620  lr: 9.970e-03  
+2024-11-18 00:29:37 - INFO - Epoch:   99/300  Runtime: 234.02s  EpochLoss: 0.1436690247  RandomIterLoss: 0.1332243979  lr: 9.960e-03  
+2024-11-18 00:33:30 - INFO - Epoch:  100/300  Runtime: 232.68s  EpochLoss: 0.1453349330  RandomIterLoss: 0.1331767887  lr: 9.949e-03  
+2024-11-18 00:37:26 - INFO - Epoch:  101/300  Runtime: 236.05s  EpochLoss: 0.1445164184  RandomIterLoss: 0.1373222619  lr: 9.940e-03  
+2024-11-18 00:41:19 - INFO - Epoch:  102/300  Runtime: 233.47s  EpochLoss: 0.1430129886  RandomIterLoss: 0.1478842795  lr: 9.925e-03  
+2024-11-18 00:45:14 - INFO - Epoch:  103/300  Runtime: 234.44s  EpochLoss: 0.1420712826  RandomIterLoss: 0.1638923734  lr: 9.919e-03  
+2024-11-18 00:49:10 - INFO - Epoch:  104/300  Runtime: 236.81s  EpochLoss: 0.1419180615  RandomIterLoss: 0.1549037546  lr: 9.898e-03  
+2024-11-18 00:51:57 - INFO - Eval Epoch: 104
+2024-11-18 00:51:57 - INFO - Overall Accuracy: 93.12 || Mean Overall Accuracy: 73.23
+2024-11-18 00:51:57 - INFO - Mean IoU: 0.638 || Per-class IoU score:  Ground=0.887  Vegetation=0.882  Trucks2Cars=0.660  Power Lines=0.819  Fences=0.379  Poles=0.607  Buildings=0.868  
+2024-11-18 00:51:57 - INFO - Macro F1: 0.726 || Per-class  F1 score:  Ground=0.940  Vegetation=0.938  Trucks2Cars=0.795  Power Lines=0.900  Fences=0.550  Poles=0.756  Buildings=0.929  
+
+2024-11-18 00:55:51 - INFO - Epoch:  105/300  Runtime: 233.91s  EpochLoss: 0.1445595535  RandomIterLoss: 0.1409706324  lr: 9.882e-03  
+2024-11-18 00:59:45 - INFO - Epoch:  106/300  Runtime: 233.52s  EpochLoss: 0.1546856725  RandomIterLoss: 0.1326826513  lr: 9.869e-03  
+2024-11-18 01:03:40 - INFO - Epoch:  107/300  Runtime: 234.95s  EpochLoss: 0.1514097125  RandomIterLoss: 0.1379223764  lr: 9.849e-03  
+2024-11-18 01:07:32 - INFO - Epoch:  108/300  Runtime: 232.65s  EpochLoss: 0.1469392788  RandomIterLoss: 0.1344668716  lr: 9.828e-03  
+2024-11-18 01:11:28 - INFO - Epoch:  109/300  Runtime: 235.53s  EpochLoss: 0.1433533669  RandomIterLoss: 0.1353755146  lr: 9.813e-03  
+2024-11-18 01:15:21 - INFO - Epoch:  110/300  Runtime: 233.67s  EpochLoss: 0.1409964901  RandomIterLoss: 0.1476811171  lr: 9.786e-03  
+2024-11-18 01:19:16 - INFO - Epoch:  111/300  Runtime: 234.33s  EpochLoss: 0.1394969926  RandomIterLoss: 0.1593219936  lr: 9.776e-03  
+2024-11-18 01:23:12 - INFO - Epoch:  112/300  Runtime: 236.44s  EpochLoss: 0.1383249418  RandomIterLoss: 0.1470737308  lr: 9.742e-03  
+2024-11-18 01:25:59 - INFO - Eval Epoch: 112
+2024-11-18 01:25:59 - INFO - Overall Accuracy: 92.29 || Mean Overall Accuracy: 73.72
+2024-11-18 01:25:59 - INFO - Mean IoU: 0.639 || Per-class IoU score:  Ground=0.876  Vegetation=0.863  Trucks2Cars=0.664  Power Lines=0.821  Fences=0.411  Poles=0.623  Buildings=0.852  
+2024-11-18 01:25:59 - INFO - Macro F1: 0.729 || Per-class  F1 score:  Ground=0.934  Vegetation=0.927  Trucks2Cars=0.798  Power Lines=0.902  Fences=0.583  Poles=0.768  Buildings=0.920  
+
+2024-11-18 01:29:52 - INFO - Epoch:  113/300  Runtime: 233.22s  EpochLoss: 0.1381816757  RandomIterLoss: 0.1356076300  lr: 9.718e-03  
+2024-11-18 01:33:46 - INFO - Epoch:  114/300  Runtime: 233.83s  EpochLoss: 0.1436912993  RandomIterLoss: 0.1225758940  lr: 9.699e-03  
+2024-11-18 01:37:40 - INFO - Epoch:  115/300  Runtime: 234.69s  EpochLoss: 0.1421266755  RandomIterLoss: 0.1357223690  lr: 9.669e-03  
+2024-11-18 01:41:32 - INFO - Epoch:  116/300  Runtime: 231.82s  EpochLoss: 0.1452221334  RandomIterLoss: 0.1314086616  lr: 9.638e-03  
+2024-11-18 01:45:28 - INFO - Epoch:  117/300  Runtime: 235.55s  EpochLoss: 0.1413269864  RandomIterLoss: 0.1333832145  lr: 9.617e-03  
+2024-11-18 01:49:22 - INFO - Epoch:  118/300  Runtime: 234.35s  EpochLoss: 0.1390524896  RandomIterLoss: 0.1415302902  lr: 9.579e-03  
+2024-11-18 01:53:16 - INFO - Epoch:  119/300  Runtime: 234.08s  EpochLoss: 0.1375990524  RandomIterLoss: 0.1569174230  lr: 9.566e-03  
+2024-11-18 01:57:14 - INFO - Epoch:  120/300  Runtime: 237.47s  EpochLoss: 0.1369049379  RandomIterLoss: 0.1447857022  lr: 9.519e-03  
+2024-11-18 02:00:01 - INFO - Eval Epoch: 120
+2024-11-18 02:00:01 - INFO - Overall Accuracy: 91.97 || Mean Overall Accuracy: 73.67
+2024-11-18 02:00:01 - INFO - Mean IoU: 0.625 || Per-class IoU score:  Ground=0.887  Vegetation=0.861  Trucks2Cars=0.645  Power Lines=0.813  Fences=0.401  Poles=0.584  Buildings=0.809  
+2024-11-18 02:00:01 - INFO - Macro F1: 0.719 || Per-class  F1 score:  Ground=0.940  Vegetation=0.925  Trucks2Cars=0.784  Power Lines=0.897  Fences=0.573  Poles=0.738  Buildings=0.895  
+
+2024-11-18 02:03:53 - INFO - Epoch:  121/300  Runtime: 231.78s  EpochLoss: 0.1416982745  RandomIterLoss: 0.1543962210  lr: 9.486e-03  
+2024-11-18 02:07:47 - INFO - Epoch:  122/300  Runtime: 234.13s  EpochLoss: 0.1401277602  RandomIterLoss: 0.1309370100  lr: 9.462e-03  
+2024-11-18 02:11:43 - INFO - Epoch:  123/300  Runtime: 235.78s  EpochLoss: 0.1372683584  RandomIterLoss: 0.1277532429  lr: 9.422e-03  
+2024-11-18 02:15:35 - INFO - Epoch:  124/300  Runtime: 232.50s  EpochLoss: 0.1387728599  RandomIterLoss: 0.1233927310  lr: 9.382e-03  
+2024-11-18 02:19:31 - INFO - Epoch:  125/300  Runtime: 235.93s  EpochLoss: 0.1362027325  RandomIterLoss: 0.1309374869  lr: 9.355e-03  
+2024-11-18 02:23:24 - INFO - Epoch:  126/300  Runtime: 232.79s  EpochLoss: 0.1346648134  RandomIterLoss: 0.1367679685  lr: 9.307e-03  
+2024-11-18 02:27:18 - INFO - Epoch:  127/300  Runtime: 234.03s  EpochLoss: 0.1330374216  RandomIterLoss: 0.1520726979  lr: 9.290e-03  
+2024-11-18 02:31:14 - INFO - Epoch:  128/300  Runtime: 235.61s  EpochLoss: 0.1320832375  RandomIterLoss: 0.1392611265  lr: 9.231e-03  
+2024-11-18 02:33:59 - INFO - Eval Epoch: 128
+2024-11-18 02:33:59 - INFO - Overall Accuracy: 92.81 || Mean Overall Accuracy: 71.05
+2024-11-18 02:33:59 - INFO - Mean IoU: 0.635 || Per-class IoU score:  Ground=0.881  Vegetation=0.880  Trucks2Cars=0.605  Power Lines=0.815  Fences=0.445  Poles=0.609  Buildings=0.843  
+2024-11-18 02:33:59 - INFO - Macro F1: 0.727 || Per-class  F1 score:  Ground=0.937  Vegetation=0.936  Trucks2Cars=0.754  Power Lines=0.898  Fences=0.616  Poles=0.757  Buildings=0.915  
+
+2024-11-18 02:37:54 - INFO - Epoch:  129/300  Runtime: 234.82s  EpochLoss: 0.1326181231  RandomIterLoss: 0.1299819648  lr: 9.190e-03  
+2024-11-18 02:41:49 - INFO - Epoch:  130/300  Runtime: 235.01s  EpochLoss: 0.1344842623  RandomIterLoss: 0.1179373860  lr: 9.160e-03  
+2024-11-18 02:45:45 - INFO - Epoch:  131/300  Runtime: 235.34s  EpochLoss: 0.1339329599  RandomIterLoss: 0.1245719269  lr: 9.111e-03  
+2024-11-18 02:49:37 - INFO - Epoch:  132/300  Runtime: 232.54s  EpochLoss: 0.1346789518  RandomIterLoss: 0.1216886342  lr: 9.064e-03  
+2024-11-18 02:53:33 - INFO - Epoch:  133/300  Runtime: 235.85s  EpochLoss: 0.1326682117  RandomIterLoss: 0.1278301328  lr: 9.031e-03  
+2024-11-18 02:57:27 - INFO - Epoch:  134/300  Runtime: 233.76s  EpochLoss: 0.1315952541  RandomIterLoss: 0.1321783066  lr: 8.973e-03  
+2024-11-18 03:01:22 - INFO - Epoch:  135/300  Runtime: 235.57s  EpochLoss: 0.1298625266  RandomIterLoss: 0.1474861056  lr: 8.952e-03  
+2024-11-18 03:05:18 - INFO - Epoch:  136/300  Runtime: 236.11s  EpochLoss: 0.1289070267  RandomIterLoss: 0.1357712448  lr: 8.883e-03  
+2024-11-18 03:08:06 - INFO - Eval Epoch: 136
+2024-11-18 03:08:06 - INFO - Overall Accuracy: 91.38 || Mean Overall Accuracy: 67.97
+2024-11-18 03:08:06 - INFO - Mean IoU: 0.608 || Per-class IoU score:  Ground=0.856  Vegetation=0.858  Trucks2Cars=0.559  Power Lines=0.801  Fences=0.423  Poles=0.556  Buildings=0.814  
+2024-11-18 03:08:06 - INFO - Macro F1: 0.707 || Per-class  F1 score:  Ground=0.922  Vegetation=0.923  Trucks2Cars=0.717  Power Lines=0.890  Fences=0.594  Poles=0.715  Buildings=0.897  
+
+2024-11-18 03:12:01 - INFO - Epoch:  137/300  Runtime: 234.59s  EpochLoss: 0.1289444528  RandomIterLoss: 0.1283444762  lr: 8.835e-03  
+2024-11-18 03:15:55 - INFO - Epoch:  138/300  Runtime: 233.75s  EpochLoss: 0.1298573029  RandomIterLoss: 0.1151115000  lr: 8.799e-03  
+2024-11-18 03:19:50 - INFO - Epoch:  139/300  Runtime: 235.59s  EpochLoss: 0.1296956604  RandomIterLoss: 0.1203347892  lr: 8.742e-03  
+2024-11-18 03:23:43 - INFO - Epoch:  140/300  Runtime: 232.71s  EpochLoss: 0.1323891624  RandomIterLoss: 0.1177953705  lr: 8.687e-03  
+2024-11-18 03:27:39 - INFO - Epoch:  141/300  Runtime: 235.65s  EpochLoss: 0.1352676017  RandomIterLoss: 0.1276404262  lr: 8.648e-03  
+2024-11-18 03:31:33 - INFO - Epoch:  142/300  Runtime: 234.22s  EpochLoss: 0.1317257805  RandomIterLoss: 0.1319076270  lr: 8.582e-03  
+2024-11-18 03:35:26 - INFO - Epoch:  143/300  Runtime: 233.29s  EpochLoss: 0.1293904173  RandomIterLoss: 0.1528871208  lr: 8.558e-03  
+2024-11-18 03:39:22 - INFO - Epoch:  144/300  Runtime: 236.14s  EpochLoss: 0.1273825606  RandomIterLoss: 0.1316571385  lr: 8.479e-03  
+2024-11-18 03:42:09 - INFO - Eval Epoch: 144
+2024-11-18 03:42:09 - INFO - Overall Accuracy: 91.62 || Mean Overall Accuracy: 68.47
+2024-11-18 03:42:09 - INFO - Mean IoU: 0.580 || Per-class IoU score:  Ground=0.884  Vegetation=0.859  Trucks2Cars=0.546  Power Lines=0.776  Fences=0.320  Poles=0.457  Buildings=0.803  
+2024-11-18 03:42:09 - INFO - Macro F1: 0.681 || Per-class  F1 score:  Ground=0.939  Vegetation=0.924  Trucks2Cars=0.706  Power Lines=0.874  Fences=0.484  Poles=0.627  Buildings=0.890  
+
+2024-11-18 03:46:03 - INFO - Epoch:  145/300  Runtime: 234.01s  EpochLoss: 0.1263576053  RandomIterLoss: 0.1218220592  lr: 8.424e-03  
+2024-11-18 03:49:56 - INFO - Epoch:  146/300  Runtime: 233.38s  EpochLoss: 0.1271180147  RandomIterLoss: 0.1127060354  lr: 8.384e-03  
+2024-11-18 03:53:51 - INFO - Epoch:  147/300  Runtime: 234.45s  EpochLoss: 0.1271998677  RandomIterLoss: 0.1191953942  lr: 8.319e-03  
+2024-11-18 03:57:41 - INFO - Epoch:  148/300  Runtime: 230.86s  EpochLoss: 0.1281242643  RandomIterLoss: 0.1182675138  lr: 8.257e-03  
+2024-11-18 04:01:37 - INFO - Epoch:  149/300  Runtime: 235.61s  EpochLoss: 0.1282404186  RandomIterLoss: 0.1238130406  lr: 8.214e-03  
+2024-11-18 04:05:30 - INFO - Epoch:  150/300  Runtime: 232.64s  EpochLoss: 0.1260467257  RandomIterLoss: 0.1226081178  lr: 8.140e-03  
+2024-11-18 04:09:23 - INFO - Epoch:  151/300  Runtime: 233.70s  EpochLoss: 0.1246614642  RandomIterLoss: 0.1407270283  lr: 8.114e-03  
+2024-11-18 04:13:21 - INFO - Epoch:  152/300  Runtime: 237.40s  EpochLoss: 0.1243901553  RandomIterLoss: 0.1353963017  lr: 8.026e-03  
+2024-11-18 04:16:10 - INFO - Eval Epoch: 152
+2024-11-18 04:16:10 - INFO - Overall Accuracy: 90.82 || Mean Overall Accuracy: 66.96
+2024-11-18 04:16:10 - INFO - Mean IoU: 0.596 || Per-class IoU score:  Ground=0.881  Vegetation=0.847  Trucks2Cars=0.563  Power Lines=0.798  Fences=0.380  Poles=0.547  Buildings=0.751  
+2024-11-18 04:16:10 - INFO - Macro F1: 0.697 || Per-class  F1 score:  Ground=0.937  Vegetation=0.917  Trucks2Cars=0.720  Power Lines=0.888  Fences=0.551  Poles=0.707  Buildings=0.858  
+
+2024-11-18 04:20:04 - INFO - Epoch:  153/300  Runtime: 233.37s  EpochLoss: 0.1226823886  RandomIterLoss: 0.1183642745  lr: 7.965e-03  
+2024-11-18 04:23:56 - INFO - Epoch:  154/300  Runtime: 232.35s  EpochLoss: 0.1236338482  RandomIterLoss: 0.1109172553  lr: 7.920e-03  
+2024-11-18 04:27:52 - INFO - Epoch:  155/300  Runtime: 235.51s  EpochLoss: 0.1236468187  RandomIterLoss: 0.1157224253  lr: 7.849e-03  
+2024-11-18 04:31:43 - INFO - Epoch:  156/300  Runtime: 231.81s  EpochLoss: 0.1244554267  RandomIterLoss: 0.1120143682  lr: 7.781e-03  
+2024-11-18 04:35:39 - INFO - Epoch:  157/300  Runtime: 235.78s  EpochLoss: 0.1247750701  RandomIterLoss: 0.1163233295  lr: 7.734e-03  
+2024-11-18 04:39:34 - INFO - Epoch:  158/300  Runtime: 234.52s  EpochLoss: 0.1228890769  RandomIterLoss: 0.1198719889  lr: 7.653e-03  
+2024-11-18 04:43:27 - INFO - Epoch:  159/300  Runtime: 233.08s  EpochLoss: 0.1225944251  RandomIterLoss: 0.1407302916  lr: 7.624e-03  
+2024-11-18 04:47:22 - INFO - Epoch:  160/300  Runtime: 235.68s  EpochLoss: 0.1215575847  RandomIterLoss: 0.1291865110  lr: 7.529e-03  
+2024-11-18 04:50:09 - INFO - Eval Epoch: 160
+2024-11-18 04:50:09 - INFO - Overall Accuracy: 90.67 || Mean Overall Accuracy: 64.52
+2024-11-18 04:50:09 - INFO - Mean IoU: 0.582 || Per-class IoU score:  Ground=0.872  Vegetation=0.846  Trucks2Cars=0.487  Power Lines=0.786  Fences=0.373  Poles=0.535  Buildings=0.756  
+2024-11-18 04:50:09 - INFO - Macro F1: 0.686 || Per-class  F1 score:  Ground=0.932  Vegetation=0.917  Trucks2Cars=0.655  Power Lines=0.880  Fences=0.544  Poles=0.697  Buildings=0.861  
+
+2024-11-18 04:54:04 - INFO - Epoch:  161/300  Runtime: 234.54s  EpochLoss: 0.1198719544  RandomIterLoss: 0.1167664528  lr: 7.463e-03  
+2024-11-18 04:57:58 - INFO - Epoch:  162/300  Runtime: 234.06s  EpochLoss: 0.1205531515  RandomIterLoss: 0.1083415374  lr: 7.415e-03  
+2024-11-18 05:01:53 - INFO - Epoch:  163/300  Runtime: 235.59s  EpochLoss: 0.1216088169  RandomIterLoss: 0.1166586652  lr: 7.338e-03  
+2024-11-18 05:05:45 - INFO - Epoch:  164/300  Runtime: 231.72s  EpochLoss: 0.1222268139  RandomIterLoss: 0.1127228290  lr: 7.265e-03  
+2024-11-18 05:09:40 - INFO - Epoch:  165/300  Runtime: 235.30s  EpochLoss: 0.1214421375  RandomIterLoss: 0.1150360629  lr: 7.214e-03  
+2024-11-18 05:13:34 - INFO - Epoch:  166/300  Runtime: 233.48s  EpochLoss: 0.1194011286  RandomIterLoss: 0.1153707504  lr: 7.128e-03  
+2024-11-18 05:17:27 - INFO - Epoch:  167/300  Runtime: 233.26s  EpochLoss: 0.1190473020  RandomIterLoss: 0.1324252635  lr: 7.097e-03  
+2024-11-18 05:21:24 - INFO - Epoch:  168/300  Runtime: 236.88s  EpochLoss: 0.1176114492  RandomIterLoss: 0.1180492043  lr: 6.996e-03  
+2024-11-18 05:24:15 - INFO - Eval Epoch: 168
+2024-11-18 05:24:15 - INFO - Overall Accuracy: 91.68 || Mean Overall Accuracy: 66.80
+2024-11-18 05:24:15 - INFO - Mean IoU: 0.579 || Per-class IoU score:  Ground=0.890  Vegetation=0.855  Trucks2Cars=0.571  Power Lines=0.724  Fences=0.424  Poles=0.381  Buildings=0.790  
+2024-11-18 05:24:15 - INFO - Macro F1: 0.683 || Per-class  F1 score:  Ground=0.942  Vegetation=0.922  Trucks2Cars=0.727  Power Lines=0.840  Fences=0.595  Poles=0.552  Buildings=0.883  
+
+2024-11-18 05:28:08 - INFO - Epoch:  169/300  Runtime: 233.44s  EpochLoss: 0.1166957066  RandomIterLoss: 0.1140840948  lr: 6.926e-03  
+2024-11-18 05:32:02 - INFO - Epoch:  170/300  Runtime: 233.70s  EpochLoss: 0.1182818951  RandomIterLoss: 0.1043934152  lr: 6.875e-03  
+2024-11-18 05:35:59 - INFO - Epoch:  171/300  Runtime: 237.09s  EpochLoss: 0.1180072269  RandomIterLoss: 0.1152673140  lr: 6.794e-03  
+2024-11-18 05:39:51 - INFO - Epoch:  172/300  Runtime: 231.74s  EpochLoss: 0.1192309722  RandomIterLoss: 0.1130704805  lr: 6.716e-03  
+2024-11-18 05:43:46 - INFO - Epoch:  173/300  Runtime: 235.54s  EpochLoss: 0.1180032103  RandomIterLoss: 0.1080267951  lr: 6.663e-03  
+2024-11-18 05:47:39 - INFO - Epoch:  174/300  Runtime: 232.97s  EpochLoss: 0.1162520578  RandomIterLoss: 0.1147150099  lr: 6.572e-03  
+2024-11-18 05:51:32 - INFO - Epoch:  175/300  Runtime: 233.01s  EpochLoss: 0.1152890669  RandomIterLoss: 0.1264981925  lr: 6.540e-03  
+2024-11-18 05:55:27 - INFO - Epoch:  176/300  Runtime: 235.25s  EpochLoss: 0.1138452405  RandomIterLoss: 0.1144595891  lr: 6.434e-03  
+2024-11-18 05:58:14 - INFO - Eval Epoch: 176
+2024-11-18 05:58:14 - INFO - Overall Accuracy: 90.05 || Mean Overall Accuracy: 66.57
+2024-11-18 05:58:14 - INFO - Mean IoU: 0.575 || Per-class IoU score:  Ground=0.879  Vegetation=0.832  Trucks2Cars=0.577  Power Lines=0.738  Fences=0.399  Poles=0.447  Buildings=0.726  
+2024-11-18 05:58:14 - INFO - Macro F1: 0.682 || Per-class  F1 score:  Ground=0.935  Vegetation=0.908  Trucks2Cars=0.732  Power Lines=0.849  Fences=0.571  Poles=0.618  Buildings=0.841  
+
+2024-11-18 06:02:09 - INFO - Epoch:  177/300  Runtime: 234.60s  EpochLoss: 0.1130415111  RandomIterLoss: 0.1105935574  lr: 6.361e-03  
+2024-11-18 06:06:02 - INFO - Epoch:  178/300  Runtime: 232.88s  EpochLoss: 0.1138830839  RandomIterLoss: 0.1045554131  lr: 6.308e-03  
+2024-11-18 06:09:57 - INFO - Epoch:  179/300  Runtime: 235.36s  EpochLoss: 0.1146834826  RandomIterLoss: 0.1100158840  lr: 6.224e-03  
+2024-11-18 06:13:48 - INFO - Epoch:  180/300  Runtime: 231.33s  EpochLoss: 0.1161510138  RandomIterLoss: 0.1106746197  lr: 6.143e-03  
+2024-11-18 06:17:43 - INFO - Epoch:  181/300  Runtime: 234.69s  EpochLoss: 0.1144522130  RandomIterLoss: 0.1068721116  lr: 6.088e-03  
+2024-11-18 06:21:36 - INFO - Epoch:  182/300  Runtime: 232.98s  EpochLoss: 0.1127876274  RandomIterLoss: 0.1096839458  lr: 5.994e-03  
+2024-11-18 06:25:29 - INFO - Epoch:  183/300  Runtime: 233.17s  EpochLoss: 0.1119960694  RandomIterLoss: 0.1232592240  lr: 5.961e-03  
+2024-11-18 06:29:26 - INFO - Epoch:  184/300  Runtime: 237.06s  EpochLoss: 0.1103826307  RandomIterLoss: 0.1124058589  lr: 5.852e-03  
+2024-11-18 06:32:16 - INFO - Eval Epoch: 184
+2024-11-18 06:32:16 - INFO - Overall Accuracy: 91.08 || Mean Overall Accuracy: 67.34
+2024-11-18 06:32:16 - INFO - Mean IoU: 0.561 || Per-class IoU score:  Ground=0.863  Vegetation=0.852  Trucks2Cars=0.559  Power Lines=0.679  Fences=0.410  Poles=0.330  Buildings=0.795  
+2024-11-18 06:32:16 - INFO - Macro F1: 0.667 || Per-class  F1 score:  Ground=0.926  Vegetation=0.920  Trucks2Cars=0.717  Power Lines=0.809  Fences=0.582  Poles=0.496  Buildings=0.886  
+
+2024-11-18 06:36:10 - INFO - Epoch:  185/300  Runtime: 233.66s  EpochLoss: 0.1106570391  RandomIterLoss: 0.1089878455  lr: 5.777e-03  
+2024-11-18 06:40:04 - INFO - Epoch:  186/300  Runtime: 234.19s  EpochLoss: 0.1103678341  RandomIterLoss: 0.0985930339  lr: 5.723e-03  
+2024-11-18 06:43:59 - INFO - Epoch:  187/300  Runtime: 235.14s  EpochLoss: 0.1109471465  RandomIterLoss: 0.1076057255  lr: 5.636e-03  
+2024-11-18 06:47:51 - INFO - Epoch:  188/300  Runtime: 231.93s  EpochLoss: 0.1128295975  RandomIterLoss: 0.1052382514  lr: 5.554e-03  
+2024-11-18 06:51:47 - INFO - Epoch:  189/300  Runtime: 236.15s  EpochLoss: 0.1115989447  RandomIterLoss: 0.1005708277  lr: 5.498e-03  
+2024-11-18 06:55:41 - INFO - Epoch:  190/300  Runtime: 234.40s  EpochLoss: 0.1100138857  RandomIterLoss: 0.1084618717  lr: 5.402e-03  
+2024-11-18 06:59:36 - INFO - Epoch:  191/300  Runtime: 234.34s  EpochLoss: 0.1088708027  RandomIterLoss: 0.1189701706  lr: 5.369e-03  
+2024-11-18 07:03:31 - INFO - Epoch:  192/300  Runtime: 235.06s  EpochLoss: 0.1071843751  RandomIterLoss: 0.1110165715  lr: 5.258e-03  
+2024-11-18 07:06:21 - INFO - Eval Epoch: 192
+2024-11-18 07:06:21 - INFO - Overall Accuracy: 91.46 || Mean Overall Accuracy: 66.97
+2024-11-18 07:06:21 - INFO - Mean IoU: 0.577 || Per-class IoU score:  Ground=0.873  Vegetation=0.861  Trucks2Cars=0.572  Power Lines=0.727  Fences=0.408  Poles=0.392  Buildings=0.785  
+2024-11-18 07:06:21 - INFO - Macro F1: 0.681 || Per-class  F1 score:  Ground=0.932  Vegetation=0.925  Trucks2Cars=0.728  Power Lines=0.842  Fences=0.579  Poles=0.563  Buildings=0.880  
+
+2024-11-18 07:10:15 - INFO - Epoch:  193/300  Runtime: 233.80s  EpochLoss: 0.1074534806  RandomIterLoss: 0.1037121192  lr: 5.182e-03  
+2024-11-18 07:14:08 - INFO - Epoch:  194/300  Runtime: 233.22s  EpochLoss: 0.1076371137  RandomIterLoss: 0.0956121832  lr: 5.127e-03  
+2024-11-18 07:18:03 - INFO - Epoch:  195/300  Runtime: 235.19s  EpochLoss: 0.1078788186  RandomIterLoss: 0.1053459942  lr: 5.040e-03  
+2024-11-18 07:21:54 - INFO - Epoch:  196/300  Runtime: 231.12s  EpochLoss: 0.1093106238  RandomIterLoss: 0.0993447155  lr: 4.957e-03  
+2024-11-18 07:25:49 - INFO - Epoch:  197/300  Runtime: 235.12s  EpochLoss: 0.1076270392  RandomIterLoss: 0.0955974311  lr: 4.900e-03  
+2024-11-18 07:29:41 - INFO - Epoch:  198/300  Runtime: 232.02s  EpochLoss: 0.1065432171  RandomIterLoss: 0.1043881476  lr: 4.804e-03  
+2024-11-18 07:33:35 - INFO - Epoch:  199/300  Runtime: 234.08s  EpochLoss: 0.1083535186  RandomIterLoss: 0.1164348125  lr: 4.771e-03  
+2024-11-18 07:37:33 - INFO - Epoch:  200/300  Runtime: 237.40s  EpochLoss: 0.1051654806  RandomIterLoss: 0.1073023528  lr: 4.660e-03  
+2024-11-18 07:40:22 - INFO - Eval Epoch: 200
+2024-11-18 07:40:22 - INFO - Overall Accuracy: 90.72 || Mean Overall Accuracy: 67.66
+2024-11-18 07:40:22 - INFO - Mean IoU: 0.521 || Per-class IoU score:  Ground=0.868  Vegetation=0.844  Trucks2Cars=0.584  Power Lines=0.534  Fences=0.361  Poles=0.182  Buildings=0.791  
+2024-11-18 07:40:22 - INFO - Macro F1: 0.625 || Per-class  F1 score:  Ground=0.930  Vegetation=0.915  Trucks2Cars=0.738  Power Lines=0.696  Fences=0.530  Poles=0.307  Buildings=0.884  
+
+2024-11-18 07:44:15 - INFO - Epoch:  201/300  Runtime: 233.20s  EpochLoss: 0.1041054963  RandomIterLoss: 0.1000253484  lr: 4.584e-03  
+2024-11-18 07:48:08 - INFO - Epoch:  202/300  Runtime: 233.39s  EpochLoss: 0.1050915490  RandomIterLoss: 0.0953168496  lr: 4.529e-03  
+2024-11-18 07:52:03 - INFO - Epoch:  203/300  Runtime: 234.35s  EpochLoss: 0.1042101559  RandomIterLoss: 0.1014063433  lr: 4.442e-03  
+2024-11-18 07:55:54 - INFO - Epoch:  204/300  Runtime: 231.49s  EpochLoss: 0.1055588035  RandomIterLoss: 0.0966302454  lr: 4.360e-03  
+2024-11-18 07:59:51 - INFO - Epoch:  205/300  Runtime: 236.88s  EpochLoss: 0.1046242829  RandomIterLoss: 0.0938453227  lr: 4.304e-03  
+2024-11-18 08:03:46 - INFO - Epoch:  206/300  Runtime: 234.72s  EpochLoss: 0.1037498355  RandomIterLoss: 0.1013344601  lr: 4.209e-03  
+2024-11-18 08:07:40 - INFO - Epoch:  207/300  Runtime: 234.25s  EpochLoss: 0.1046956170  RandomIterLoss: 0.1181218550  lr: 4.176e-03  
+2024-11-18 08:11:36 - INFO - Epoch:  208/300  Runtime: 235.56s  EpochLoss: 0.1039158401  RandomIterLoss: 0.1062355861  lr: 4.067e-03  
+2024-11-18 08:14:23 - INFO - Eval Epoch: 208
+2024-11-18 08:14:23 - INFO - Overall Accuracy: 87.53 || Mean Overall Accuracy: 67.11
+2024-11-18 08:14:23 - INFO - Mean IoU: 0.515 || Per-class IoU score:  Ground=0.867  Vegetation=0.791  Trucks2Cars=0.574  Power Lines=0.629  Fences=0.385  Poles=0.212  Buildings=0.658  
+2024-11-18 08:14:23 - INFO - Macro F1: 0.627 || Per-class  F1 score:  Ground=0.929  Vegetation=0.884  Trucks2Cars=0.729  Power Lines=0.772  Fences=0.556  Poles=0.350  Buildings=0.793  
+
+2024-11-18 08:18:16 - INFO - Epoch:  209/300  Runtime: 233.45s  EpochLoss: 0.1018560079  RandomIterLoss: 0.0964493752  lr: 3.992e-03  
+2024-11-18 08:22:10 - INFO - Epoch:  210/300  Runtime: 233.27s  EpochLoss: 0.1022228393  RandomIterLoss: 0.0942520797  lr: 3.938e-03  
+2024-11-18 08:26:03 - INFO - Epoch:  211/300  Runtime: 233.56s  EpochLoss: 0.1008011330  RandomIterLoss: 0.0975882262  lr: 3.853e-03  
+2024-11-18 08:29:55 - INFO - Epoch:  212/300  Runtime: 232.05s  EpochLoss: 0.1022872501  RandomIterLoss: 0.0933321491  lr: 3.773e-03  
+2024-11-18 08:33:51 - INFO - Epoch:  213/300  Runtime: 235.39s  EpochLoss: 0.1021232763  RandomIterLoss: 0.0929208174  lr: 3.718e-03  
+2024-11-18 08:37:45 - INFO - Epoch:  214/300  Runtime: 234.28s  EpochLoss: 0.1005466006  RandomIterLoss: 0.0982997566  lr: 3.625e-03  
+2024-11-18 08:41:38 - INFO - Epoch:  215/300  Runtime: 233.04s  EpochLoss: 0.1009959328  RandomIterLoss: 0.1124357581  lr: 3.593e-03  
+2024-11-18 08:45:34 - INFO - Epoch:  216/300  Runtime: 236.35s  EpochLoss: 0.1001510583  RandomIterLoss: 0.1016764194  lr: 3.487e-03  
+2024-11-18 08:48:21 - INFO - Eval Epoch: 216
+2024-11-18 08:48:21 - INFO - Overall Accuracy: 87.41 || Mean Overall Accuracy: 66.51
+2024-11-18 08:48:21 - INFO - Mean IoU: 0.510 || Per-class IoU score:  Ground=0.855  Vegetation=0.792  Trucks2Cars=0.564  Power Lines=0.585  Fences=0.365  Poles=0.255  Buildings=0.664  
+2024-11-18 08:48:21 - INFO - Macro F1: 0.625 || Per-class  F1 score:  Ground=0.922  Vegetation=0.884  Trucks2Cars=0.721  Power Lines=0.738  Fences=0.535  Poles=0.406  Buildings=0.798  
+
+2024-11-18 08:52:14 - INFO - Epoch:  217/300  Runtime: 233.40s  EpochLoss: 0.0989378896  RandomIterLoss: 0.0934078395  lr: 3.414e-03  
+2024-11-18 08:56:09 - INFO - Epoch:  218/300  Runtime: 234.79s  EpochLoss: 0.0988567890  RandomIterLoss: 0.0902395546  lr: 3.362e-03  
+2024-11-18 09:00:05 - INFO - Epoch:  219/300  Runtime: 236.42s  EpochLoss: 0.0979999362  RandomIterLoss: 0.0957242399  lr: 3.280e-03  
+2024-11-18 09:03:58 - INFO - Epoch:  220/300  Runtime: 232.64s  EpochLoss: 0.0994573040  RandomIterLoss: 0.0910217166  lr: 3.203e-03  
+2024-11-18 09:07:53 - INFO - Epoch:  221/300  Runtime: 235.55s  EpochLoss: 0.0988735842  RandomIterLoss: 0.0884606317  lr: 3.150e-03  
+2024-11-18 09:11:48 - INFO - Epoch:  222/300  Runtime: 234.33s  EpochLoss: 0.0980557498  RandomIterLoss: 0.0965830386  lr: 3.061e-03  
+2024-11-18 09:15:41 - INFO - Epoch:  223/300  Runtime: 233.61s  EpochLoss: 0.0977873755  RandomIterLoss: 0.1096540764  lr: 3.030e-03  
+2024-11-18 09:19:37 - INFO - Epoch:  224/300  Runtime: 235.85s  EpochLoss: 0.0979544280  RandomIterLoss: 0.1023177430  lr: 2.929e-03  
+2024-11-18 09:22:24 - INFO - Eval Epoch: 224
+2024-11-18 09:22:24 - INFO - Overall Accuracy: 88.29 || Mean Overall Accuracy: 65.90
+2024-11-18 09:22:24 - INFO - Mean IoU: 0.527 || Per-class IoU score:  Ground=0.860  Vegetation=0.809  Trucks2Cars=0.557  Power Lines=0.642  Fences=0.345  Poles=0.325  Buildings=0.679  
+2024-11-18 09:22:24 - INFO - Macro F1: 0.641 || Per-class  F1 score:  Ground=0.925  Vegetation=0.894  Trucks2Cars=0.715  Power Lines=0.782  Fences=0.513  Poles=0.490  Buildings=0.809  
+
+2024-11-18 09:26:18 - INFO - Epoch:  225/300  Runtime: 234.01s  EpochLoss: 0.0973509700  RandomIterLoss: 0.0931112319  lr: 2.860e-03  
+2024-11-18 09:30:12 - INFO - Epoch:  226/300  Runtime: 233.96s  EpochLoss: 0.0965568181  RandomIterLoss: 0.0899934694  lr: 2.810e-03  
+2024-11-18 09:34:07 - INFO - Epoch:  227/300  Runtime: 235.42s  EpochLoss: 0.0960810727  RandomIterLoss: 0.0948294178  lr: 2.732e-03  
+2024-11-18 09:37:59 - INFO - Epoch:  228/300  Runtime: 231.96s  EpochLoss: 0.0973280892  RandomIterLoss: 0.0891057849  lr: 2.658e-03  
+2024-11-18 09:41:54 - INFO - Epoch:  229/300  Runtime: 234.82s  EpochLoss: 0.0965644534  RandomIterLoss: 0.0863897428  lr: 2.609e-03  
+2024-11-18 09:45:48 - INFO - Epoch:  230/300  Runtime: 233.87s  EpochLoss: 0.0960560598  RandomIterLoss: 0.0948522314  lr: 2.525e-03  
+2024-11-18 09:49:42 - INFO - Epoch:  231/300  Runtime: 233.96s  EpochLoss: 0.0953856602  RandomIterLoss: 0.1051104963  lr: 2.496e-03  
+2024-11-18 09:53:39 - INFO - Epoch:  232/300  Runtime: 236.73s  EpochLoss: 0.0958376907  RandomIterLoss: 0.0980659276  lr: 2.400e-03  
+2024-11-18 09:56:25 - INFO - Eval Epoch: 232
+2024-11-18 09:56:25 - INFO - Overall Accuracy: 89.31 || Mean Overall Accuracy: 66.05
+2024-11-18 09:56:25 - INFO - Mean IoU: 0.540 || Per-class IoU score:  Ground=0.859  Vegetation=0.827  Trucks2Cars=0.578  Power Lines=0.660  Fences=0.340  Poles=0.341  Buildings=0.715  
+2024-11-18 09:56:25 - INFO - Macro F1: 0.651 || Per-class  F1 score:  Ground=0.924  Vegetation=0.905  Trucks2Cars=0.733  Power Lines=0.795  Fences=0.507  Poles=0.509  Buildings=0.834  
+
+2024-11-18 10:00:19 - INFO - Epoch:  233/300  Runtime: 233.84s  EpochLoss: 0.0950645271  RandomIterLoss: 0.0899168849  lr: 2.335e-03  
+2024-11-18 10:04:13 - INFO - Epoch:  234/300  Runtime: 233.80s  EpochLoss: 0.0945267650  RandomIterLoss: 0.0889122486  lr: 2.289e-03  
+2024-11-18 10:08:09 - INFO - Epoch:  235/300  Runtime: 235.89s  EpochLoss: 0.0942588548  RandomIterLoss: 0.0925067961  lr: 2.216e-03  
+2024-11-18 10:12:01 - INFO - Epoch:  236/300  Runtime: 231.82s  EpochLoss: 0.0954720621  RandomIterLoss: 0.0883008838  lr: 2.148e-03  
+2024-11-18 10:15:56 - INFO - Epoch:  237/300  Runtime: 234.89s  EpochLoss: 0.0947381640  RandomIterLoss: 0.0846668035  lr: 2.102e-03  
+2024-11-18 10:19:48 - INFO - Epoch:  238/300  Runtime: 232.67s  EpochLoss: 0.0943151000  RandomIterLoss: 0.0932249129  lr: 2.024e-03  
+2024-11-18 10:23:43 - INFO - Epoch:  239/300  Runtime: 234.23s  EpochLoss: 0.0938476045  RandomIterLoss: 0.1031269357  lr: 1.997e-03  
+2024-11-18 10:27:40 - INFO - Epoch:  240/300  Runtime: 237.10s  EpochLoss: 0.0944895192  RandomIterLoss: 0.0950400233  lr: 1.909e-03  
+2024-11-18 10:30:30 - INFO - Eval Epoch: 240
+2024-11-18 10:30:30 - INFO - Overall Accuracy: 90.22 || Mean Overall Accuracy: 65.48
+2024-11-18 10:30:30 - INFO - Mean IoU: 0.544 || Per-class IoU score:  Ground=0.860  Vegetation=0.845  Trucks2Cars=0.554  Power Lines=0.668  Fences=0.343  Poles=0.338  Buildings=0.748  
+2024-11-18 10:30:30 - INFO - Macro F1: 0.653 || Per-class  F1 score:  Ground=0.925  Vegetation=0.916  Trucks2Cars=0.713  Power Lines=0.801  Fences=0.511  Poles=0.506  Buildings=0.856  
+
+2024-11-18 10:34:24 - INFO - Epoch:  241/300  Runtime: 234.49s  EpochLoss: 0.0937832534  RandomIterLoss: 0.0877241418  lr: 1.849e-03  
+2024-11-18 10:38:18 - INFO - Epoch:  242/300  Runtime: 234.10s  EpochLoss: 0.0931589948  RandomIterLoss: 0.0876335204  lr: 1.807e-03  
+2024-11-18 10:42:14 - INFO - Epoch:  243/300  Runtime: 235.45s  EpochLoss: 0.0927774590  RandomIterLoss: 0.0912736803  lr: 1.740e-03  
+2024-11-18 10:46:06 - INFO - Epoch:  244/300  Runtime: 232.04s  EpochLoss: 0.0941139186  RandomIterLoss: 0.0862140283  lr: 1.678e-03  
+2024-11-18 10:50:01 - INFO - Epoch:  245/300  Runtime: 234.63s  EpochLoss: 0.0933288777  RandomIterLoss: 0.0838576481  lr: 1.636e-03  
+2024-11-18 10:53:55 - INFO - Epoch:  246/300  Runtime: 234.70s  EpochLoss: 0.0926405786  RandomIterLoss: 0.0923699439  lr: 1.565e-03  
+2024-11-18 10:57:49 - INFO - Epoch:  247/300  Runtime: 233.87s  EpochLoss: 0.0921633027  RandomIterLoss: 0.1009548753  lr: 1.541e-03  
+2024-11-18 11:01:47 - INFO - Epoch:  248/300  Runtime: 237.81s  EpochLoss: 0.0927891010  RandomIterLoss: 0.0929093510  lr: 1.462e-03  
+2024-11-18 11:04:37 - INFO - Eval Epoch: 248
+2024-11-18 11:04:37 - INFO - Overall Accuracy: 91.10 || Mean Overall Accuracy: 66.22
+2024-11-18 11:04:37 - INFO - Mean IoU: 0.530 || Per-class IoU score:  Ground=0.860  Vegetation=0.861  Trucks2Cars=0.564  Power Lines=0.551  Fences=0.353  Poles=0.262  Buildings=0.786  
+2024-11-18 11:04:37 - INFO - Macro F1: 0.637 || Per-class  F1 score:  Ground=0.925  Vegetation=0.926  Trucks2Cars=0.721  Power Lines=0.710  Fences=0.522  Poles=0.416  Buildings=0.880  
+
+2024-11-18 11:08:32 - INFO - Epoch:  249/300  Runtime: 234.59s  EpochLoss: 0.0920185862  RandomIterLoss: 0.0862910002  lr: 1.408e-03  
+2024-11-18 11:12:27 - INFO - Epoch:  250/300  Runtime: 235.01s  EpochLoss: 0.0917356237  RandomIterLoss: 0.0861952603  lr: 1.370e-03  
+2024-11-18 11:16:22 - INFO - Epoch:  251/300  Runtime: 234.96s  EpochLoss: 0.0913485848  RandomIterLoss: 0.0888208896  lr: 1.311e-03  
+2024-11-18 11:20:14 - INFO - Epoch:  252/300  Runtime: 231.97s  EpochLoss: 0.0923326913  RandomIterLoss: 0.0850644112  lr: 1.255e-03  
+2024-11-18 11:24:09 - INFO - Epoch:  253/300  Runtime: 235.65s  EpochLoss: 0.0918283475  RandomIterLoss: 0.0832543001  lr: 1.218e-03  
+2024-11-18 11:28:02 - INFO - Epoch:  254/300  Runtime: 232.38s  EpochLoss: 0.0910437081  RandomIterLoss: 0.0903122351  lr: 1.156e-03  
+2024-11-18 11:31:56 - INFO - Epoch:  255/300  Runtime: 234.49s  EpochLoss: 0.0906828899  RandomIterLoss: 0.1000133529  lr: 1.135e-03  
+2024-11-18 11:35:53 - INFO - Epoch:  256/300  Runtime: 236.33s  EpochLoss: 0.0911337671  RandomIterLoss: 0.0912594050  lr: 1.065e-03  
+2024-11-18 11:38:39 - INFO - Eval Epoch: 256
+2024-11-18 11:38:39 - INFO - Overall Accuracy: 90.96 || Mean Overall Accuracy: 66.43
+2024-11-18 11:38:39 - INFO - Mean IoU: 0.519 || Per-class IoU score:  Ground=0.859  Vegetation=0.860  Trucks2Cars=0.565  Power Lines=0.515  Fences=0.344  Poles=0.223  Buildings=0.784  
+2024-11-18 11:38:39 - INFO - Macro F1: 0.626 || Per-class  F1 score:  Ground=0.924  Vegetation=0.925  Trucks2Cars=0.722  Power Lines=0.680  Fences=0.512  Poles=0.365  Buildings=0.879  
+
+2024-11-18 11:42:34 - INFO - Epoch:  257/300  Runtime: 234.83s  EpochLoss: 0.0906526467  RandomIterLoss: 0.0850218087  lr: 1.019e-03  
+2024-11-18 11:46:28 - INFO - Epoch:  258/300  Runtime: 234.19s  EpochLoss: 0.0903713068  RandomIterLoss: 0.0854817256  lr: 9.857e-04  
+2024-11-18 11:50:22 - INFO - Epoch:  259/300  Runtime: 233.96s  EpochLoss: 0.0901254150  RandomIterLoss: 0.0879462212  lr: 9.343e-04  
+2024-11-18 11:54:15 - INFO - Epoch:  260/300  Runtime: 232.83s  EpochLoss: 0.0909135112  RandomIterLoss: 0.0842728764  lr: 8.867e-04  
+2024-11-18 11:58:11 - INFO - Epoch:  261/300  Runtime: 235.33s  EpochLoss: 0.0906319986  RandomIterLoss: 0.0817482844  lr: 8.550e-04  
+2024-11-18 12:02:04 - INFO - Epoch:  262/300  Runtime: 233.14s  EpochLoss: 0.0899994144  RandomIterLoss: 0.0893272832  lr: 8.018e-04  
+2024-11-18 12:05:58 - INFO - Epoch:  263/300  Runtime: 234.21s  EpochLoss: 0.0896851801  RandomIterLoss: 0.0987762809  lr: 7.838e-04  
+2024-11-18 12:09:55 - INFO - Epoch:  264/300  Runtime: 236.80s  EpochLoss: 0.0900404197  RandomIterLoss: 0.0898195505  lr: 7.250e-04  
+2024-11-18 12:12:42 - INFO - Eval Epoch: 264
+2024-11-18 12:12:42 - INFO - Overall Accuracy: 90.96 || Mean Overall Accuracy: 67.25
+2024-11-18 12:12:42 - INFO - Mean IoU: 0.513 || Per-class IoU score:  Ground=0.862  Vegetation=0.860  Trucks2Cars=0.568  Power Lines=0.474  Fences=0.352  Poles=0.203  Buildings=0.784  
+2024-11-18 12:12:42 - INFO - Macro F1: 0.619 || Per-class  F1 score:  Ground=0.926  Vegetation=0.925  Trucks2Cars=0.724  Power Lines=0.643  Fences=0.521  Poles=0.337  Buildings=0.879  
+
+2024-11-18 12:16:37 - INFO - Epoch:  265/300  Runtime: 235.05s  EpochLoss: 0.0896850808  RandomIterLoss: 0.0837876350  lr: 6.861e-04  
+2024-11-18 12:20:31 - INFO - Epoch:  266/300  Runtime: 234.13s  EpochLoss: 0.0894919282  RandomIterLoss: 0.0843245238  lr: 6.585e-04  
+2024-11-18 12:24:27 - INFO - Epoch:  267/300  Runtime: 236.49s  EpochLoss: 0.0892610970  RandomIterLoss: 0.0870674103  lr: 6.159e-04  
+2024-11-18 12:28:21 - INFO - Epoch:  268/300  Runtime: 234.10s  EpochLoss: 0.0900983134  RandomIterLoss: 0.0834433958  lr: 5.767e-04  
+2024-11-18 12:32:18 - INFO - Epoch:  269/300  Runtime: 236.90s  EpochLoss: 0.0898357989  RandomIterLoss: 0.0807245821  lr: 5.508e-04  
+2024-11-18 12:36:12 - INFO - Epoch:  270/300  Runtime: 233.75s  EpochLoss: 0.0893872885  RandomIterLoss: 0.0888978839  lr: 5.076e-04  
+2024-11-18 12:40:06 - INFO - Epoch:  271/300  Runtime: 234.07s  EpochLoss: 0.0890700577  RandomIterLoss: 0.0981469154  lr: 4.931e-04  
+2024-11-18 12:44:03 - INFO - Epoch:  272/300  Runtime: 236.96s  EpochLoss: 0.0893936166  RandomIterLoss: 0.0892151669  lr: 4.460e-04  
+2024-11-18 12:46:50 - INFO - Eval Epoch: 272
+2024-11-18 12:46:50 - INFO - Overall Accuracy: 91.10 || Mean Overall Accuracy: 67.22
+2024-11-18 12:46:50 - INFO - Mean IoU: 0.514 || Per-class IoU score:  Ground=0.863  Vegetation=0.862  Trucks2Cars=0.564  Power Lines=0.455  Fences=0.357  Poles=0.222  Buildings=0.790  
+2024-11-18 12:46:50 - INFO - Macro F1: 0.621 || Per-class  F1 score:  Ground=0.927  Vegetation=0.926  Trucks2Cars=0.721  Power Lines=0.626  Fences=0.526  Poles=0.364  Buildings=0.883  
+
+2024-11-18 12:50:44 - INFO - Epoch:  273/300  Runtime: 233.78s  EpochLoss: 0.0891965452  RandomIterLoss: 0.0830692425  lr: 4.151e-04  
+2024-11-18 12:54:36 - INFO - Epoch:  274/300  Runtime: 232.16s  EpochLoss: 0.0890288270  RandomIterLoss: 0.0838006809  lr: 3.935e-04  
+2024-11-18 12:58:32 - INFO - Epoch:  275/300  Runtime: 235.88s  EpochLoss: 0.0887060665  RandomIterLoss: 0.0867417157  lr: 3.603e-04  
+2024-11-18 13:02:24 - INFO - Epoch:  276/300  Runtime: 232.22s  EpochLoss: 0.0897296283  RandomIterLoss: 0.0831161514  lr: 3.300e-04  
+2024-11-18 13:06:18 - INFO - Epoch:  277/300  Runtime: 234.49s  EpochLoss: 0.0894713737  RandomIterLoss: 0.0803231671  lr: 3.102e-04  
+2024-11-18 13:10:10 - INFO - Epoch:  278/300  Runtime: 231.67s  EpochLoss: 0.0891405377  RandomIterLoss: 0.0890860856  lr: 2.777e-04  
+2024-11-18 13:14:06 - INFO - Epoch:  279/300  Runtime: 235.60s  EpochLoss: 0.0888801784  RandomIterLoss: 0.0978926122  lr: 2.668e-04  
+2024-11-18 13:17:59 - INFO - Epoch:  280/300  Runtime: 233.36s  EpochLoss: 0.0892561107  RandomIterLoss: 0.0888453946  lr: 2.321e-04  
+2024-11-18 13:20:45 - INFO - Eval Epoch: 280
+2024-11-18 13:20:45 - INFO - Overall Accuracy: 90.92 || Mean Overall Accuracy: 67.12
+2024-11-18 13:20:45 - INFO - Mean IoU: 0.510 || Per-class IoU score:  Ground=0.862  Vegetation=0.859  Trucks2Cars=0.559  Power Lines=0.445  Fences=0.354  Poles=0.219  Buildings=0.784  
+2024-11-18 13:20:45 - INFO - Macro F1: 0.618 || Per-class  F1 score:  Ground=0.926  Vegetation=0.924  Trucks2Cars=0.717  Power Lines=0.616  Fences=0.523  Poles=0.359  Buildings=0.879  
+
+2024-11-18 13:24:39 - INFO - Epoch:  281/300  Runtime: 233.78s  EpochLoss: 0.0891010448  RandomIterLoss: 0.0830113441  lr: 2.098e-04  
+2024-11-18 13:28:32 - INFO - Epoch:  282/300  Runtime: 233.26s  EpochLoss: 0.0888917430  RandomIterLoss: 0.0836576372  lr: 1.943e-04  
+2024-11-18 13:32:27 - INFO - Epoch:  283/300  Runtime: 235.29s  EpochLoss: 0.0885873411  RandomIterLoss: 0.0864839628  lr: 1.710e-04  
+2024-11-18 13:36:20 - INFO - Epoch:  284/300  Runtime: 232.45s  EpochLoss: 0.0896450280  RandomIterLoss: 0.0831162781  lr: 1.502e-04  
