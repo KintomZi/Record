@@ -1,0 +1,894 @@
+/home/huiwei/anaconda3/envs/growsp/bin/python /home/huiwei/Desktop/Code/KPConv_Dales/test_Dales_baseline.py 
+
+Data Preparation
+****************
+
+Preparing ply files
+Done in 0.0s
+5080_54400_T3D
+
+Found KDTree for cloud 5080_54400_T3D, subsampled at 0.400
+105.8 MB loaded in 0.1s
+5080_54470_T3D
+
+Found KDTree for cloud 5080_54470_T3D, subsampled at 0.400
+97.0 MB loaded in 0.1s
+5140_54390_T3D
+
+Found KDTree for cloud 5140_54390_T3D, subsampled at 0.400
+96.7 MB loaded in 0.1s
+5100_54490_T3D
+
+Found KDTree for cloud 5100_54490_T3D, subsampled at 0.400
+95.5 MB loaded in 0.1s
+5120_54445_T3D
+
+Found KDTree for cloud 5120_54445_T3D, subsampled at 0.400
+125.7 MB loaded in 0.1s
+5175_54395_T3D
+
+Found KDTree for cloud 5175_54395_T3D, subsampled at 0.400
+100.2 MB loaded in 0.1s
+5135_54430_T3D
+
+Found KDTree for cloud 5135_54430_T3D, subsampled at 0.400
+107.8 MB loaded in 0.1s
+5100_54440_T3D
+
+Found KDTree for cloud 5100_54440_T3D, subsampled at 0.400
+92.2 MB loaded in 0.1s
+5135_54435_T3D
+
+Found KDTree for cloud 5135_54435_T3D, subsampled at 0.400
+133.6 MB loaded in 0.1s
+5150_54325_T3D
+
+Found KDTree for cloud 5150_54325_T3D, subsampled at 0.400
+96.4 MB loaded in 0.1s
+5155_54335_T3D
+
+Found KDTree for cloud 5155_54335_T3D, subsampled at 0.400
+103.6 MB loaded in 0.1s
+
+Preparing potentials
+Done in 0.0s
+
+Preparing reprojection indices for testing
+5080_54400_T3D done in 0.1s
+5080_54470_T3D done in 0.1s
+5140_54390_T3D done in 0.1s
+5100_54490_T3D done in 0.1s
+5120_54445_T3D done in 0.1s
+5175_54395_T3D done in 0.1s
+5135_54430_T3D done in 0.0s
+5100_54440_T3D done in 0.0s
+5135_54435_T3D done in 0.0s
+5150_54325_T3D done in 0.0s
+5155_54335_T3D done in 0.0s
+
+
+开始校准 (use verbose=True for more details)
+
+Previous calibration found:
+Check batch limit dictionary
+"potentials_30.000_0.400_4": 38901
+Check neighbors limit dictionary
+"0.400_1.000": 45
+"0.800_2.000": 46
+"1.600_4.000": 46
+"3.200_8.000": 45
+"6.400_16.000": 39
+Calibration done in 0.0s
+
+
+Model Preparation
+*****************
+Model and training state restored.
+Done in 2.3s
+
+
+Start test
+**********
+
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.14it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 0, end. Min potential = 0.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.40it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 1, end. Min potential = 0.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.54it/s]
+
+Test epoch 2, end. Min potential = 0.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.52it/s]
+
+Test epoch 3, end. Min potential = 0.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.09it/s]
+
+Test epoch 4, end. Min potential = 0.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 14.28it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 5, end. Min potential = 0.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.95it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 6, end. Min potential = 0.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.10it/s]
+
+Test epoch 7, end. Min potential = 0.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.63it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 8, end. Min potential = 0.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.55it/s]
+
+Test epoch 9, end. Min potential = 0.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.37it/s]
+
+Test epoch 10, end. Min potential = 0.2
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.72it/s]
+
+Test epoch 11, end. Min potential = 0.3
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.24it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 12, end. Min potential = 0.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.28it/s]
+
+Test epoch 13, end. Min potential = 0.5
+
+Confusion on sub clouds
+OA:  0.86010796
+F1:   [0.8661672472953796, 0.9084054827690125, 0.7663290500640869, 0.645662248134613, 0.43522483110427856, 0.4638354480266571, 0.31465601921081543, 0.6286114752292633]
+IoUs:
+49.44 | 76.39 83.22 62.12 47.67 27.81 30.19 18.67 
+
+
+Reproject Vote #0
+File_saving: 100%|██████████| 11/11 [03:24<00:00, 18.62s/it]
+***********在原始数据集上的精度**********
+OA:  0.859213008427629
+F1:   [0.8933272653451272, 0.8800486697947472, 0.7604937540274795, 0.5980228153010448, 0.4164560324870014, 0.47395291477199664, 0.29534409025800307, 0.6168065059979142]
+IoUs:
+--------------------------------------------------
+48.28 | 80.72 78.58 61.35 42.66 26.30 31.06 17.33 
+--------------------------------------------------
+
+Done in 204.9 s
+
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.70it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 14, end. Min potential = 0.6
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.46it/s]
+
+Test epoch 15, end. Min potential = 0.7
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.99it/s]
+
+Test epoch 16, end. Min potential = 0.8
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.51it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 17, end. Min potential = 0.9
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.52it/s]
+
+Test epoch 18, end. Min potential = 0.9
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.14it/s]
+
+Test epoch 19, end. Min potential = 1.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.16it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 20, end. Min potential = 1.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.82it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 21, end. Min potential = 1.2
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.64it/s]
+
+Test epoch 22, end. Min potential = 1.2
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:17<00:00, 11.22it/s]
+
+Test epoch 23, end. Min potential = 1.3
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.31it/s]
+
+Test epoch 24, end. Min potential = 1.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.08it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 25, end. Min potential = 1.5
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.07it/s]
+
+Test epoch 26, end. Min potential = 1.5
+
+Confusion on sub clouds
+OA:  0.8604816
+F1:   [0.8663470149040222, 0.9087101817131042, 0.7667533755302429, 0.6460840702056885, 0.43699607253074646, 0.4669666588306427, 0.3111423850059509, 0.6289999655314854]
+IoUs:
+49.49 | 76.42 83.27 62.17 47.72 27.96 30.46 18.42 
+
+
+Reproject Vote #1
+File_saving: 100%|██████████| 11/11 [02:02<00:00, 11.14s/it]
+***********在原始数据集上的精度**********
+OA:  0.859470903409121
+F1:   [0.8934003443892344, 0.8803964430243969, 0.760795366791235, 0.6001437508318913, 0.4203986499780545, 0.47653299678178707, 0.29215170946847524, 0.6176884658950108]
+IoUs:
+--------------------------------------------------
+48.38 | 80.73 78.63 61.39 42.87 26.61 31.28 17.11 
+--------------------------------------------------
+
+Done in 122.5 s
+
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.92it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 27, end. Min potential = 1.6
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.75it/s]
+
+Test epoch 28, end. Min potential = 1.7
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.85it/s]
+
+Test epoch 29, end. Min potential = 1.8
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.28it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 30, end. Min potential = 1.8
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.76it/s]
+
+Test epoch 31, end. Min potential = 1.9
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.38it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 32, end. Min potential = 2.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.33it/s]
+
+Test epoch 33, end. Min potential = 2.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.56it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 34, end. Min potential = 2.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.58it/s]
+
+Test epoch 35, end. Min potential = 2.2
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.00it/s]
+
+Test epoch 36, end. Min potential = 2.3
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.48it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 37, end. Min potential = 2.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.21it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 38, end. Min potential = 2.5
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.55it/s]
+
+Test epoch 39, end. Min potential = 2.5
+
+Confusion on sub clouds
+OA:  0.8602504
+F1:   [0.8662828803062439, 0.9082950353622437, 0.7661265730857849, 0.6454829573631287, 0.4341531991958618, 0.4681178331375122, 0.31347334384918213, 0.6288474031857082]
+IoUs:
+49.46 | 76.41 83.20 62.09 47.65 27.73 30.56 18.59 
+
+
+Reproject Vote #2
+File_saving: 100%|██████████| 11/11 [02:20<00:00, 12.77s/it]
+***********在原始数据集上的精度**********
+OA:  0.859386769805046
+F1:   [0.8934347209592257, 0.879872624476882, 0.7607531586407021, 0.5997581427064578, 0.41897713716938556, 0.4778280894040572, 0.2945665435075485, 0.6178843452663226]
+IoUs:
+--------------------------------------------------
+48.38 | 80.74 78.55 61.39 42.83 26.50 31.39 17.27 
+--------------------------------------------------
+
+Done in 140.5 s
+
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.71it/s]
+
+Test epoch 40, end. Min potential = 2.6
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.39it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 41, end. Min potential = 2.7
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.02it/s]
+
+Test epoch 42, end. Min potential = 2.8
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.39it/s]
+
+Test epoch 43, end. Min potential = 2.8
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.33it/s]
+
+Test epoch 44, end. Min potential = 2.9
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.69it/s]
+
+Test epoch 45, end. Min potential = 3.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.59it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 46, end. Min potential = 3.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.98it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 47, end. Min potential = 3.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.64it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 48, end. Min potential = 3.2
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.54it/s]
+
+Test epoch 49, end. Min potential = 3.3
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.09it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 50, end. Min potential = 3.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.09it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 51, end. Min potential = 3.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.18it/s]
+
+Test epoch 52, end. Min potential = 3.5
+
+Confusion on sub clouds
+OA:  0.85984206
+F1:   [0.8657055497169495, 0.908406674861908, 0.7648717761039734, 0.6454941630363464, 0.43838003277778625, 0.4682084321975708, 0.31193533539772034, 0.6290002805846078]
+IoUs:
+49.46 | 76.32 83.22 61.93 47.66 28.07 30.57 18.48 
+
+
+Reproject Vote #3
+File_saving: 100%|██████████| 11/11 [02:22<00:00, 12.97s/it]
+***********在原始数据集上的精度**********
+OA:  0.8587078316992531
+F1:   [0.8927926083486661, 0.8799331062920601, 0.7586616061391683, 0.5991575328431802, 0.4215394132335523, 0.4791216669034967, 0.29293584225964603, 0.6177345394313958]
+IoUs:
+--------------------------------------------------
+48.35 | 80.63 78.56 61.12 42.77 26.71 31.50 17.16 
+--------------------------------------------------
+
+Done in 142.6 s
+
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.67it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 53, end. Min potential = 3.6
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.95it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 54, end. Min potential = 3.7
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.04it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 55, end. Min potential = 3.8
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.20it/s]
+
+Test epoch 56, end. Min potential = 3.8
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.41it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 57, end. Min potential = 3.9
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.01it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 58, end. Min potential = 4.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.55it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 59, end. Min potential = 4.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.34it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 60, end. Min potential = 4.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.98it/s]
+
+Test epoch 61, end. Min potential = 4.2
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.97it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 62, end. Min potential = 4.3
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.79it/s]
+
+Test epoch 63, end. Min potential = 4.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 14.07it/s]
+
+Test epoch 64, end. Min potential = 4.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.35it/s]
+
+Test epoch 65, end. Min potential = 4.5
+
+Confusion on sub clouds
+File_saving:   0%|          | 0/11 [00:00<?, ?it/s]OA:  0.86016005
+F1:   [0.8656283020973206, 0.908628523349762, 0.7663449048995972, 0.6436827182769775, 0.44135043025016785, 0.46817803382873535, 0.31267958879470825, 0.6294989287853241]
+IoUs:
+49.51 | 76.31 83.26 62.12 47.46 28.32 30.56 18.53 
+
+
+Reproject Vote #4
+File_saving: 100%|██████████| 11/11 [02:17<00:00, 12.51s/it]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]***********在原始数据集上的精度**********
+OA:  0.859100278665442
+F1:   [0.892853976857828, 0.8802566789497637, 0.7603866513246466, 0.5959808673199434, 0.42688253977834284, 0.4776801058343019, 0.293008407133353, 0.61814988959974]
+IoUs:
+--------------------------------------------------
+48.39 | 80.64 78.61 61.34 42.45 27.14 31.38 17.17 
+--------------------------------------------------
+
+Done in 137.6 s
+
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.93it/s]
+
+Test epoch 66, end. Min potential = 4.6
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.93it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 67, end. Min potential = 4.7
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.98it/s]
+
+Test epoch 68, end. Min potential = 4.7
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.93it/s]
+
+Test epoch 69, end. Min potential = 4.8
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.92it/s]
+
+Test epoch 70, end. Min potential = 4.9
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.17it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 71, end. Min potential = 5.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.13it/s]
+
+Test epoch 72, end. Min potential = 5.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 14.16it/s]
+
+Test epoch 73, end. Min potential = 5.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.90it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 74, end. Min potential = 5.2
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.74it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 75, end. Min potential = 5.3
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.02it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 76, end. Min potential = 5.3
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.91it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 77, end. Min potential = 5.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.03it/s]
+
+Test epoch 78, end. Min potential = 5.5
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.06it/s]
+
+Test epoch 79, end. Min potential = 5.6
+
+Confusion on sub clouds
+OA:  0.86000836
+F1:   [0.8657355904579163, 0.908298909664154, 0.76610267162323, 0.6455983519554138, 0.4442078471183777, 0.46661701798439026, 0.31871989369392395, 0.630754326071058]
+IoUs:
+49.60 | 76.33 83.20 62.09 47.67 28.55 30.43 18.96 
+
+
+Reproject Vote #5
+File_saving: 100%|██████████| 11/11 [02:23<00:00, 13.06s/it]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]***********在原始数据集上的精度**********
+OA:  0.8589421686832057
+F1:   [0.8929035452463983, 0.8797520156043872, 0.7602409473382093, 0.5988506358750598, 0.4281669669487804, 0.4761652954182849, 0.2996719603793929, 0.619393052401502]
+IoUs:
+--------------------------------------------------
+48.48 | 80.65 78.53 61.32 42.74 27.24 31.25 17.62 
+--------------------------------------------------
+
+Done in 143.7 s
+
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.35it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 80, end. Min potential = 5.6
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.58it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 81, end. Min potential = 5.7
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.08it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 82, end. Min potential = 5.8
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.04it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 83, end. Min potential = 5.9
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.09it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 84, end. Min potential = 5.9
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.49it/s]
+
+Test epoch 85, end. Min potential = 6.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.62it/s]
+
+Test epoch 86, end. Min potential = 6.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 14.05it/s]
+
+Test epoch 87, end. Min potential = 6.2
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.32it/s]
+
+Test epoch 88, end. Min potential = 6.3
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.94it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 89, end. Min potential = 6.3
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 14.09it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 90, end. Min potential = 6.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:13<00:00, 14.31it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 91, end. Min potential = 6.5
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.30it/s]
+
+Test epoch 92, end. Min potential = 6.5
+
+Confusion on sub clouds
+OA:  0.86023813
+F1:   [0.8658835291862488, 0.9087442755699158, 0.765716552734375, 0.6465846300125122, 0.4382590651512146, 0.4676363468170166, 0.3142150044441223, 0.6295770577022007]
+IoUs:
+49.52 | 76.35 83.28 62.04 47.77 28.06 30.52 18.64 
+
+
+Reproject Vote #6
+File_saving: 100%|██████████| 11/11 [02:03<00:00, 11.25s/it]
+***********在原始数据集上的精度**********
+OA:  0.8591575004015819
+F1:   [0.8929835272576787, 0.8804077843323099, 0.7599008658873169, 0.5995078412854652, 0.4213107950043392, 0.4774036176989204, 0.2942215853723153, 0.6179622881197637]
+IoUs:
+--------------------------------------------------
+48.38 | 80.67 78.64 61.28 42.81 26.69 31.35 17.25 
+--------------------------------------------------
+
+Done in 123.8 s
+
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.58it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 93, end. Min potential = 6.6
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:13<00:00, 14.31it/s]
+
+Test epoch 94, end. Min potential = 6.7
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.53it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 95, end. Min potential = 6.8
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.97it/s]
+
+Test epoch 96, end. Min potential = 6.9
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.65it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 97, end. Min potential = 6.9
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.28it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 98, end. Min potential = 7.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.85it/s]
+
+Test epoch 99, end. Min potential = 7.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.25it/s]
+
+Test epoch 100, end. Min potential = 7.2
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.03it/s]
+
+Test epoch 101, end. Min potential = 7.2
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.37it/s]
+
+Test epoch 102, end. Min potential = 7.3
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.02it/s]
+
+Test epoch 103, end. Min potential = 7.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.27it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 104, end. Min potential = 7.5
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.65it/s]
+
+Test epoch 105, end. Min potential = 7.5
+
+Confusion on sub clouds
+File_saving:   0%|          | 0/11 [00:00<?, ?it/s]OA:  0.8600958
+F1:   [0.8659490942955017, 0.9085032343864441, 0.7656042575836182, 0.6445980072021484, 0.44368788599967957, 0.4669198989868164, 0.3136291801929474, 0.629841651235308]
+IoUs:
+49.53 | 76.36 83.23 62.02 47.56 28.51 30.46 18.60 
+
+
+Reproject Vote #7
+File_saving: 100%|██████████| 11/11 [02:05<00:00, 11.44s/it]
+***********在原始数据集上的精度**********
+OA:  0.8590081943291347
+F1:   [0.8930002197918567, 0.8800520185723817, 0.7596358841252814, 0.5988062917704539, 0.4288170875192325, 0.4769817356274583, 0.2942028835624073, 0.6187851601384388]
+IoUs:
+--------------------------------------------------
+48.44 | 80.67 78.58 61.24 42.74 27.29 31.32 17.25 
+--------------------------------------------------
+
+Done in 125.8 s
+
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.94it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 106, end. Min potential = 7.6
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.80it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 107, end. Min potential = 7.7
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.88it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 108, end. Min potential = 7.8
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.40it/s]
+
+Test epoch 109, end. Min potential = 7.8
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.87it/s]
+
+Test epoch 110, end. Min potential = 7.9
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 14.08it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 111, end. Min potential = 8.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.81it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 112, end. Min potential = 8.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.36it/s]
+
+Test epoch 113, end. Min potential = 8.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.38it/s]
+
+Test epoch 114, end. Min potential = 8.2
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.10it/s]
+
+Test epoch 115, end. Min potential = 8.3
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.20it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 116, end. Min potential = 8.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.80it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 117, end. Min potential = 8.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.13it/s]
+
+Test epoch 118, end. Min potential = 8.5
+
+Confusion on sub clouds
+File_saving:   0%|          | 0/11 [00:00<?, ?it/s]OA:  0.86008286
+F1:   [0.8657597303390503, 0.908366858959198, 0.7663041353225708, 0.645045816898346, 0.4395037591457367, 0.46798327565193176, 0.3106802701950073, 0.6290919780731201]
+IoUs:
+49.48 | 76.33 83.21 62.11 47.61 28.16 30.55 18.39 
+
+
+Reproject Vote #8
+File_saving: 100%|██████████| 11/11 [02:03<00:00, 11.24s/it]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]***********在原始数据集上的精度**********
+OA:  0.8590352238767329
+F1:   [0.89290682698973, 0.8798780379880948, 0.7604735768597021, 0.5987089632858108, 0.4241530773476068, 0.4783654848890387, 0.2909770119589563, 0.6179232827598485]
+IoUs:
+--------------------------------------------------
+48.38 | 80.65 78.55 61.35 42.73 26.92 31.44 17.03 
+--------------------------------------------------
+
+Done in 123.7 s
+
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.90it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 119, end. Min potential = 8.6
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.84it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 120, end. Min potential = 8.7
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.08it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 121, end. Min potential = 8.8
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.81it/s]
+
+Test epoch 122, end. Min potential = 8.8
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.38it/s]
+
+Test epoch 123, end. Min potential = 8.9
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.92it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 124, end. Min potential = 9.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.95it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 125, end. Min potential = 9.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.24it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 126, end. Min potential = 9.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.93it/s]
+
+Test epoch 127, end. Min potential = 9.2
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.99it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 128, end. Min potential = 9.3
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.76it/s]
+
+Test epoch 129, end. Min potential = 9.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.55it/s]
+
+Test epoch 130, end. Min potential = 9.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.95it/s]
+
+Test epoch 131, end. Min potential = 9.5
+
+Confusion on sub clouds
+File_saving:   0%|          | 0/11 [00:00<?, ?it/s]OA:  0.86
+F1:   [0.8657495379447937, 0.9083287119865417, 0.765801727771759, 0.6441323161125183, 0.4406147599220276, 0.46616989374160767, 0.3139972984790802, 0.6292563208511898]
+IoUs:
+49.48 | 76.33 83.21 62.05 47.51 28.26 30.39 18.62 
+
+
+Reproject Vote #9
+File_saving: 100%|██████████| 11/11 [02:06<00:00, 11.49s/it]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]***********在原始数据集上的精度**********
+OA:  0.8588801882756929
+F1:   [0.8928567596553941, 0.8796949715227284, 0.7600269468684203, 0.5974928587357042, 0.4220253030222634, 0.4756822945361785, 0.2948458014914424, 0.6175178479760187]
+IoUs:
+--------------------------------------------------
+48.33 | 80.65 78.52 61.29 42.60 26.74 31.21 17.29 
+--------------------------------------------------
+
+Done in 126.4 s
+
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 14.12it/s]
+
+Test epoch 132, end. Min potential = 9.6
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.29it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 133, end. Min potential = 9.7
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.74it/s]
+
+Test epoch 134, end. Min potential = 9.7
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:16<00:00, 12.24it/s]
+
+Test epoch 135, end. Min potential = 9.8
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.77it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 136, end. Min potential = 9.9
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 13.27it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 137, end. Min potential = 10.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.94it/s]
+
+Test epoch 138, end. Min potential = 10.0
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.58it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 139, end. Min potential = 10.1
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.95it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 140, end. Min potential = 10.2
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.50it/s]
+
+Test epoch 141, end. Min potential = 10.3
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.43it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 142, end. Min potential = 10.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:15<00:00, 12.82it/s]
+Testing:   0%|          | 0/200 [00:00<?, ?it/s]
+Test epoch 143, end. Min potential = 10.4
+Initialize workers
+Testing: 100%|██████████| 200/200 [00:14<00:00, 13.72it/s]
+
+Test epoch 144, end. Min potential = 10.5
+
+Confusion on sub clouds
+OA:  0.8601757
+F1:   [0.8656147718429565, 0.9085596203804016, 0.7662310600280762, 0.6453123092651367, 0.4375036656856537, 0.4693707525730133, 0.3115547299385071, 0.6291638442448207]
+IoUs:
+49.49 | 76.31 83.24 62.10 47.64 28.00 30.67 18.45 
+
+
+Reproject Vote #10
+File_saving: 100%|██████████| 11/11 [02:04<00:00, 11.35s/it]
+***********在原始数据集上的精度**********
+OA:  0.8589990815102302
+F1:   [0.8927586524031481, 0.8799972552558021, 0.7602643240560895, 0.5986574180050787, 0.42252182244788633, 0.47880762482505523, 0.291647061936376, 0.6178077369899195]
+IoUs:
+--------------------------------------------------
+48.37 | 80.63 78.57 61.32 42.72 26.78 31.48 17.07 
+--------------------------------------------------
+
+Done in 124.9 s
+
+
+Process finished with exit code 0
