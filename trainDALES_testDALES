@@ -1,6 +1,5 @@
 /home/huiwei/anaconda3/envs/growsp/bin/python /home/huiwei/Desktop/Code/KPConv_T3D/test_T3D_baseline.py 
-/home/huiwei/Desktop/Code/KPConv_T3D/datasets/Commondataset.py:197: UserWarning: 注意！使用的测试集不同导致的文件名不同
-  warnings.warn("注意！使用的测试集不同导致的文件名不同", category=UserWarning)
+
 
 Data Preparation
 ****************
