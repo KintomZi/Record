@@ -8,8 +8,6 @@ Done in 0.0s
 5080_54400_binary
 
 Found KDTree for cloud 5080_54400_binary, subsampled at 0.200
-/home/huiwei/Desktop/Code/KPConv_T3D/datasets/Commondataset.py:197: UserWarning: 注意！使用的测试集不同导致的文件名不同
-  warnings.warn("注意！使用的测试集不同导致的文件名不同", category=UserWarning)
 234.8 MB loaded in 0.1s
 5080_54470_binary
 
