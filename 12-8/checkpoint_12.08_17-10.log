@@ -1,0 +1,367 @@
+2024-12-08 17:10:29 - INFO - 初始化训练数据集和数据加载器
+2024-12-08 17:10:29 - INFO - 设备设置为：cuda
+2024-12-08 17:10:31 - INFO - 教师与学生网络模型加载...
+MinkUNet14C(
+  (conv0p1s1): MinkowskiConvolution(in=3, out=32, kernel_size=[5, 5, 5], stride=[1, 1, 1], dilation=[1, 1, 1])
+  (bn0): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (conv1p1s2): MinkowskiConvolution(in=32, out=32, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block1): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=32, out=32, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=32, out=32, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (conv2p2s2): MinkowskiConvolution(in=32, out=32, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn2): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block2): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=32, out=64, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=64, out=64, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=32, out=64, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (conv3p4s2): MinkowskiConvolution(in=64, out=64, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn3): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block3): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=64, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=64, out=128, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (conv4p8s2): MinkowskiConvolution(in=128, out=128, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn4): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block4): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=128, out=256, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (convtr4p16s2): MinkowskiConvolutionTranspose(in=256, out=192, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr4): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block5): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=320, out=192, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=192, out=192, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=320, out=192, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (convtr5p8s2): MinkowskiConvolutionTranspose(in=192, out=192, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr5): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block6): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=256, out=192, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=192, out=192, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=256, out=192, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(192, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (convtr6p4s2): MinkowskiConvolutionTranspose(in=192, out=128, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr6): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block7): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=160, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=160, out=128, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (convtr7p2s2): MinkowskiConvolutionTranspose(in=128, out=128, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr7): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block8): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=160, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=160, out=128, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (final): MinkowskiConvolution(in=128, out=8, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+  (relu): MinkowskiReLU()
+)
+
+2024-12-08 17:10:31 - INFO - 优化器加载...
+Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.001
+    weight_decay: 0
+)
+
+2024-12-08 17:10:31 - INFO - 调度器加载...
+<torch.optim.lr_scheduler.OneCycleLR object at 0x7f80f58adf10>
+
+2024-12-08 17:10:31 - INFO - 损失函数加载...
+CrossEntropyLoss()
+
+2024-12-08 17:10:31 - INFO - 开始训练...
+2024-12-08 17:11:02 - INFO - Epoch:    1/300  lr: 4.029e-03  TrainLoss: 8.4097593784  ValLoss: 3.4563888333  Time: 23.56+7.70s
+2024-12-08 17:11:33 - INFO - Epoch:    2/300  lr: 4.117e-03  TrainLoss: 5.5050346375  ValLoss: 2.9446344990  Time: 23.17+7.60s
+2024-12-08 17:12:02 - INFO - Epoch:    3/300  lr: 4.264e-03  TrainLoss: 4.5021466255  ValLoss: 2.6259399288  Time: 21.16+7.65s
+2024-12-08 17:12:32 - INFO - Epoch:    4/300  lr: 4.468e-03  TrainLoss: 3.1019002676  ValLoss: 2.4532804684  Time: 22.34+7.59s
+2024-12-08 17:13:02 - INFO - Epoch:    5/300  lr: 4.731e-03  TrainLoss: 2.3998904347  ValLoss: 2.3553666061  Time: 22.63+7.69s
+2024-12-08 17:13:33 - INFO - Epoch:    6/300  lr: 5.051e-03  TrainLoss: 2.0850132227  ValLoss: 2.3014782432  Time: 23.10+7.68s
+2024-12-08 17:14:03 - INFO - Epoch:    7/300  lr: 5.429e-03  TrainLoss: 1.8444607139  ValLoss: 2.2572932399  Time: 22.23+7.70s
+2024-12-08 17:14:33 - INFO - Epoch:    8/300  lr: 5.864e-03  TrainLoss: 1.9858068347  ValLoss: 2.2183046998  Time: 22.44+7.66s
+2024-12-08 17:15:04 - INFO - Epoch:    9/300  lr: 6.354e-03  TrainLoss: 2.1186446786  ValLoss: 2.1826470231  Time: 22.93+7.72s
+2024-12-08 17:15:33 - INFO - Epoch:   10/300  lr: 6.901e-03  TrainLoss: 1.7207545280  ValLoss: 2.1426745697  Time: 21.81+7.79s
+2024-12-08 17:16:20 - INFO - Eval Epoch: 10
+2024-12-08 17:16:20 - INFO - Overall Accuracy: 83.81 || Mean Overall Accuracy: 46.30
+                             Mean IoU: 0.402 || Per-class IoU score:  Ground=0.809  Natural/Vegetation=0.796  Building=0.173  Utility_line=0.452  Pole=0.000  Car/Truck=0.043  Fence=0.546  
+                             Macro F1: 0.498 || Per-class  F1 score:  Ground=0.894  Natural/Vegetation=0.886  Building=0.294  Utility_line=0.622  Pole=0.001  Car/Truck=0.082  Fence=0.706  
+2024-12-08 17:16:52 - INFO - Epoch:   11/300  lr: 7.503e-03  TrainLoss: 2.0493325472  ValLoss: 2.1063824932  Time: 23.89+7.81s
+2024-12-08 17:17:23 - INFO - Epoch:   12/300  lr: 8.159e-03  TrainLoss: 1.7442102194  ValLoss: 2.0733206315  Time: 23.47+7.81s
+2024-12-08 17:17:55 - INFO - Epoch:   13/300  lr: 8.869e-03  TrainLoss: 1.4454491854  ValLoss: 2.0396442701  Time: 23.43+7.82s
+2024-12-08 17:18:25 - INFO - Epoch:   14/300  lr: 9.631e-03  TrainLoss: 1.4698453426  ValLoss: 2.0166223170  Time: 22.39+7.87s
+2024-12-08 17:18:57 - INFO - Epoch:   15/300  lr: 1.044e-02  TrainLoss: 1.5488769412  ValLoss: 1.9893032627  Time: 24.53+7.85s
+2024-12-08 17:19:28 - INFO - Epoch:   16/300  lr: 1.131e-02  TrainLoss: 1.4727146268  ValLoss: 1.9597391716  Time: 23.27+7.75s
+2024-12-08 17:19:57 - INFO - Epoch:   17/300  lr: 1.222e-02  TrainLoss: 1.5641757488  ValLoss: 1.9355845735  Time: 20.82+7.78s
+2024-12-08 17:20:27 - INFO - Epoch:   18/300  lr: 1.319e-02  TrainLoss: 1.5434776783  ValLoss: 1.9070608011  Time: 22.52+7.84s
+2024-12-08 17:20:58 - INFO - Epoch:   19/300  lr: 1.420e-02  TrainLoss: 1.5274867177  ValLoss: 1.8842564097  Time: 22.58+7.81s
+2024-12-08 17:21:28 - INFO - Epoch:   20/300  lr: 1.525e-02  TrainLoss: 1.3576343536  ValLoss: 1.8636052701  Time: 22.19+7.84s
+2024-12-08 17:22:15 - INFO - Eval Epoch: 20
+2024-12-08 17:22:15 - INFO - Overall Accuracy: 85.09 || Mean Overall Accuracy: 53.55
+                             Mean IoU: 0.419 || Per-class IoU score:  Ground=0.820  Natural/Vegetation=0.814  Building=0.178  Utility_line=0.461  Pole=0.054  Car/Truck=0.054  Fence=0.553  
+                             Macro F1: 0.521 || Per-class  F1 score:  Ground=0.901  Natural/Vegetation=0.897  Building=0.302  Utility_line=0.631  Pole=0.103  Car/Truck=0.103  Fence=0.712  
+2024-12-08 17:22:46 - INFO - Epoch:   21/300  lr: 1.636e-02  TrainLoss: 1.5472486675  ValLoss: 1.8498009730  Time: 24.07+7.85s
+2024-12-08 17:23:18 - INFO - Epoch:   22/300  lr: 1.750e-02  TrainLoss: 1.3380952120  ValLoss: 1.8295174707  Time: 23.41+7.92s
+2024-12-08 17:23:49 - INFO - Epoch:   23/300  lr: 1.869e-02  TrainLoss: 1.1046836615  ValLoss: 1.8361215581  Time: 23.45+7.88s
+2024-12-08 17:24:21 - INFO - Epoch:   24/300  lr: 1.991e-02  TrainLoss: 1.1094637215  ValLoss: 1.8285053970  Time: 23.18+8.71s
+2024-12-08 17:24:53 - INFO - Epoch:   25/300  lr: 2.118e-02  TrainLoss: 1.1668865085  ValLoss: 1.8178943979  Time: 24.31+7.95s
+2024-12-08 17:25:24 - INFO - Epoch:   26/300  lr: 2.249e-02  TrainLoss: 1.1539941967  ValLoss: 1.7996269833  Time: 23.14+7.91s
+2024-12-08 17:25:53 - INFO - Epoch:   27/300  lr: 2.383e-02  TrainLoss: 1.1921244442  ValLoss: 1.7920155652  Time: 20.77+8.12s
+2024-12-08 17:26:24 - INFO - Epoch:   28/300  lr: 2.520e-02  TrainLoss: 1.2379836440  ValLoss: 1.7721258962  Time: 22.59+7.90s
+2024-12-08 17:26:54 - INFO - Epoch:   29/300  lr: 2.661e-02  TrainLoss: 1.2598911881  ValLoss: 1.7692133642  Time: 22.44+7.88s
+2024-12-08 17:27:24 - INFO - Epoch:   30/300  lr: 2.805e-02  TrainLoss: 1.0578664184  ValLoss: 1.7509683699  Time: 22.18+7.88s
+2024-12-08 17:28:11 - INFO - Eval Epoch: 30
+2024-12-08 17:28:11 - INFO - Overall Accuracy: 85.85 || Mean Overall Accuracy: 57.23
+                             Mean IoU: 0.416 || Per-class IoU score:  Ground=0.824  Natural/Vegetation=0.825  Building=0.142  Utility_line=0.478  Pole=0.041  Car/Truck=0.047  Fence=0.554  
+                             Macro F1: 0.512 || Per-class  F1 score:  Ground=0.904  Natural/Vegetation=0.904  Building=0.248  Utility_line=0.647  Pole=0.079  Car/Truck=0.090  Fence=0.713  
+2024-12-08 17:28:43 - INFO - Epoch:   31/300  lr: 2.952e-02  TrainLoss: 1.2617852986  ValLoss: 1.7584533713  Time: 23.94+7.92s
+2024-12-08 17:29:15 - INFO - Epoch:   32/300  lr: 3.101e-02  TrainLoss: 1.0693313420  ValLoss: 1.7429895365  Time: 23.48+8.63s
+2024-12-08 17:29:47 - INFO - Epoch:   33/300  lr: 3.253e-02  TrainLoss: 0.9247863889  ValLoss: 1.7435636165  Time: 23.54+8.00s
+2024-12-08 17:30:17 - INFO - Epoch:   34/300  lr: 3.408e-02  TrainLoss: 0.9149807513  ValLoss: 1.7372963318  Time: 22.33+7.96s
+2024-12-08 17:30:49 - INFO - Epoch:   35/300  lr: 3.564e-02  TrainLoss: 0.9508346081  ValLoss: 1.7389922019  Time: 24.41+7.91s
+2024-12-08 17:31:22 - INFO - Epoch:   36/300  lr: 3.723e-02  TrainLoss: 0.9771825790  ValLoss: 1.7265121595  Time: 24.46+8.60s
+2024-12-08 17:31:52 - INFO - Epoch:   37/300  lr: 3.884e-02  TrainLoss: 0.9511190653  ValLoss: 1.7236882623  Time: 21.50+8.01s
+2024-12-08 17:32:23 - INFO - Epoch:   38/300  lr: 4.046e-02  TrainLoss: 0.9624291122  ValLoss: 1.7075792365  Time: 23.16+8.14s
+2024-12-08 17:32:54 - INFO - Epoch:   39/300  lr: 4.209e-02  TrainLoss: 1.0143059671  ValLoss: 1.6997722516  Time: 22.93+7.85s
+2024-12-08 17:33:24 - INFO - Epoch:   40/300  lr: 4.374e-02  TrainLoss: 0.8634806573  ValLoss: 1.6917571313  Time: 22.18+8.25s
+2024-12-08 17:34:13 - INFO - Eval Epoch: 40
+2024-12-08 17:34:13 - INFO - Overall Accuracy: 86.01 || Mean Overall Accuracy: 58.97
+                             Mean IoU: 0.399 || Per-class IoU score:  Ground=0.824  Natural/Vegetation=0.830  Building=0.001  Utility_line=0.528  Pole=0.020  Car/Truck=0.049  Fence=0.544  
+                             Macro F1: 0.477 || Per-class  F1 score:  Ground=0.903  Natural/Vegetation=0.907  Building=0.003  Utility_line=0.691  Pole=0.039  Car/Truck=0.093  Fence=0.705  
+2024-12-08 17:34:46 - INFO - Epoch:   41/300  lr: 4.540e-02  TrainLoss: 1.0543429971  ValLoss: 1.6993906370  Time: 24.44+8.06s
+2024-12-08 17:35:18 - INFO - Epoch:   42/300  lr: 4.706e-02  TrainLoss: 0.9276051164  ValLoss: 1.6906071029  Time: 24.14+7.95s
+2024-12-08 17:35:49 - INFO - Epoch:   43/300  lr: 4.873e-02  TrainLoss: 0.7809635401  ValLoss: 1.6956095502  Time: 23.70+7.98s
+2024-12-08 17:36:20 - INFO - Epoch:   44/300  lr: 5.041e-02  TrainLoss: 0.7778397560  ValLoss: 1.6917336699  Time: 22.55+7.85s
+2024-12-08 17:36:52 - INFO - Epoch:   45/300  lr: 5.208e-02  TrainLoss: 0.8150022745  ValLoss: 1.6967764112  Time: 24.34+8.01s
+2024-12-08 17:37:23 - INFO - Epoch:   46/300  lr: 5.376e-02  TrainLoss: 0.8449900150  ValLoss: 1.6782005026  Time: 23.21+7.93s
+2024-12-08 17:37:52 - INFO - Epoch:   47/300  lr: 5.544e-02  TrainLoss: 0.8538550675  ValLoss: 1.6722526207  Time: 20.79+7.90s
+2024-12-08 17:38:22 - INFO - Epoch:   48/300  lr: 5.711e-02  TrainLoss: 0.8294560075  ValLoss: 1.6636323029  Time: 22.46+7.90s
+2024-12-08 17:38:53 - INFO - Epoch:   49/300  lr: 5.877e-02  TrainLoss: 0.8450590432  ValLoss: 1.6609116997  Time: 22.53+7.95s
+2024-12-08 17:39:23 - INFO - Epoch:   50/300  lr: 6.043e-02  TrainLoss: 0.8301068366  ValLoss: 1.6603914530  Time: 22.21+7.91s
+2024-12-08 17:40:12 - INFO - Eval Epoch: 50
+2024-12-08 17:40:12 - INFO - Overall Accuracy: 85.54 || Mean Overall Accuracy: 61.86
+                             Mean IoU: 0.397 || Per-class IoU score:  Ground=0.817  Natural/Vegetation=0.828  Building=0.000  Utility_line=0.598  Pole=0.005  Car/Truck=0.005  Fence=0.527  
+                             Macro F1: 0.466 || Per-class  F1 score:  Ground=0.899  Natural/Vegetation=0.906  Building=0.000  Utility_line=0.749  Pole=0.011  Car/Truck=0.010  Fence=0.690  
+2024-12-08 17:40:44 - INFO - Epoch:   51/300  lr: 6.207e-02  TrainLoss: 0.9484670699  ValLoss: 1.6754838548  Time: 24.04+7.99s
+2024-12-08 17:41:15 - INFO - Epoch:   52/300  lr: 6.371e-02  TrainLoss: 0.8735868514  ValLoss: 1.6676651066  Time: 23.51+8.07s
+2024-12-08 17:41:47 - INFO - Epoch:   53/300  lr: 6.533e-02  TrainLoss: 0.7805563211  ValLoss: 1.6687076229  Time: 23.78+8.19s
+2024-12-08 17:42:18 - INFO - Epoch:   54/300  lr: 6.693e-02  TrainLoss: 0.7142029107  ValLoss: 1.6666220179  Time: 22.58+7.98s
+2024-12-08 17:42:50 - INFO - Epoch:   55/300  lr: 6.851e-02  TrainLoss: 0.7752664626  ValLoss: 1.6748739732  Time: 24.40+7.88s
+2024-12-08 17:43:21 - INFO - Epoch:   56/300  lr: 7.008e-02  TrainLoss: 0.7702068150  ValLoss: 1.6685524202  Time: 23.27+7.91s
+2024-12-08 17:43:50 - INFO - Epoch:   57/300  lr: 7.162e-02  TrainLoss: 0.7970102489  ValLoss: 1.6633368447  Time: 20.98+7.90s
+2024-12-08 17:44:21 - INFO - Epoch:   58/300  lr: 7.314e-02  TrainLoss: 0.7599476457  ValLoss: 1.6549222654  Time: 22.85+8.19s
+2024-12-08 17:44:52 - INFO - Epoch:   59/300  lr: 7.463e-02  TrainLoss: 0.8482763946  ValLoss: 1.6507199542  Time: 22.91+7.96s
+2024-12-08 17:45:22 - INFO - Epoch:   60/300  lr: 7.610e-02  TrainLoss: 0.8262213409  ValLoss: 1.6542137489  Time: 22.25+7.93s
+2024-12-08 17:46:10 - INFO - Eval Epoch: 60
+2024-12-08 17:46:10 - INFO - Overall Accuracy: 85.24 || Mean Overall Accuracy: 67.04
+                             Mean IoU: 0.405 || Per-class IoU score:  Ground=0.811  Natural/Vegetation=0.827  Building=0.000  Utility_line=0.675  Pole=0.001  Car/Truck=0.001  Fence=0.519  
+                             Macro F1: 0.471 || Per-class  F1 score:  Ground=0.895  Natural/Vegetation=0.905  Building=0.000  Utility_line=0.806  Pole=0.003  Car/Truck=0.002  Fence=0.684  
+2024-12-08 17:46:44 - INFO - Epoch:   61/300  lr: 7.753e-02  TrainLoss: 0.8598672509  ValLoss: 1.6710373844  Time: 25.89+7.98s
+2024-12-08 17:47:15 - INFO - Epoch:   62/300  lr: 7.894e-02  TrainLoss: 0.7969324172  ValLoss: 1.6608227806  Time: 23.32+7.99s
+2024-12-08 17:47:47 - INFO - Epoch:   63/300  lr: 8.031e-02  TrainLoss: 0.8411897898  ValLoss: 1.6514127953  Time: 23.79+8.03s
+2024-12-08 17:48:18 - INFO - Epoch:   64/300  lr: 8.165e-02  TrainLoss: 0.8140837431  ValLoss: 1.6544185595  Time: 22.59+8.09s
+2024-12-08 17:48:50 - INFO - Epoch:   65/300  lr: 8.295e-02  TrainLoss: 0.8556614935  ValLoss: 1.6619222916  Time: 24.27+8.05s
+2024-12-08 17:49:21 - INFO - Epoch:   66/300  lr: 8.421e-02  TrainLoss: 0.7371897519  ValLoss: 1.6584808613  Time: 23.29+8.02s
+2024-12-08 17:49:50 - INFO - Epoch:   67/300  lr: 8.543e-02  TrainLoss: 0.7719060898  ValLoss: 1.6542665846  Time: 20.85+8.06s
+2024-12-08 17:50:21 - INFO - Epoch:   68/300  lr: 8.662e-02  TrainLoss: 0.7213587105  ValLoss: 1.6489204871  Time: 22.53+8.02s
+2024-12-08 17:50:51 - INFO - Epoch:   69/300  lr: 8.776e-02  TrainLoss: 0.7563106298  ValLoss: 1.6381578214  Time: 22.63+7.98s
+2024-12-08 17:51:22 - INFO - Epoch:   70/300  lr: 8.885e-02  TrainLoss: 0.7374608457  ValLoss: 1.6338981018  Time: 22.32+8.20s
+2024-12-08 17:52:10 - INFO - Eval Epoch: 70
+2024-12-08 17:52:10 - INFO - Overall Accuracy: 84.87 || Mean Overall Accuracy: 67.90
+                             Mean IoU: 0.397 || Per-class IoU score:  Ground=0.807  Natural/Vegetation=0.822  Building=0.000  Utility_line=0.639  Pole=0.000  Car/Truck=0.000  Fence=0.510  
+                             Macro F1: 0.464 || Per-class  F1 score:  Ground=0.893  Natural/Vegetation=0.902  Building=0.000  Utility_line=0.780  Pole=0.000  Car/Truck=0.000  Fence=0.676  
+2024-12-08 17:52:42 - INFO - Epoch:   71/300  lr: 8.991e-02  TrainLoss: 0.7338397503  ValLoss: 1.6415347215  Time: 24.20+7.96s
+2024-12-08 17:53:13 - INFO - Epoch:   72/300  lr: 9.091e-02  TrainLoss: 0.6446561575  ValLoss: 1.6354820533  Time: 23.70+7.97s
+2024-12-08 17:53:45 - INFO - Epoch:   73/300  lr: 9.187e-02  TrainLoss: 0.5667037964  ValLoss: 1.6305391667  Time: 23.58+8.04s
+2024-12-08 17:54:15 - INFO - Epoch:   74/300  lr: 9.278e-02  TrainLoss: 0.5635525465  ValLoss: 1.6260034316  Time: 22.35+8.03s
+2024-12-08 17:54:48 - INFO - Epoch:   75/300  lr: 9.364e-02  TrainLoss: 0.6032306671  ValLoss: 1.6308515538  Time: 24.44+7.95s
+2024-12-08 17:55:19 - INFO - Epoch:   76/300  lr: 9.445e-02  TrainLoss: 0.5801603317  ValLoss: 1.6253923109  Time: 22.98+8.02s
+2024-12-08 17:55:47 - INFO - Epoch:   77/300  lr: 9.520e-02  TrainLoss: 0.6220661819  ValLoss: 1.6226890345  Time: 20.76+7.95s
+2024-12-08 17:56:18 - INFO - Epoch:   78/300  lr: 9.591e-02  TrainLoss: 0.5803777963  ValLoss: 1.6215541865  Time: 22.51+7.95s
+2024-12-08 17:56:48 - INFO - Epoch:   79/300  lr: 9.656e-02  TrainLoss: 0.5701103717  ValLoss: 1.6200827320  Time: 22.47+8.04s
+2024-12-08 17:57:19 - INFO - Epoch:   80/300  lr: 9.716e-02  TrainLoss: 0.5805783659  ValLoss: 1.6175631380  Time: 22.10+7.97s
+2024-12-08 17:58:05 - INFO - Eval Epoch: 80
+2024-12-08 17:58:05 - INFO - Overall Accuracy: 84.04 || Mean Overall Accuracy: 46.81
+                             Mean IoU: 0.389 || Per-class IoU score:  Ground=0.792  Natural/Vegetation=0.815  Building=0.000  Utility_line=0.621  Pole=0.000  Car/Truck=0.000  Fence=0.494  
+                             Macro F1: 0.458 || Per-class  F1 score:  Ground=0.884  Natural/Vegetation=0.898  Building=0.000  Utility_line=0.766  Pole=0.000  Car/Truck=0.000  Fence=0.662  
+2024-12-08 17:58:38 - INFO - Epoch:   81/300  lr: 9.770e-02  TrainLoss: 0.5558111906  ValLoss: 1.6230020713  Time: 24.07+8.03s
+2024-12-08 17:59:09 - INFO - Epoch:   82/300  lr: 9.818e-02  TrainLoss: 0.4909921855  ValLoss: 1.6177179420  Time: 23.47+7.91s
+2024-12-08 17:59:40 - INFO - Epoch:   83/300  lr: 9.861e-02  TrainLoss: 0.4602970392  ValLoss: 1.6169010948  Time: 23.43+7.99s
+2024-12-08 18:00:11 - INFO - Epoch:   84/300  lr: 9.898e-02  TrainLoss: 0.4540832072  ValLoss: 1.6187603591  Time: 22.52+7.94s
+2024-12-08 18:00:43 - INFO - Epoch:   85/300  lr: 9.930e-02  TrainLoss: 0.4742489129  ValLoss: 1.6299029311  Time: 24.49+8.01s
+2024-12-08 18:01:15 - INFO - Epoch:   86/300  lr: 9.955e-02  TrainLoss: 0.4913510263  ValLoss: 1.6282462812  Time: 23.32+7.98s
+2024-12-08 18:01:44 - INFO - Epoch:   87/300  lr: 9.975e-02  TrainLoss: 0.5205878854  ValLoss: 1.6278243719  Time: 20.96+7.91s
+2024-12-08 18:02:14 - INFO - Epoch:   88/300  lr: 9.989e-02  TrainLoss: 0.4760060549  ValLoss: 1.6299847028  Time: 22.48+7.91s
+2024-12-08 18:02:44 - INFO - Epoch:   89/300  lr: 9.998e-02  TrainLoss: 0.4766743362  ValLoss: 1.6262282375  Time: 22.53+7.90s
+2024-12-08 18:03:14 - INFO - Epoch:   90/300  lr: 1.000e-01  TrainLoss: 0.4744185209  ValLoss: 1.6263965002  Time: 22.17+7.94s
+2024-12-08 18:04:01 - INFO - Eval Epoch: 90
+2024-12-08 18:04:01 - INFO - Overall Accuracy: 82.63 || Mean Overall Accuracy: 47.00
+                             Mean IoU: 0.365 || Per-class IoU score:  Ground=0.769  Natural/Vegetation=0.798  Building=0.000  Utility_line=0.519  Pole=0.000  Car/Truck=0.000  Fence=0.470  
+                             Macro F1: 0.440 || Per-class  F1 score:  Ground=0.870  Natural/Vegetation=0.888  Building=0.000  Utility_line=0.683  Pole=0.000  Car/Truck=0.000  Fence=0.640  
+2024-12-08 18:04:34 - INFO - Epoch:   91/300  lr: 9.999e-02  TrainLoss: 0.4337278545  ValLoss: 1.6315147102  Time: 24.00+8.12s
+2024-12-08 18:05:05 - INFO - Epoch:   92/300  lr: 9.998e-02  TrainLoss: 0.4032064021  ValLoss: 1.6287024012  Time: 23.33+8.12s
+2024-12-08 18:05:36 - INFO - Epoch:   93/300  lr: 9.995e-02  TrainLoss: 0.3933162451  ValLoss: 1.6312888628  Time: 23.38+8.16s
+2024-12-08 18:06:07 - INFO - Epoch:   94/300  lr: 9.991e-02  TrainLoss: 0.3886921138  ValLoss: 1.6325122105  Time: 22.35+8.14s
+2024-12-08 18:06:39 - INFO - Epoch:   95/300  lr: 9.985e-02  TrainLoss: 0.4064900517  ValLoss: 1.6399141965  Time: 24.26+8.02s
+2024-12-08 18:07:10 - INFO - Epoch:   96/300  lr: 9.979e-02  TrainLoss: 0.4251529574  ValLoss: 1.6372853843  Time: 23.23+7.98s
+2024-12-08 18:07:39 - INFO - Epoch:   97/300  lr: 9.972e-02  TrainLoss: 0.4456632733  ValLoss: 1.6403096006  Time: 20.70+7.90s
+2024-12-08 18:08:09 - INFO - Epoch:   98/300  lr: 9.963e-02  TrainLoss: 0.4261706620  ValLoss: 1.6413645623  Time: 22.51+7.93s
+2024-12-08 18:08:40 - INFO - Epoch:   99/300  lr: 9.954e-02  TrainLoss: 0.4355689108  ValLoss: 1.6386750377  Time: 22.58+7.98s
+2024-12-08 18:09:10 - INFO - Epoch:  100/300  lr: 9.943e-02  TrainLoss: 0.4294763863  ValLoss: 1.6397419955  Time: 22.00+7.90s
+2024-12-08 18:09:57 - INFO - Eval Epoch: 100
+2024-12-08 18:09:57 - INFO - Overall Accuracy: 81.04 || Mean Overall Accuracy: 46.79
+                             Mean IoU: 0.326 || Per-class IoU score:  Ground=0.744  Natural/Vegetation=0.778  Building=0.000  Utility_line=0.316  Pole=0.000  Car/Truck=0.000  Fence=0.446  
+                             Macro F1: 0.404 || Per-class  F1 score:  Ground=0.853  Natural/Vegetation=0.875  Building=0.000  Utility_line=0.480  Pole=0.000  Car/Truck=0.000  Fence=0.617  
+2024-12-08 18:10:29 - INFO - Epoch:  101/300  lr: 9.931e-02  TrainLoss: 0.4034043193  ValLoss: 1.6395591597  Time: 24.07+7.91s
+2024-12-08 18:11:00 - INFO - Epoch:  102/300  lr: 9.918e-02  TrainLoss: 0.3748074174  ValLoss: 1.6381996570  Time: 23.61+8.11s
+2024-12-08 18:11:32 - INFO - Epoch:  103/300  lr: 9.904e-02  TrainLoss: 0.3493732750  ValLoss: 1.6376725314  Time: 23.55+8.09s
+2024-12-08 18:12:03 - INFO - Epoch:  104/300  lr: 9.889e-02  TrainLoss: 0.3588264406  ValLoss: 1.6387932954  Time: 22.28+8.15s
+2024-12-08 18:12:35 - INFO - Epoch:  105/300  lr: 9.873e-02  TrainLoss: 0.3747317672  ValLoss: 1.6481481662  Time: 24.44+8.06s
+2024-12-08 18:13:06 - INFO - Epoch:  106/300  lr: 9.856e-02  TrainLoss: 0.3808084249  ValLoss: 1.6461257521  Time: 22.98+8.13s
+2024-12-08 18:13:35 - INFO - Epoch:  107/300  lr: 9.837e-02  TrainLoss: 0.4027862370  ValLoss: 1.6477851888  Time: 20.65+8.15s
+2024-12-08 18:14:05 - INFO - Epoch:  108/300  lr: 9.818e-02  TrainLoss: 0.3816722512  ValLoss: 1.6516673529  Time: 22.32+8.13s
+2024-12-08 18:14:36 - INFO - Epoch:  109/300  lr: 9.797e-02  TrainLoss: 0.3673901886  ValLoss: 1.6531922685  Time: 22.34+8.09s
+2024-12-08 18:15:06 - INFO - Epoch:  110/300  lr: 9.776e-02  TrainLoss: 0.3610242009  ValLoss: 1.6511760417  Time: 21.94+8.11s
+2024-12-08 18:15:53 - INFO - Eval Epoch: 110
+2024-12-08 18:15:53 - INFO - Overall Accuracy: 79.28 || Mean Overall Accuracy: 46.33
+                             Mean IoU: 0.294 || Per-class IoU score:  Ground=0.718  Natural/Vegetation=0.755  Building=0.000  Utility_line=0.166  Pole=0.000  Car/Truck=0.000  Fence=0.421  
+                             Macro F1: 0.367 || Per-class  F1 score:  Ground=0.836  Natural/Vegetation=0.860  Building=0.000  Utility_line=0.284  Pole=0.000  Car/Truck=0.000  Fence=0.592  
+2024-12-08 18:16:25 - INFO - Epoch:  111/300  lr: 9.753e-02  TrainLoss: 0.3674853802  ValLoss: 1.6608464871  Time: 24.01+7.92s
+2024-12-08 18:16:56 - INFO - Epoch:  112/300  lr: 9.729e-02  TrainLoss: 0.3714009970  ValLoss: 1.6689059850  Time: 23.57+7.93s
+2024-12-08 18:17:28 - INFO - Epoch:  113/300  lr: 9.704e-02  TrainLoss: 0.3813627452  ValLoss: 1.6763996970  Time: 23.55+8.00s
+2024-12-08 18:17:58 - INFO - Epoch:  114/300  lr: 9.679e-02  TrainLoss: 0.3549060285  ValLoss: 1.6797945971  Time: 22.42+8.00s
+2024-12-08 18:18:31 - INFO - Epoch:  115/300  lr: 9.652e-02  TrainLoss: 0.3405789107  ValLoss: 1.6939224444  Time: 24.39+8.10s
+2024-12-08 18:19:02 - INFO - Epoch:  116/300  lr: 9.624e-02  TrainLoss: 0.3432305872  ValLoss: 1.7003568964  Time: 23.05+8.11s
+2024-12-08 18:19:31 - INFO - Epoch:  117/300  lr: 9.595e-02  TrainLoss: 0.3604326546  ValLoss: 1.7047764384  Time: 20.62+8.05s
+2024-12-08 18:20:01 - INFO - Epoch:  118/300  lr: 9.565e-02  TrainLoss: 0.3357903808  ValLoss: 1.7095584347  Time: 22.33+8.18s
+2024-12-08 18:20:32 - INFO - Epoch:  119/300  lr: 9.534e-02  TrainLoss: 0.3200653434  ValLoss: 1.7135978321  Time: 22.52+8.05s
+2024-12-08 18:21:02 - INFO - Epoch:  120/300  lr: 9.502e-02  TrainLoss: 0.3167590797  ValLoss: 1.7110678843  Time: 22.24+8.12s
+2024-12-08 18:21:49 - INFO - Eval Epoch: 120
+2024-12-08 18:21:49 - INFO - Overall Accuracy: 77.17 || Mean Overall Accuracy: 45.57
+                             Mean IoU: 0.265 || Per-class IoU score:  Ground=0.683  Natural/Vegetation=0.725  Building=0.000  Utility_line=0.061  Pole=0.000  Car/Truck=0.000  Fence=0.390  
+                             Macro F1: 0.333 || Per-class  F1 score:  Ground=0.811  Natural/Vegetation=0.841  Building=0.000  Utility_line=0.115  Pole=0.000  Car/Truck=0.000  Fence=0.561  
+2024-12-08 18:22:21 - INFO - Epoch:  121/300  lr: 9.469e-02  TrainLoss: 0.3052127510  ValLoss: 1.7142679187  Time: 23.97+8.03s
+2024-12-08 18:22:53 - INFO - Epoch:  122/300  lr: 9.434e-02  TrainLoss: 0.3108259887  ValLoss: 1.7167779717  Time: 23.58+7.98s
+2024-12-08 18:23:24 - INFO - Epoch:  123/300  lr: 9.399e-02  TrainLoss: 0.3267879158  ValLoss: 1.7205073472  Time: 23.46+7.95s
+2024-12-08 18:23:54 - INFO - Epoch:  124/300  lr: 9.363e-02  TrainLoss: 0.3894245625  ValLoss: 1.7186356794  Time: 22.39+7.90s
+2024-12-08 18:24:27 - INFO - Epoch:  125/300  lr: 9.326e-02  TrainLoss: 0.5410389453  ValLoss: 1.7235327793  Time: 24.30+7.97s
+2024-12-08 18:24:58 - INFO - Epoch:  126/300  lr: 9.288e-02  TrainLoss: 0.4979215175  ValLoss: 1.7309900177  Time: 23.27+8.06s
+2024-12-08 18:25:27 - INFO - Epoch:  127/300  lr: 9.249e-02  TrainLoss: 0.4770328462  ValLoss: 1.7385902085  Time: 20.95+7.89s
+2024-12-08 18:25:57 - INFO - Epoch:  128/300  lr: 9.210e-02  TrainLoss: 0.4737948626  ValLoss: 1.7443722633  Time: 22.63+7.96s
+2024-12-08 18:26:28 - INFO - Epoch:  129/300  lr: 9.169e-02  TrainLoss: 0.4114307165  ValLoss: 1.7438831505  Time: 22.45+7.92s
+2024-12-08 18:26:58 - INFO - Epoch:  130/300  lr: 9.127e-02  TrainLoss: 0.3851012439  ValLoss: 1.7395831534  Time: 22.26+7.99s
+2024-12-08 18:27:45 - INFO - Eval Epoch: 130
+2024-12-08 18:27:45 - INFO - Overall Accuracy: 75.06 || Mean Overall Accuracy: 44.65
+                             Mean IoU: 0.247 || Per-class IoU score:  Ground=0.661  Natural/Vegetation=0.692  Building=0.000  Utility_line=0.036  Pole=0.000  Car/Truck=0.000  Fence=0.340  
+                             Macro F1: 0.313 || Per-class  F1 score:  Ground=0.796  Natural/Vegetation=0.818  Building=0.000  Utility_line=0.069  Pole=0.000  Car/Truck=0.000  Fence=0.508  
+2024-12-08 18:28:17 - INFO - Epoch:  131/300  lr: 9.084e-02  TrainLoss: 0.3593924373  ValLoss: 1.7432470757  Time: 24.16+7.94s
+2024-12-08 18:28:49 - INFO - Epoch:  132/300  lr: 9.041e-02  TrainLoss: 0.3272531718  ValLoss: 1.7436035911  Time: 23.52+8.08s
+2024-12-08 18:29:21 - INFO - Epoch:  133/300  lr: 8.996e-02  TrainLoss: 0.3177495688  ValLoss: 1.7471674460  Time: 23.53+8.16s
+2024-12-08 18:29:51 - INFO - Epoch:  134/300  lr: 8.951e-02  TrainLoss: 0.3115198612  ValLoss: 1.7521761901  Time: 22.39+8.02s
+2024-12-08 18:30:23 - INFO - Epoch:  135/300  lr: 8.904e-02  TrainLoss: 0.3004646167  ValLoss: 1.7610843425  Time: 24.30+7.99s
+2024-12-08 18:30:54 - INFO - Epoch:  136/300  lr: 8.857e-02  TrainLoss: 0.3239602894  ValLoss: 1.7685973204  Time: 23.12+7.95s
+2024-12-08 18:31:23 - INFO - Epoch:  137/300  lr: 8.809e-02  TrainLoss: 0.3435729891  ValLoss: 1.7762529964  Time: 20.81+8.09s
+2024-12-08 18:31:54 - INFO - Epoch:  138/300  lr: 8.760e-02  TrainLoss: 0.3251546532  ValLoss: 1.7762730064  Time: 22.48+7.94s
+2024-12-08 18:32:24 - INFO - Epoch:  139/300  lr: 8.711e-02  TrainLoss: 0.3065032482  ValLoss: 1.7793980808  Time: 22.68+7.93s
+2024-12-08 18:32:55 - INFO - Epoch:  140/300  lr: 8.660e-02  TrainLoss: 0.3085794300  ValLoss: 1.7775227182  Time: 22.29+7.95s
+2024-12-08 18:33:42 - INFO - Eval Epoch: 140
+2024-12-08 18:33:42 - INFO - Overall Accuracy: 72.34 || Mean Overall Accuracy: 43.31
+                             Mean IoU: 0.224 || Per-class IoU score:  Ground=0.634  Natural/Vegetation=0.654  Building=0.000  Utility_line=0.011  Pole=0.000  Car/Truck=0.000  Fence=0.267  
+                             Macro F1: 0.287 || Per-class  F1 score:  Ground=0.776  Natural/Vegetation=0.791  Building=0.000  Utility_line=0.021  Pole=0.000  Car/Truck=0.000  Fence=0.422  
+2024-12-08 18:34:14 - INFO - Epoch:  141/300  lr: 8.609e-02  TrainLoss: 0.3316275746  ValLoss: 1.7837331792  Time: 24.15+7.98s
+2024-12-08 18:34:45 - INFO - Epoch:  142/300  lr: 8.557e-02  TrainLoss: 0.3084951162  ValLoss: 1.7873953368  Time: 23.80+8.01s
+2024-12-08 18:35:17 - INFO - Epoch:  143/300  lr: 8.504e-02  TrainLoss: 0.2820265830  ValLoss: 1.7941503866  Time: 23.65+8.04s
+2024-12-08 18:35:48 - INFO - Epoch:  144/300  lr: 8.450e-02  TrainLoss: 0.3066344112  ValLoss: 1.7937991254  Time: 22.41+7.99s
+2024-12-08 18:36:20 - INFO - Epoch:  145/300  lr: 8.395e-02  TrainLoss: 0.2669681296  ValLoss: 1.8006373982  Time: 24.15+8.12s
+2024-12-08 18:36:54 - INFO - Epoch:  146/300  lr: 8.340e-02  TrainLoss: 0.3098142430  ValLoss: 1.8092732935  Time: 24.00+9.82s
+2024-12-08 18:37:23 - INFO - Epoch:  147/300  lr: 8.284e-02  TrainLoss: 0.3138598651  ValLoss: 1.8156379506  Time: 21.17+8.41s
+2024-12-08 18:37:55 - INFO - Epoch:  148/300  lr: 8.227e-02  TrainLoss: 0.3454165518  ValLoss: 1.8182936733  Time: 23.19+8.48s
+2024-12-08 18:38:27 - INFO - Epoch:  149/300  lr: 8.170e-02  TrainLoss: 0.3461145073  ValLoss: 1.8192898375  Time: 23.39+8.22s
+2024-12-08 18:38:58 - INFO - Epoch:  150/300  lr: 8.112e-02  TrainLoss: 0.2916086391  ValLoss: 1.8184550260  Time: 23.36+8.53s
+2024-12-08 18:39:47 - INFO - Eval Epoch: 150
+2024-12-08 18:39:47 - INFO - Overall Accuracy: 69.75 || Mean Overall Accuracy: 41.50
+                             Mean IoU: 0.205 || Per-class IoU score:  Ground=0.605  Natural/Vegetation=0.623  Building=0.000  Utility_line=0.002  Pole=0.000  Car/Truck=0.000  Fence=0.205  
+                             Macro F1: 0.267 || Per-class  F1 score:  Ground=0.754  Natural/Vegetation=0.767  Building=0.000  Utility_line=0.005  Pole=0.000  Car/Truck=0.000  Fence=0.340  
+2024-12-08 18:40:21 - INFO - Epoch:  151/300  lr: 8.053e-02  TrainLoss: 0.2729864538  ValLoss: 1.8226008094  Time: 25.79+8.11s
+2024-12-08 18:40:53 - INFO - Epoch:  152/300  lr: 7.993e-02  TrainLoss: 0.2466311917  ValLoss: 1.8209526683  Time: 23.82+8.20s
+2024-12-08 18:41:26 - INFO - Epoch:  153/300  lr: 7.933e-02  TrainLoss: 0.2303246096  ValLoss: 1.8268179176  Time: 24.31+8.14s
+2024-12-08 18:41:56 - INFO - Epoch:  154/300  lr: 7.872e-02  TrainLoss: 0.2826285645  ValLoss: 1.8253189788  Time: 22.76+8.09s
+2024-12-08 18:42:29 - INFO - Epoch:  155/300  lr: 7.810e-02  TrainLoss: 0.2594817281  ValLoss: 1.8285532718  Time: 24.56+8.02s
+2024-12-08 18:43:00 - INFO - Epoch:  156/300  lr: 7.748e-02  TrainLoss: 0.2411558032  ValLoss: 1.8347486182  Time: 23.28+8.10s
+2024-12-08 18:43:30 - INFO - Epoch:  157/300  lr: 7.685e-02  TrainLoss: 0.2201626778  ValLoss: 1.8411108613  Time: 21.29+8.17s
+2024-12-08 18:44:01 - INFO - Epoch:  158/300  lr: 7.622e-02  TrainLoss: 0.3240655050  ValLoss: 1.8449324142  Time: 23.19+8.44s
+2024-12-08 18:44:33 - INFO - Epoch:  159/300  lr: 7.558e-02  TrainLoss: 0.2906914443  ValLoss: 1.8555745591  Time: 23.00+8.19s
+2024-12-08 18:45:05 - INFO - Epoch:  160/300  lr: 7.494e-02  TrainLoss: 0.2578126475  ValLoss: 1.8591264703  Time: 23.51+8.62s
+2024-12-08 18:45:55 - INFO - Eval Epoch: 160
+2024-12-08 18:45:55 - INFO - Overall Accuracy: 67.68 || Mean Overall Accuracy: 39.23
+                             Mean IoU: 0.191 || Per-class IoU score:  Ground=0.577  Natural/Vegetation=0.600  Building=0.000  Utility_line=0.000  Pole=0.000  Car/Truck=0.000  Fence=0.160  
+                             Macro F1: 0.251 || Per-class  F1 score:  Ground=0.732  Natural/Vegetation=0.750  Building=0.000  Utility_line=0.001  Pole=0.000  Car/Truck=0.000  Fence=0.275  
